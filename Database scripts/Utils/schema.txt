@@ -1,0 +1,78 @@
+create table user_table(
+user_id serial primary key,
+first_name varchar(20) not null,
+last_name varchar(20) not null,
+email varchar(50) unique not null,
+username varchar(50) unique not null,
+passcode varchar(50) not null,
+user_about varchar(500),
+user_birth_date DATE not null,
+image_format varchar(50)
+);
+
+
+create table group_table(
+group_id serial primary key,
+user_id int references user_table(user_id) on delete cascade,
+group_name varchar(40) unique not null,
+group_about varchar(500),
+image_format varchar(40)
+);
+
+
+create table chat_log_table (
+chat_id serial primary key,
+chat_date timestamp not null default clock_timestamp(),
+user_id int references user_table(user_id) on delete cascade not null,
+group_id int references group_table(group_id) on delete cascade,
+chat_content varchar(300) not null
+);
+
+
+create table post_table (
+post_id serial primary key,
+user_id int references user_table(user_id) on delete cascade,
+group_id int references group_table(group_id) on delete cascade,
+post_text varchar(500),
+image_format varchar(40),
+likes int,
+date_time_of_creation timestamp not null default clock_timestamp()
+);
+
+
+create table comment_table (
+comment_id serial primary key,
+post_id int references post_table(post_id) on delete cascade,
+user_id int references user_table(user_id) on delete cascade,
+group_id int references group_table(group_id) on delete cascade,
+reply_user int references user_table(user_id) on delete cascade,
+comment_text varchar(500),
+likes int,
+date_time_of_creation timestamp not null default clock_timestamp()
+);
+
+
+create table group_member_junction_table(
+group_id int references group_table(group_id) on delete cascade,
+user_id int references user_table(user_id) on delete cascade
+);
+
+
+create table user_follow_junction_table(
+user_id int references user_table(user_id) on delete cascade,
+user_follow_id int references user_table(user_id) on delete cascade
+);
+
+
+create table user_picture_table(
+picture_id serial primary KEY ,
+user_id int references user_table(user_id) on delete cascade,
+picture bytea
+);
+
+
+create table post_picture_table(
+picture_id serial primary KEY ,
+post_id int references post_table(post_id) on delete cascade,
+picture bytea
+);

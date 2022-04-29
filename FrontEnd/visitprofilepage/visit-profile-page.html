@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1440, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <title>Visited User Page</title>
+    <link rel="stylesheet" type="text/css" href="css/profile-page.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.css" />
+  </head>
+  <body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="profile-page" />
+    <div class="container-center-horizontal">
+      <div class="profile-page screen">
+        <div class="overlap-group10 poppins-bold-astronaut-22px">
+          <div class="middle-section"></div>
+          <div class="overlap-group1">
+            <div class="flex-row">
+
+              <!-- the post column -->
+              <div class= "overlap-group1-1">
+                <p id = "postErrorMessage"></p>
+                <div class = "col" id = "post column" >
+
+                </div>
+              </div>
+              <!-- end the post column -->
+
+              <!-- <div class="overlap-group1-1">
+                <div class="flex-row">
+                  <div class="overlap-group2">
+                    <div class="new-york-ny valign-text-middle">New York, NY</div>
+                    <div class="username-1 valign-text-middle poppins-bold-cape-cod-20px">JostSNL21</div>
+                    <img class="feed-avatar-1" src="img/ellipse-1@2x.png" />
+                  </div>
+                  <img class="three-dots-icon-1" src="img/bi-three-dots@2x.svg" />
+                </div>
+                <img class="feed-picture" src="img/feed-picture@1x.svg" />
+                <div class="icon-container">
+                  <img class="heart-icon" src="img/heart-icon@2x.svg" />
+                  <img class="chat-bubble-icon" src="img/chat-bubble-icon@2x.svg" />
+                  <img class="share-icon" src="img/share-icon@2x.svg" />
+                  <img class="bookmark-icon" src="img/bookmark-icon@2x.svg" />
+                </div>
+                <div class="overlap-group-1">
+                  <div class="feed-text-2 valign-text-middle poppins-medium-black-18px">At the beach with bae</div>
+                  <div class="username-2-1 valign-text-middle poppins-bold-cape-cod-20px">JostSNL21</div>
+                </div>
+              </div> -->
+
+            </div>  
+          </div>
+          <img class="line-right" src="img/line-right@1x.svg" />
+
+          <!-- Search Div -->
+          <!-- Search Div -->
+          <div class="search">
+            <input
+              type="text"
+              placeholder="Search for Friends"
+              class="search-inputbar"
+              id="searchInputBox"
+            ><img class="searchIcon" src="./img/searchIcon.png" alt="search icon"/></input>
+            <button class="btn search-button" id="searchButton"><img src="./img/sendIcon.png" alt="send icon"></button>
+            <button class="btn createPostBtn"><img src="./img/createPostButton.png" alt="create post icon" data-bs-toggle="modal" data-bs-target="#createPostModal"></button>
+            <ul
+              id="searchList"
+              class="dropdown-menu w-100 list-group active"
+              aria-labelledby="searchButton"
+              aria-current="true"
+              style="display: none"
+            ></ul>
+          </div>
+
+          <!-- create post modal form -->
+          <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="updateUserProfileModalTitle">Create A Post</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="resetProfileModalData()">
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form class="row" id="createPostForm">
+                    <div class="mb-3">
+                      <textarea id="postText" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <input class="form-control" type="file" id="imageFile" class="btn edit-button">
+                    </div>
+                    <button type="button" class="btn edit-button" onclick="createPostWithImage()" data-bs-dismiss="modal">Create</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <div id="profileModalMsg">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end create post modal form -->
+          <!-- <div class="search">
+            <input
+              type="text"
+              placeholder="Search for Friends"
+              class="search-inputbar"
+              id="searchInputBox"
+            />
+            <button class="search-button" id="searchButton">Search</button>
+            <ul
+              id="searchList"
+              class="dropdown-menu w-100 list-group active"
+              aria-labelledby="searchButton"
+              aria-current="true"
+              style="display: none"
+            ></ul>
+          </div> -->
+
+          <div class="left-section"></div>
+          <img class="line-left" src="img/line-left@1x.svg" />
+          <!-- <div class="nav">
+            <div class="chat-container">
+              <div class="chat valign-text-middle poppins-semi-bold-astronaut-24px">Chat</div>
+              <img class="x-icon" src="img/chat-icon@2x.svg" />
+            </div>
+            <div class="group-container">
+              <div class="groups valign-text-middle poppins-semi-bold-astronaut-24px">Groups</div>
+              <img class="x-icon" src="img/group-icon-1@2x.svg" />
+            </div>
+            <div class="logout-container">
+              <div class="logout valign-text-middle poppins-semi-bold-astronaut-24px">Logout</div>
+              <img class="x-icon" src="img/logout-icon@2x.svg" />
+            </div>
+          </div> -->
+          <div class="nav poppins-semi-bold-astronaut-24px">
+            
+            <!-- Chat Link -->
+            <div class="chat-container">
+              <a
+                href="../chatpage/chat-page.html"
+                class="chat valign-text-middle"
+                ><img class="x-icon" src="img/chat-icon@2x.svg" /><span
+                  class="linkChat"
+                  >Chat</span
+                ></a
+              >
+            </div>
+
+            <!-- Group Link -->
+            <div class="group-container">
+              <a
+                href="../grouppage/group-page.html"
+                class="chat valign-text-middle"
+                ><img class="x-icon" src="img/group-icon@2x.svg" /><span
+                  class="linkGroups"
+                  >Groups</span
+                ></a
+              >
+            </div>
+
+            <!-- Logout Button...need code -->
+            <div class="logout-container">
+              <a onclick = "logout()" href="../loginpage/login.html" class="logout valign-text-middle">
+                <span class="linkLogout">Logout</span>
+                <img class="x-icon" src="img/logout-icon@2x.svg" /></a>
+            </div>
+          </div>
+          
+          <div class="about-me">
+
+            <!-- Profile Image Uploader -->
+            <div class="image-upload">
+              <label for="userImageFileInput">
+                <img src="img/user-avatar@2x.png" class="user-avatar" id="userImageFile" type="button"/>
+              </label>
+            
+              <input type="file" id="userImageFileInput" onchange="createUserWithImage()"/>
+            </div>
+            <!-- Profile Image Uploader -->
+
+
+            <div id="profileUsername" class="user-name valign-text-middle poppins-bold-cape-cod-18px"></div>
+            <div class="flex-row-1">
+              <div id="profileDOB" class="birthday valign-text-middle"></div>
+              <img class="line-1" src="img/line-1@2x.svg" />
+              <div id="profileEmail" class="username valign-text-middle"></div>
+            </div>
+            <div class="flex-col">
+              <div id="visitedUserPageAboutMe">
+
+              </div>
+
+                            <!-- Edit Profile Button and Modal
+                            <button id="updateProfileEditProfileBtn" type="button" class="btn edit-button" data-bs-toggle="modal" data-bs-target="#myModal">
+                              <img src="img/Edit_Icon.png" alt="edit-icon" class="edit-icon"/> Edit Profile
+                        </button>                
+                Modal 
+                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="updateUserProfileModalTitle">Update User Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="resetProfileModalData()">
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <form id="updateUserProfileForm">
+                              <div class="mb-3">
+                                  <label class="form-label">About me</label>
+                                  <textarea id="userAboutMeInput"class="form-control"></textarea>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="form-label">Birthday</label>
+                                  <br>
+                                  <input id="userBirthdateInput" class="form-control" type="date"/>
+                              </div>
+                          </form>
+                      </div>
+                      <div class="modal-footer">
+                        <div id="ModalMsgProfile">
+
+                        </div>
+                        <div>
+                        <button id="updateProfileCloseModalBtn"type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetProfileModalData()">Close</button>
+                        <button id="updateProfileModalBtn"type="button" class="btn save-profile-button" onclick="updateUserProfileData()">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              <img class="line-under-search-1" src="img/line-under-search-1@2x.svg" />
+            </div>
+          </div>
+          <div class="overlap-group7">
+            <!-- the home button -->
+            <a href="../profilepage/profile-page.html"><img class="jungle3-1" src="img/jungle3-1@2x.png" /> </a>
+            <!-- end the home button -->
+          </div>
+          <!-- Groups start here -->
+          <div class="overlap-group8">
+            <div class="group-rectangle"></div>
+            <div id="groups-div" class="groups-div">
+
+            </div>
+            <img class="group-icon" src="img/group-icon-1@2x.svg" />
+            <div class="groups-1 valign-text-middle poppins-bold-astronaut-24px">Groups</div>
+          </div>
+          <!-- Groups end here -->
+          <!-- Followers start here -->
+          <div id="overlap-group9" class="overlap-group9">
+            <div class="chat-rectange"></div>
+            <div id= "followers-div" class="followers-div">
+
+            </div>
+            <img class="friends-icon" src="img/friends-icon@2x.svg" />
+            <div class="friends valign-text-middle poppins-bold-astronaut-24px">Followers</div>
+            <img class="line" src="img/line@2x.svg" />
+          </div>
+          <!-- Followers end here -->
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <script src="SearchByUser.js"></script>
+  <script src="dZazulak.js"></script>
+  <script src="nebulousHammer.js"></script>
+  <script src="userprofileimage-vfh.js"></script>
+  <script src="reaction-to-post.js"></script>
+</html>

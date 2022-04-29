@@ -1,0 +1,612 @@
+/* screen - individual-group-page */
+
+.individual-group-page {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.individual-group-page .flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 593px;
+  width: 16vw;
+  height: 100vh;
+  margin: 3vh 0 0 1vw;
+}
+
+.individual-group-page .logo {
+  align-items: flex-start;
+  align-self: flex-start;
+  display: flex;
+  min-width: 218px;
+}
+
+.individual-group-page .jungle3-1 {
+  height: 67px;
+  margin-top: -0.19px;
+  object-fit: cover;
+  width: 67px;
+}
+
+.individual-group-page .jungle {
+  color: var(--biscay);
+  font-family: var(--font-family-now-bold);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  height: 56px;
+  letter-spacing: -0.54px;
+  margin-left: 16px;
+  text-align: center;
+  width: 134px;
+}
+
+.individual-group-page .about-me {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 9px;
+  margin-top: 26px;
+  min-height: 242px;
+  width: 264px;
+}
+
+.individual-group-page .mando-merc-2 {
+  height: 111px;
+  margin-right: 15.66px;
+  object-fit: cover;
+  width: 111px;
+}
+
+.individual-group-page .group-name {
+  height: 32px;
+  letter-spacing: -0.27px;
+  margin-right: 6px;
+  margin-top: 13px;
+  text-align: center;
+  width: 218px;
+}
+
+.individual-group-page .creator {
+  color: var(--cape-cod);
+  font-family: var(--font-family-poppins);
+  font-size: 16px;
+  font-weight: 600;
+  height: 32px;
+  letter-spacing: -0.24px;
+  margin-right: 11px;
+  text-align: center;
+  width: 205px;
+}
+
+.individual-group-page .creator-username {
+  height: 21px;
+  letter-spacing: -0.27px;
+  margin-right: 17px;
+  text-align: center;
+  width: 155px;
+}
+
+.individual-group-page .line-under-about-group {
+  height: 1px;
+  margin-right: 6px;
+  margin-top: 33px;
+  width: 16vw;
+}
+
+.individual-group-page .nav {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 13.66px;
+  margin-top: 42px;
+  min-height: 216px;
+  width: 201px;
+}
+
+.individual-group-page .chat-container {
+  height: 43px;
+  margin-left: 2.76px;
+  position: relative;
+  width: 185px;
+}
+
+.individual-group-page .chat {
+  height: 33px;
+  left: 1px;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  width: 184px;
+}
+
+.individual-group-page .x-icon {
+  height: 43px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 43px;
+}
+
+.individual-group-page .group-container {
+  height: 43px;
+  margin-left: 2.76px;
+  margin-top: 44px;
+  position: relative;
+  width: 192px;
+}
+
+.individual-group-page .groups {
+  height: 33px;
+  left: 7px;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  width: 184px;
+}
+
+.individual-group-page .logout-container {
+  height: 43px;
+  margin-left: -0.16px;
+  margin-top: 44px;
+  position: relative;
+  width: 192px;
+}
+
+.individual-group-page .logout {
+  height: 33px;
+  left: 8px;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  width: 184px;
+}
+
+.individual-group-page .overlap-group4 {
+  height: 100vh;
+  margin-left: 1vw;
+  position: relative;
+  width: 84vw;
+}
+
+.individual-group-page .line-left {
+  height: 720px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.individual-group-page .middle-section {
+  background-color: var(--desert-storm);
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 84vw;
+}
+
+.individual-group-page .overlap-group3 {
+  height: 677px;
+  left: 48rem;
+  position: absolute;
+  top: 18px;
+  width: 270px;
+}
+
+.individual-group-page .group-rectangle {
+  background-color: var(--white);
+  border-radius: 20px;
+  height: 94vh;
+  left: 2px;
+  position: absolute;
+  top: 0;
+  width: 27vw;
+}
+
+.individual-group-page .member-3 {
+  align-items: flex-start;
+  display: flex;
+  height: 40px;
+  left: 25px;
+  min-width: 226px;
+  position: absolute;
+  top: 206px;
+}
+
+.individual-group-page .member {
+  height: 40px;
+  margin-top: -0.25px;
+  object-fit: cover;
+  width: 40px;
+}
+
+.individual-group-page .name {
+  align-self: center;
+  height: 21px;
+  letter-spacing: -0.3px;
+  margin-bottom: 1.3px;
+  margin-left: 2px;
+  text-align: center;
+  width: 182px;
+}
+
+.individual-group-page .member-2 {
+  align-items: flex-start;
+  display: flex;
+  height: 40px;
+  left: 25px;
+  min-width: 245px;
+  position: absolute;
+  top: 148px;
+}
+
+.individual-group-page .name-1 {
+  align-self: center;
+  height: 20px;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.15px;
+  margin-left: 18px;
+  text-align: center;
+  width: 185px;
+}
+
+.individual-group-page .member-1 {
+  align-items: center;
+  display: flex;
+  height: 40px;
+  left: 25px;
+  min-width: 221px;
+  position: absolute;
+  top: 90px;
+}
+
+.individual-group-page .member-1-1 {
+  height: 40px;
+  object-fit: cover;
+  width: 40px;
+}
+
+.individual-group-page .briel-larson {
+  height: 21px;
+  letter-spacing: -0.3px;
+  margin-bottom: 1px;
+  margin-left: 2px;
+  text-align: center;
+  width: 177px;
+}
+
+.individual-group-page .line-under-groups {
+  height: 1px;
+  left: 17px;
+  position: absolute;
+  top: 59px;
+  width: 232px;
+}
+
+.individual-group-page .group-icon {
+  height: 30px;
+  left: 208px;
+  position: absolute;
+  top: 18px;
+  width: 30px;
+}
+
+.individual-group-page .members {
+  color: var(--astronaut);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  height: 31px;
+  left: 0;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 128px;
+}
+
+.individual-group-page .line-right {
+  height: 100vh;
+  left: 46rem;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.individual-group-page .feed-section {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  left: 38px;
+  position: absolute;
+  top: 12px;
+  width: 46.5vw;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.individual-group-page .feed-section::-webkit-scrollbar {
+  display: none;
+}
+
+.individual-group-page .overlap-group3-1 {
+  align-items: flex-start;
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.34px;
+  min-height: 150px;
+  padding: 22.5px 14px;
+  width: 46vw;
+}
+
+.individual-group-page .feed-container {
+  align-items: flex-start;
+  display: flex;
+  margin-left: 5px;
+  margin-top: 5px;
+  min-width: 486px;
+}
+
+.individual-group-page .feed {
+  color: var(--astronaut);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  height: 80px;
+  letter-spacing: -0.27px;
+  width: 147px;
+}
+
+.individual-group-page .feed-button {
+  height: 30px;
+  margin-left: 309px;
+  width: 30px;
+}
+
+.individual-group-page .line-under-feed {
+  height: 1px;
+  margin-top: 8px;
+  width: 494px;
+}
+
+.individual-group-page .overlap-group1 {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
+  margin-top: 16px;
+  min-height: 507px;
+  padding: 18px 3.7px;
+  width: 46vw;
+}
+
+.individual-group-page .flex-row {
+  align-items: center;
+  display: flex;
+  margin-right: 19.85px;
+  width: 39vw;
+  justify-content: space-between;
+}
+
+.individual-group-page .overlap-group {
+  height: 59px;
+  position: relative;
+  width: 189px;
+}
+
+.individual-group-page .new-york-ny {
+  height: 27px;
+  left: 62px;
+  letter-spacing: -0.21px;
+  position: absolute;
+  text-align: center;
+  top: 25px;
+  width: 130px;
+}
+
+.individual-group-page .username-1 {
+  height: 22px;
+  left: 49px;
+  letter-spacing: -0.3px;
+  position: absolute;
+  text-align: center;
+  top: 9px;
+  width: 140px;
+}
+
+.individual-group-page .feed-avatar {
+  height: 59px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 59px;
+}
+
+.individual-group-page .three-dots-icon {
+  height: 18px;
+  margin-bottom: 11.19px;
+  margin-left: 38.5vw;
+  width: 18px;
+}
+
+.individual-group-page .feed-picture {
+  height: 35vh;
+  margin-right: 6.16px;
+  margin-top: 14px;
+  max-width: 40vw;
+}
+
+.individual-group-page .icon-container {
+  align-items: center;
+  display: flex;
+  margin-right: 2.06px;
+  margin-top: 14px;
+  width: 40vw;
+}
+
+.individual-group-page .heart-icon {
+  height: 27px;
+  width: 27px;
+}
+
+.individual-group-page .chat-bubble-icon {
+  height: 22px;
+  margin-bottom: 1.31px;
+  margin-left: 23px;
+  width: 22px;
+}
+
+.individual-group-page .share-icon {
+  height: 22px;
+  margin-left: 21px;
+  margin-top: 2.34px;
+  width: 22px;
+}
+
+.individual-group-page .bookmark-icon {
+  height: 18px;
+  margin-left: 30.5vw;
+  margin-top: 4.52px;
+  width: 18px;
+}
+
+.individual-group-page .overlap-group2 {
+  align-self: flex-start;
+  height: 33px;
+  margin-top: 29px;
+  position: relative;
+  width: 399px;
+}
+
+.individual-group-page .feed-text-2 {
+  height: 33px;
+  left: 5vw;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  width: 32.5vw;
+}
+
+.individual-group-page .username-2 {
+  height: 22px;
+  left: 16px;
+  letter-spacing: -0.3px;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 140px;
+}
+
+.individual-group-page .overlap-group-1 {
+  height: 233px;
+  margin-top: 16px;
+  position: relative;
+  width: 539px;
+}
+
+.individual-group-page .rectangle-2 {
+  background-color: var(--white);
+  border-radius: 20px;
+  height: 208px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 539px;
+}
+
+.individual-group-page .feed-picture-2 {
+  height: 139px;
+  left: 31px;
+  position: absolute;
+  top: 94px;
+  width: 485px;
+}
+
+.individual-group-page .three-dots-icon-1 {
+  height: 18px;
+  left: 471px;
+  position: absolute;
+  top: 32px;
+  width: 18px;
+}
+
+.individual-group-page .location-2 {
+  height: 27px;
+  left: 95px;
+  letter-spacing: -0.21px;
+  position: absolute;
+  text-align: center;
+  top: 41px;
+  width: 112px;
+}
+
+.individual-group-page .username-2-1 {
+  height: 22px;
+  left: 81px;
+  letter-spacing: -0.3px;
+  position: absolute;
+  text-align: center;
+  top: 25px;
+  width: 140px;
+}
+
+.individual-group-page .feed-avatar-1 {
+  height: 59px;
+  left: 32px;
+  object-fit: cover;
+  position: absolute;
+  top: 16px;
+  width: 59px;
+}
+
+#postInput {
+  height: 20em; 
+  width: 25em;
+}
+.nav #message{
+  position: absolute;
+  margin-top: 250px;
+  font-family: var(--font-family-poppins)
+  
+}
+.individual-group-page .group-in-list {
+  height: 40px;
+  min-width: 221px;
+  max-width: 9rem;
+  align-items: center;
+  display: flex;
+  margin: 10px 0px 35px 15px;
+}
+
+.individual-group-page .friend {
+  height: 57px;
+  object-fit: cover;
+  width: 57px;
+  border-radius: 50px;
+}
+
+#groupJoined, #groupNotJoined {
+  display: none;
+}
+
+.joinGroupButton {
+  background-color: orange;
+  color: white;
+  font-family: var(--font-family-poppins);
+  margin: 1.7rem 0 0 0;
+  padding: 0.4rem 2rem;
+}
+

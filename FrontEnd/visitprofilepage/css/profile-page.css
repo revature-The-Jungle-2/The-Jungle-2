@@ -1,0 +1,983 @@
+/* screen - profile-page */
+
+.profile-page {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  height: 1024px;
+  overflow: hidden;
+  padding: 0 2px;
+  width: 1440px;
+}
+
+.profile-page .overlap-group10 {
+  height: 1077px;
+  position: relative;
+  width: 1436px;
+}
+
+.profile-page .middle-section {
+  background-color: #f8f7f7;
+  height: 1024px;
+  left: 337px;
+  position: absolute;
+  top: 0;
+  width: 1099px;
+}
+
+.profile-page .overlap-group {
+  height: 255px;
+  left: 381px;
+  position: absolute;
+  top: 850px;
+  width: 590px;
+}
+
+.profile-page .rectangle-2 {
+  background-color: var(--white);
+  border-radius: 20px;
+  height: 227px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 590px;
+}
+
+.profile-page .feed-picture-2 {
+  height: 152px;
+  left: 35px;
+  position: absolute;
+  top: 103px;
+  width: 531px;
+}
+
+.profile-page .three-dots-icon {
+  height: 20px;
+  left: 516px;
+  position: absolute;
+  top: 36px;
+  width: 20px;
+}
+
+.profile-page .location-2 {
+  color: var(--pink-swan);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-s);
+  font-weight: 700;
+  height: 29px;
+  left: 104px;
+  letter-spacing: -0.21px;
+  position: absolute;
+  text-align: center;
+  top: 45px;
+  width: 123px;
+}
+
+.profile-page .username-2 {
+  height: 24px;
+  left: 89px;
+  letter-spacing: -0.30px;
+  position: absolute;
+  text-align: center;
+  top: 27px;
+  width: 153px;
+}
+
+.profile-page .feed-avatar {
+  height: 65px;
+  left: 35px;
+  object-fit: cover;
+  position: absolute;
+  top: 18px;
+  width: 65px;
+}
+
+.profile-page .overlap-group1 {
+  overflow:scroll;
+  height: 850px;
+  align-items: center;
+  /* background-color: var(--white); */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  left: 387px;
+  min-height: 140px;
+  padding: 20px 4px;
+  position: absolute;
+  top: 150px;
+  width: 590px;
+}
+
+.profile-page .overlap-group1-1 {
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  left: -14px;
+  min-height: 140px;
+  padding: 20px 4px;
+  position: absolute;
+  top: -10px;
+  width: 590px;
+  overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.profile-page .overlap-group1-1::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.profile-page .overlap-group1-1 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+.profile-page .flex-row {
+  align-items: center;
+  display: flex;
+  margin-right: 21.0px;
+  min-width: 495px;
+}
+
+.profile-page .overlap-group2 {
+  height: 65px;
+  position: relative;
+  width: 206px;
+}
+
+.profile-page .new-york-ny {
+  color: var(--pink-swan);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-s);
+  font-weight: 700;
+  height: 29px;
+  left: 68px;
+  letter-spacing: -0.21px;
+  position: absolute;
+  text-align: center;
+  top: 27px;
+  width: 123px;
+}
+
+.profile-page .username-1 {
+  height: 24px;
+  left: 53px;
+  letter-spacing: -0.30px;
+  position: absolute;
+  text-align: center;
+  top: 9px;
+  width: 153px;
+}
+
+.profile-page .feed-avatar-1 {
+  height: 65px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 65px;
+  border-radius: 50px;
+}
+
+.profile-page .three-dots-icon-1 {
+  height: 20px;
+  margin-bottom: 11.0px;
+  margin-left: 269px;
+  width: 20px;
+}
+
+.profile-page .feed-picture {
+  height: auto;
+  max-height: 476px;
+  margin-right: 5px;
+  width: 531px;
+  border-radius: 10px;
+  margin-top: 16px;
+  max-width: 531px;
+  background-image: url(../img/waveShape.png);
+  background-size: 100%;
+
+}
+
+.profile-page .icon-container {
+  align-items: center;
+  display: flex;
+  margin-right: 1.0px;
+  margin-top: 16px;
+  min-width: 511px;
+}
+
+.profile-page .heart-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.profile-page .chat-bubble-icon {
+  height: 24px;
+  margin-bottom: 2.0px;
+  margin-left: 24px;
+  width: 24px;
+}
+
+.profile-page .share-icon {
+  height: 24px;
+  margin-left: 24px;
+  margin-top: 2.0px;
+  width: 24px;
+}
+
+.profile-page .bookmark-icon {
+  height: 20px;
+  margin-left: 365px;
+  margin-top: 4.0px;
+  width: 20px;
+}
+
+.profile-page .overlap-group-1 {
+  align-self: flex-start;
+  height: 36px;
+  margin-top: 30px;
+  position: relative;
+  width: 413px;
+}
+
+.profile-page .feed-text-2 {
+  height: 36px;
+  left: 59px;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 354px;
+}
+
+.profile-page .username-2-1 {
+  height: 24px;
+  left: 0;
+  letter-spacing: -0.30px;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+  width: 153px;
+}
+
+.profile-page .line-right {
+  height: 1024px;
+  left: 1006px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.dropdown-menu {
+  /* align-items: flex-start; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* left: 378px; */
+  min-height: 3rem;
+  /* position: absolute; */
+  top: 38px;
+  /* width: 592px; */
+  /* display: none; */
+}
+
+.profile-page .search-container {
+  background-color: var(--white);
+  border-radius: 28px;
+  height: 56px;
+  position: relative;
+  width: 590px;
+}
+
+.profile-page .search-for-friends {
+  height: 40px;
+  left: 27px;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  width: 231px;
+}
+
+.profile-page .search-icon {
+  height: 24px;
+  left: 27px;
+  position: absolute;
+  top: 16px;
+  width: 24px;
+}
+
+.profile-page .line-under-search {
+  height: 1px;
+  margin-top: 39px;
+  width: 590px;
+}
+
+.profile-page .left-section {
+  background-color: var(--white);
+  height: 1024px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 339px;
+}
+
+.profile-page .line-left {
+  height: 1024px;
+  left: 337px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.profile-page .nav {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  left: 66px;
+  min-height: 253px;
+  position: absolute;
+  top: 619px;
+  width: 234px;
+}
+
+.profile-page .chat-container {
+  height: 43px;
+  margin-left: 2.76px;
+  position: relative;
+  width: 185px;
+
+
+}
+
+.profile-page .chat {
+  height: 33px;
+  left: 1px;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  width: 184px;
+  display: flex;
+
+}
+.linkGroups,
+.linkChat,
+.linkLogout {
+  height: 3rem;
+  text-align: center;
+  color: #223172;
+}
+
+.linkGroups {
+  padding: 0.8rem 0 0 1.2rem;
+}
+
+.linkChat {
+  padding: 0.5rem 0;
+}
+
+.linkLogout {
+  padding: 1.2rem 0 0 3.2rem;
+}
+
+.profile-page .x-icon {
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+.profile-page .group-container {
+  height: 50px;
+  margin-left: 4px;
+  margin-top: 51px;
+  position: relative;
+  width: 224px;
+}
+
+.profile-page .groups {
+  height: 39px;
+  left: 8px;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 216px;
+}
+
+.profile-page .logout-container {
+  height: 50px;
+  margin-top: 52px;
+  position: relative;
+  width: 225px;
+}
+
+.profile-page .logout {
+  height: 39px;
+  left: 9px;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 216px;
+}
+
+.profile-page .about-me {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 16px;
+  min-height: 389px;
+  position: absolute;
+  top: 168px;
+  width: 313px;
+}
+
+.profile-page .user-avatar {
+  height: 151px;
+  margin-right: 6.0px;
+  object-fit: cover;
+  width: 151px;
+  border-radius: 80px;
+}
+
+.profile-page .user-name {
+  height: 44px;
+  letter-spacing: -0.27px;
+  margin-right: 7.0px;
+  margin-top: 13px;
+  text-align: center;
+  width: 192px;
+}
+
+.profile-page .flex-row-1 {
+  align-items: flex-start;
+  display: flex;
+  margin-right: 6.0px;
+  margin-top: 10px;
+  min-width: 307px;
+}
+
+.profile-page .birthday {
+  color: #6f6f6f;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  height: 29px;
+  letter-spacing: -0.27px;
+  margin-top: 3px;
+  text-align: center;
+  width: 133px;
+}
+
+.profile-page .line-1 {
+  height: 41px;
+  margin-left: 24px;
+  width: 1px;
+}
+
+.profile-page .username {
+  color: #6e6e6e;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  height: 29px;
+  letter-spacing: -0.27px;
+  margin-left: 16px;
+  margin-top: 3px;
+  text-align: center;
+  width: 133px;
+}
+
+.profile-page .flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 3.0px;
+  margin-top: 39px;
+  min-height: 91px;
+  width: 250px;
+}
+
+.profile-page .edit-container {
+  background-color: var(--white);
+  border: 2px solid #f47635;
+  border-radius: 10px;
+  height: 42px;
+  margin-right: 10.0px;
+  position: relative;
+  width: 216px;
+}
+
+.profile-page .edit-profile {
+  color: #f47736;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  height: 24px;
+  left: 30px;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+  width: 175px;
+}
+
+.profile-page .edit-icon {
+    left: 52px;
+    position: absolute;
+}
+
+.profile-page .line-under-search-1 {
+  height: 1px;
+  margin-top: 48px;
+  width: 250px;
+}
+
+.profile-page .overlap-group7 {
+  height: 97px;
+  left: 27px;
+  position: absolute;
+  top: 34px;
+  width: 289px;
+}
+
+.profile-page .jungle3-1 {
+  height: 5.5rem;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 17rem;
+}
+
+.profile-page .title {
+  left: 96px;
+  letter-spacing: -0.72px;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 193px;
+}
+
+.profile-page .overlap-group8 {
+  height: 391px;
+  left: 1028px;
+  position: absolute;
+  top: 563px;
+  width: 361px;
+  overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.profile-page .overlap-group8::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.profile-page .overlap-group8 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.profile-page .group-rectangle {
+  background-color: var(--white);
+  border-radius: 20px;
+  height: 391px;
+  left: 19px;
+  position: absolute;
+  top: 0;
+  width: 342px;
+}
+
+.profile-page .unsplash9-qmh-ikc8-yvy {
+  height: 52px;
+  left: 47px;
+  position: absolute;
+  top: 303px;
+  width: 52px;
+}
+
+.profile-page .unsplashp-xj-qa-gxi4-ja {
+  height: 52px;
+  left: 47px;
+  position: absolute;
+  top: 207px;
+  width: 52px;
+}
+
+.profile-page .unsplashjl-hy-iwix46c {
+  height: 52px;
+  left: 47px;
+  position: absolute;
+  top: 116px;
+  width: 52px;
+}
+
+.profile-page .line-under-search-2 {
+  height: 1px;
+  left: 39px;
+  position: absolute;
+  top: 84px;
+  width: 298px;
+}
+
+.profile-page .group-icon {
+  height: 40px;
+  left: 284px;
+  position: absolute;
+  top: 26px;
+  width: 40px;
+}
+
+.profile-page .groups-1 {
+  height: 44px;
+  left: 0;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 24px;
+  width: 164px;
+}
+
+.profile-page .overlap-group9 {
+  height: 391px;
+  left: 1028px;
+  position: absolute;
+  top: 61px;
+  width: 359px;
+  overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.profile-page .overlap-group9::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.profile-page .overlap-group9 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+
+.profile-page .chat-rectange {
+  background-color: var(--white);
+  border-radius: 20px;
+  height: 391px;
+  left: 17px;
+  position: absolute;
+  top: 0;
+  width: 342px;
+}
+
+.profile-page .friend-3 {
+  align-items: center;
+  display: flex;
+  height: 57px;
+  left: 53px;
+  min-width: 243px;
+  position: absolute;
+  top: 288px;
+}
+
+.profile-page .friend {
+  height: 57px;
+  object-fit: cover;
+  width: 57px;
+  border-radius: 50px;
+}
+
+.profile-page .name {
+  height: 31px;
+  letter-spacing: -0.33px;
+  margin-left: 5px;
+  text-align: center;
+  width: 179px;
+}
+
+.profile-page .friend-2 {
+  align-items: center;
+  display: flex;
+  height: 57px;
+  left: 53px;
+  min-width: 273px;
+  position: absolute;
+  top: 202px;
+}
+
+.profile-page .name-1 {
+  height: 31px;
+  letter-spacing: -0.33px;
+  margin-left: 11px;
+  margin-top: 8.0px;
+  text-align: center;
+  width: 203px;
+}
+
+.profile-page .friend-1 {
+  align-items: center;
+  display: flex;
+  height: 57px;
+  left: 53px;
+  min-width: 243px;
+  position: absolute;
+  top: 116px;
+}
+
+.profile-page .briel-larson {
+  height: 31px;
+  letter-spacing: -0.33px;
+  margin-left: 5px;
+  text-align: center;
+  width: 179px;
+}
+
+.profile-page .friends-icon {
+  height: 40px;
+  left: 294px;
+  position: absolute;
+  top: 19px;
+  width: 40px;
+}
+
+.profile-page .friends {
+  height: 44px;
+  left: 0;
+  letter-spacing: -0.36px;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  width: 164px;
+}
+
+.profile-page .line {
+  height: 1px;
+  left: 36px;
+  position: absolute;
+  top: 70px;
+  width: 298px;
+}
+
+.profile-page .mando-mercs {
+  height: 35px;
+  left: 1145px;
+  letter-spacing: -0.33px;
+  position: absolute;
+  text-align: center;
+  top: 687px;
+  width: 187px;
+}
+
+.profile-page .spidey-verse {
+  height: 35px;
+  left: 1145px;
+  letter-spacing: -0.33px;
+  position: absolute;
+  text-align: center;
+  top: 778px;
+  width: 187px;
+}
+
+.profile-page .romanoff-is-alive {
+  height: 35px;
+  left: 1143px;
+  letter-spacing: -0.33px;
+  position: absolute;
+  text-align: center;
+  top: 874px;
+  width: 215px;
+}
+
+#ModalMsgProfile {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-page .edit-button{
+  color: var(--atomic-orange);
+  background-color: white;
+  border-color: var(--atomic-orange);
+  border-radius: 10px;
+  font-family: var(--font-family-poppins);
+  margin: 1.7rem 0 0 0;
+  padding: 0.4rem 0.2rem 0.4rem 1rem;
+}
+
+.profile-page .save-profile-button{
+  color: white;
+  background-color: var(--atomic-orange);
+  border-color: var(--atomic-orange);
+  border-radius: 10px;
+  font-family: var(--font-family-poppins);
+}
+
+.profile-page #updateProfileEditProfileBtn{
+  width: 100%;
+}
+
+.profile-page .follower-in-list{
+  height: 40px;
+  min-width: 270px;
+  max-width: 20rem;
+  align-items: center;
+  display: flex;
+  margin: 10px 0px 35px 15px;
+}
+
+.profile-page .followers-div{
+  width: 342px;
+  background-color: var(--white);
+  height: auto;
+  position: absolute;
+  top: 95px;
+  border-radius: 20px;
+  left: 17px;
+}
+
+.profile-page .group-in-list{
+  height: 40px;
+  min-width: 221px;
+  max-width: 9rem;
+  align-items: center;
+  display: flex;
+  margin: 10px 0px 35px 15px;
+}
+
+.profile-page .groups-div{
+  background-color: var(--white);
+  width: 342px;
+  height: auto;
+  position: absolute;
+  top: 95px;
+  border-radius: 20px;
+  left: 20px;
+}
+
+/* Search Bar */
+.profile-page .search {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  left: 378px;
+  min-height: 96px;
+  position: absolute;
+  top: 58px;
+  width: 592px;
+}
+
+#searchInputBox {
+  border-style: hidden;
+  border-width: 0px;
+  outline: none;
+  width: 500px;
+}
+
+/* Experimenting styling search button and bar */
+.search-inputbar {
+  width: 90%;
+  padding: 0;
+}
+/* .profile-page .icon-container {
+    align-items: center;
+    display: flex;
+    margin-right: 1px;
+    margin-top: 16px;
+    min-width: 511px;
+} */
+
+.likedComment {
+  width: 20vw;
+  margin: 0;
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* for treating the image as a file upload button */
+.image-upload>input {
+  display: none;
+}
+
+/* Search Bar */
+.profile-page .search {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  left: 378px;
+  min-height: 96px;
+  position: absolute;
+  top: 58px;
+  width: 592px;
+}
+
+#searchInputBox {
+  border-style: hidden;
+  border-width: 0px;
+  outline: none;
+  width: 500px;
+  padding: 0.5rem 0.5rem 0.5rem 4rem;
+  border-radius: 28px;
+  position: relative;
+}
+
+.profile-page .searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 0.8rem;
+}
+
+.profile-page .search-button {
+  position: absolute;
+  right: 7rem;
+  top: 0.3rem;
+  border-radius: 25px;
+}
+
+/* Placeholder */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #d8d8d8;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #d8d8d8;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #d8d8d8;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #d8d8d8;
+}
+.profile-page .createPostBtn {
+  position: absolute;
+  right: 0rem;
+  top: -0.6rem;
+}
+/* end search bar */
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.profile-page .overlap-group1::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.profile-page .overlap-group1 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

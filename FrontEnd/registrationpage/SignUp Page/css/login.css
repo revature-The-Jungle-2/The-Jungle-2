@@ -1,0 +1,266 @@
+/* screen - login */
+
+.login {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  height: 1024px;
+  overflow: hidden;
+  width: 1440px;
+}
+
+.login .flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 34px;
+  margin-top: 37px;
+  min-height: 698px;
+  width: 499px;
+}
+
+.login .jungle-container {
+  height: 97px;
+  margin-left: 22.85px;
+  position: relative;
+  width: 289px;
+}
+
+.login .jungle3-1 {
+  height: 97px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 96px;
+}
+
+.login .jungle {
+  left: 96px;
+  letter-spacing: -0.72px;
+  position: absolute;
+  text-align: center;
+  top: 17px;
+  width: 193px;
+}
+
+.login .header-text {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 97px;
+  min-height: 124px;
+  width: 499px;
+}
+
+.login .welcome-back {
+  color: var(--cape-cod);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  letter-spacing: -0.54px;
+  min-height: 54px;
+  text-align: center;
+  width: 472px;
+}
+
+.login .welcome-back-please {
+  align-self: flex-end;
+  color: var(--nobel);
+  font-family: var(--font-family-poppins-medium);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  letter-spacing: -0.27px;
+  margin-right: 4px;
+  margin-top: 19px;
+  min-height: 51px;
+  text-align: center;
+  width: 417px;
+}
+
+.login .form {
+  align-items: flex-end;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2px;
+  margin-top: 11px;
+  min-height: 369px;
+  width: 437px;
+}
+
+.login .username {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-right: -2px;
+  min-height: 88px;
+  width: 415px;
+}
+
+.login .username-1 {
+  letter-spacing: -0.27px;
+  min-height: 29px;
+  text-align: center;
+  width: 140px;
+}
+
+.login .span {
+  letter-spacing: -0.05px;
+}
+
+.login .overlap-group2 {
+  align-self: flex-end;
+  height: 53px;
+  margin-right: 4px;
+  margin-top: 6px;
+  position: relative;
+  width: 398px;
+}
+
+.login .rectangle-1 {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 53px;
+  left: 7px;
+  position: absolute;
+  top: 0;
+  width: 391px;
+}
+
+.login .john123 {
+  left: 0;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 126px;
+}
+
+.login .password {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+  min-height: 82px;
+  width: 414px;
+}
+
+.login .password-1 {
+  letter-spacing: -0.27px;
+  min-height: 29px;
+  text-align: center;
+  width: 140px;
+}
+
+.login .password-rectangle {
+  align-self: flex-end;
+  background-color: #ffeaea;
+  border: 1px solid #a5a5a5;
+  border-radius: 10px;
+  height: 53px;
+  margin-right: 2px;
+  width: 391px;
+}
+
+.login .overlap-group1 {
+  align-self: flex-start;
+  height: 37px;
+  margin-top: 27px;
+  position: relative;
+  width: 386px;
+}
+
+.login .info-icon {
+  height: 20px;
+  left: 40px;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.login .please-enter-valid-password {
+  left: 0;
+  letter-spacing: -0.27px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 386px;
+}
+
+.login .dont-have-an-account {
+  align-self: center;
+  letter-spacing: -0.27px;
+  margin-right: 51.0px;
+  margin-top: 16px;
+  min-height: 25px;
+  text-align: center;
+  width: 298px;
+}
+
+.login .span0 {
+  color: var(--nobel);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  letter-spacing: -0.05px;
+}
+
+.login .span1 {
+  color: #0164fa;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  letter-spacing: -0.05px;
+  text-decoration: underline;
+}
+
+.login .overlap-group {
+  align-items: center;
+  background-color: #f4996a;
+  border-radius: 10px;
+  display: flex;
+  height: 53px;
+  margin-right: 2px;
+  margin-top: 23px;
+  min-width: 391px;
+  padding: 0 121px;
+}
+
+.login .submit {
+  color: var(--white);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  letter-spacing: -0.27px;
+  min-height: 23px;
+  text-align: center;
+  width: 149px;
+}
+
+.login .overlap-group4 {
+  height: 1030px;
+  margin-left: 164px;
+  margin-top: -1px;
+  position: relative;
+  width: 744px;
+}
+
+.login .wave-shape {
+  height: 1030px;
+  left: 54px;
+  position: absolute;
+  top: 0;
+  width: 690px;
+}
+
+.login .no-background-1 {
+  height: 614px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 163px;
+  width: 733px;
+}
+
+

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/group-page.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+  </head>
+  <body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="group-page" />
+    <div class="container-center-horizontal">
+      <div class="group-page screen">
+        <div class="flex-col">
+          <div class="overlap-group9">
+            <img class="jungle3-1" src="img/jungle3-1@2x.png" />
+            <h1 class="title now-bold-biscay-48px">jungle</h1>
+          </div>
+          <div class="about-me">
+            <img class="user-avatar" src="img/user-avatar@2x.png" />
+            <div
+              class="user-name valign-text-middle poppins-bold-cape-cod-18px"
+            >
+              Scarlett Johansson
+            </div>
+            <div class="flex-row">
+              <div class="birthday valign-text-middle">DOB - Jan. 1st</div>
+              <img class="line-1" src="img/line-1@2x.svg" />
+              <div class="username valign-text-middle">@Scar_Jo12</div>
+            </div>
+            <div class="flex-col-1">
+              <div class="edit-container">
+                <div class="edit-profile valign-text-middle">Edit Profile</div>
+                <img class="edit-icon" src="img/edit-icon@2x.svg" />
+              </div>
+              <img
+                class="line-under-search"
+                src="img/line-under-search-1@2x.svg"
+              />
+            </div>
+          </div>
+          <div class="nav poppins-semi-bold-astronaut-24px">
+            <div class="chat-container">
+              <div class="chat valign-text-middle">Chat</div>
+              <img class="x-icon" src="img/chat-icon@2x.svg" />
+            </div>
+            <div class="group-container">
+              <div class="groups valign-text-middle">Groups</div>
+              <!--Need to add a url below to link to new page-->
+              <a href="../grouppage/individualgrouppage/individual-group-page.html">
+              <img class="x-icon" src="img/group-icon-2@2x.svg" />
+            </a>
+            </div>
+            <div class="logout-container">
+              <div class="logout valign-text-middle">Logout</div>
+              <img class="x-icon" src="img/logout-icon@2x.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="flex-row-1">
+          <img class="line-left" src="img/line-left@1x.svg" />
+          <div class="overlap-group10">
+            <div class="middle-section"></div>
+            <div class="overlap-group3">
+              <div class="flex-row-2">
+                <!-------------------------------- Create Group ------------------------------->
+                <div
+                  class="create-new-group valign-text-middle poppins-bold-astronaut-24px"
+                >
+                  Create New Group
+                </div>
+                <img class="plus-icon" src="img/plus-icon@2x.svg" />
+              </div>
+              <img
+                class="line-under-new-group"
+                src="img/line-under-new-group@1x.svg"
+              />
+              <div class="group-name">
+                <div class="group-name-1 poppins-bold-white-18px">
+                  <span class="span poppins-bold-cape-cod-18px"
+                    >Group Name </span
+                  ><span class="span poppins-bold-red-18px">*</span>
+                  
+                </div>
+                
+                <div class="overlap-group2">
+                  <input id="groupName" type="text" class="rectangle-1 border-1px-mischka"></input>
+                </div>
+                
+              </div>
+              
+              <div class="description">
+                <input id="groupAbout" type="text"
+                class="description-rectangle border-1px"
+                ></input>
+                <div class="group-name-1 poppins-bold-white-18px">
+                  <p class="please-enter-a-valid-description valign-text-middle poppins-bold-bright-red-18px" id="groupNameThreeChar">Group name must be at least three characters long!</p>
+                  <p class="please-enter-a-valid-description valign-text-middle poppins-bold-bright-red-18px" id="groupNameFortyChar">Group Name cannot exceed 40 characters!</p>
+                  <p class="please-enter-a-valid-description valign-text-middle poppins-bold-bright-red-18px" id="duplicateGroupNameMessage"></p>
+                  <p id="groupNameNull"
+                  class="please-enter-a-valid-description valign-text-middle poppins-bold-bright-red-18px"
+                >
+                  Please enter a group name
+                </p>
+                  <span class="span poppins-bold-cape-cod-18px">
+                    Description
+                  </span><span class="span poppins-bold-red-18px">*</span>
+                  
+                </div>
+              </div>
+              <div class="overlap-group1">
+                <img class="info-icon" src="img/info-icon@2x.svg" />
+                
+                <p id="groupAboutNull"
+                  class="please-enter-a-valid-description valign-text-middle poppins-bold-bright-red-18px"
+                >
+                  Please enter a valid description
+                </p>
+                <p id="groupAbout500Char">Group description cannot exceed 500 characters!</p>
+                
+              </div>
+              <!-- <div class="overlap-group"> -->
+                <button id="submitCreateGroup" type="button" class="add-group overlap-group">Add Group</button>
+              <!-- </div> -->
+              <p id="messageGroupCreated">Group created successfully!</p>
+            </div>
+            <!------------------------------------------------------------------------------------>
+            <div class="overlap-group4">
+              <!-- Groups start here -->
+                          
+              
+                <div class="group-rectangle"></div>
+                <div id="groups-div" class="groups-div">
+    
+                </div>
+                <img class="group-icon" src="img/group-icon-1@2x.svg" />
+                <div class="groups-1 valign-text-middle poppins-bold-astronaut-24px">Groups</div>
+              
+          <!-- Groups end here -->
+              
+              <!-- Heading for All groups page-->
+              <img
+                class="line-under-groups"
+                src="img/line-under-search@2x.svg"
+              />
+              <img class="group-icon" src="img/group-icon@2x.svg" />
+              <div
+                class="groups-1 valign-text-middle poppins-bold-astronaut-24px"
+              >
+                Groups
+              </div>
+            </div>
+            <img class="line-right" src="img/line-right@1x.svg" />
+            <!--User groups will populate in this section-->
+            <div class="overlap-group5">
+              <div class="group-container-1">
+                <div
+                  class="my-groups valign-text-middle poppins-bold-astronaut-24px"
+                >
+                  My Groups
+                </div>
+                <div class="group-rectangle-two"></div>
+                <div id="userGroups-div" class="userGroups-div">
+    
+                </div>
+                <img class="group-icon-1" src="img/group-icon-1@2x.svg" />
+              </div>
+              <img
+                class="line-under-my-groups"
+                src="img/line-under-my-groups@1x.svg"
+              />
+              <div class="flex-row-3">
+                
+                <div class="flex-col-2 poppins-bold-astronaut-22px">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="group.js"></script>
+  </body>
+  <script src="../grouppage/allgroups.js"></script>
+  <script src="../grouppage/usergroups.js"></script>
+</html>

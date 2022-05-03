@@ -1,4 +1,4 @@
-const url = "http://localhost:8080";
+const url = "http://44.200.50.0:8000";
 const searchField = document.getElementById("searchInputBox");
 const searchListResults = document.getElementById("searchList");
 function referToProfile(userId) {

@@ -33,7 +33,7 @@ public class App {
         appController.createChatRoutes();
         appController.createUserRoutes();
 
-        app.start();
+        app.start(8000);
     }
 
 }

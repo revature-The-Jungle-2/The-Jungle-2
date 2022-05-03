@@ -13,6 +13,7 @@ import java.util.List;
 
 public class UserDAO implements UserDAOInt {
 
+    public String schemaPrefix = "p3.";
 
     /**
      * connects to database to create a new User
@@ -22,7 +23,7 @@ public class UserDAO implements UserDAOInt {
     @Override
     public User createNewUser(User user) {
         try (Connection connection = ConnectionDB.createConnection()) {
-            String sql = "insert into user_table values(default, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into "+schemaPrefix+"user_table values(default, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getLastName());
@@ -60,7 +61,7 @@ public class UserDAO implements UserDAOInt {
     public User requestLogin(String username, String password) {
         try (Connection connection = ConnectionDB.createConnection()) {
             String sql = "select user_id, first_name, last_name, email, username, user_birth_date" +
-                    " from user_table" +
+                    " from "+schemaPrefix+"user_table" +
                     " where username = ? and passcode = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
@@ -92,7 +93,7 @@ public class UserDAO implements UserDAOInt {
     public User getUserById(int userId) {
         try (Connection connection = ConnectionDB.createConnection()) {
             String sql = "select user_id, first_name, last_name, email, username, user_birth_date" +
-                    " from user_table" +
+                    " from "+schemaPrefix+"user_table" +
                     " where user_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, userId);
@@ -122,7 +123,7 @@ public class UserDAO implements UserDAOInt {
     @Override
     public ArrayList<User> searchForUser(String username) {
         try (Connection connection = ConnectionDB.createConnection()) {
-            String sql = "select * from user_table where username ilike ?";
+            String sql = "select * from "+schemaPrefix+"user_table where username ilike ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, "%" + username + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -153,7 +154,7 @@ public class UserDAO implements UserDAOInt {
     @Override
     public List<User> getAllUsers() {
         try (Connection connection = ConnectionDB.createConnection()) {
-            String sql = "select * from user_table";
+            String sql = "select * from "+schemaPrefix+"user_table";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             List<User> users = new ArrayList<>();
@@ -180,8 +181,8 @@ public class UserDAO implements UserDAOInt {
     @Override
     public HashMap<Integer, String> getGroupsNames(int userId) {
         try (Connection connection = ConnectionDB.createConnection()) {
-            String sql = "select gmjt.group_id, gt.group_name from group_member_junction_table gmjt" +
-                    " inner join group_table gt ON gmjt.group_id = gt.group_id" +
+            String sql = "select gmjt.group_id, gt.group_name from "+schemaPrefix+"group_member_junction_table gmjt" +
+                    " inner join "+schemaPrefix+"group_table gt ON gmjt.group_id = gt.group_id" +
                     " where gmjt.user_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, userId);
@@ -205,7 +206,7 @@ public class UserDAO implements UserDAOInt {
     @Override
     public ArrayList<Integer> getGroups(int userId) {
         try (Connection connection = ConnectionDB.createConnection()) {
-            String sql = "select group_id from group_member_junction_table where user_id = ?";
+            String sql = "select group_id from "+schemaPrefix+"group_member_junction_table where user_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, userId);
             ResultSet resultSet = preparedStatement.executeQuery();

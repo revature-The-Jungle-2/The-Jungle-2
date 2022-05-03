@@ -1,9 +1,9 @@
-from custom_exceptions.follower_not_found import FollowerNotFound
-from custom_exceptions.user_image_not_found import UserImageNotFound
-from custom_exceptions.user_not_found import UserNotFound
-from data_access_layer.abstract_classes.user_profile_dao_abs import UserProfileDAO
-from entities.user import User
-from util.database_connection import connection
+from PythonAPI.custom_exceptions.follower_not_found import FollowerNotFound
+from PythonAPI.custom_exceptions.user_image_not_found import UserImageNotFound
+from PythonAPI.custom_exceptions.user_not_found import UserNotFound
+from PythonAPI.data_access_layer.abstract_classes.user_profile_dao_abs import UserProfileDAO
+from PythonAPI.entities.user import User
+from PythonAPI.util.database_connection import connection
 
 user_not_found_string = 'The user could not be found.'
 

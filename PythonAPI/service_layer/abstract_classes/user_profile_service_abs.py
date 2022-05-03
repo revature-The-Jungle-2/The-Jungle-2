@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from entities.user import User
+from PythonAPI.entities.user import User
 
 
 class UserProfileService(ABC):

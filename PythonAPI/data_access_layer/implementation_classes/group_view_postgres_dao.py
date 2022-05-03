@@ -3,11 +3,12 @@ from data_access_layer.abstract_classes.group_view_dao_abs import GroupViewDao
 from entities.group import Group
 from util.database_connection import connection
 
+schema_prefix = "p3."
 
 class GroupViewPostgresDao(GroupViewDao):
 
     def get_group_by_id(self, group_id) -> [Group]:
-        sql = "select * from group_table where group_id = %s"
+        sql = "select * from "+schema_prefix+"group_table where group_id = %s"
         cursor = connection.cursor()
         cursor.execute(sql, [group_id])
         group_records = cursor.fetchone()
@@ -15,7 +16,7 @@ class GroupViewPostgresDao(GroupViewDao):
         return group
 
     def get_all_groups(self) -> List[Group]:
-        sql = "select * from group_table"
+        sql = "select * from "+schema_prefix+"group_table"
         cursor = connection.cursor()
         cursor.execute(sql)
         group_records = cursor.fetchall()
@@ -25,7 +26,7 @@ class GroupViewPostgresDao(GroupViewDao):
         return group_list
 
     def get_all_groups_by_user_id(self, user_id) -> List[Group]:
-        sql = "select * from group_table where user_id = %s"
+        sql = "select * from "+schema_prefix+"group_table where user_id = %s"
         cursor = connection.cursor()
         cursor.execute(sql, [user_id])
         group_records = cursor.fetchall()

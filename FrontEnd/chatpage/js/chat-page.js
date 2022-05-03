@@ -3,7 +3,7 @@ let id = (id) => document.getElementById(id);
 const devUrl="http://44.200.50.0:8000";
 
 
-storage = JSON.parse(localStorage.getItem("userInfo"));
+storage = JSON.parse(sessionStorage.getItem("userInfo"));
 
 let ws;
 function createChatConnection(groupId) {
@@ -11,9 +11,9 @@ function createChatConnection(groupId) {
     id("chat").innerHTML = "";
     ws = new WebSocket(
       "ws://" +
-        "localhost" +
+        "44.200.50.0" +
         ":" +
-        "8080" +
+        "8000" +
         "/chat/" +
         groupId +
         "/" +

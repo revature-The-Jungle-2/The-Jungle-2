@@ -10,6 +10,7 @@ class PostFeedDao(ABC):
     def get_all_posts(self) -> List[Post]:
         pass
 
+    # postid changed to post_id , fixed error
     @abstractmethod
     def delete_a_post(self, postid: int) -> bool:
         pass

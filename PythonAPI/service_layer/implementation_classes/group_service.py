@@ -11,6 +11,7 @@ class GroupPostgreService(GroupService):
         self.group_view_dao = group_view_dao
 
     def service_create_group(self, group: Group):
+
         if len(group.group_name.strip()) == 0:
             raise NullValues("You must fill in all inputs!")
         if len(group.group_name.strip()) < 3:

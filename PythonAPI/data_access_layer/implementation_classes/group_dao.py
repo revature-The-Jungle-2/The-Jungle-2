@@ -1,4 +1,5 @@
-from custom_exceptions.group_member_junction_exceptions import WrongType
+from custom_exceptions import group_id_nonexistent
+
 from custom_exceptions.group_name_already_taken import GroupNameAlreadyTaken
 from custom_exceptions.group_not_found import GroupNotFound
 from custom_exceptions.user_not_found import UserNotFound
@@ -9,18 +10,13 @@ from util.database_connection import connection
 
 class GroupDAOImp(GroupDAO):
     def get_creator(self, group_id: int):
-        if not isinstance(group_id, int):
-            raise WrongType("please enter a number")
-        else:
-            try:
-                sql = "select first_name, last_name, username from p3.user_table inner join p3.group_table on " \
-                      "p3.group_table.user_id = p3.user_table.user_id where p3.group_id = %s"
-                cursor = connection.cursor()
-                cursor.execute(sql, [group_id])
-                creator_record = cursor.fetchmany()
-                return creator_record
-            except TypeError:
-                raise TypeError("This Id does not exist")
+        sql = "select first_name, last_name, username from p3.user_table inner join p3.group_table on " \
+              "p3.group_table.user_id = p3.user_table.user_id where group_id = %s"
+        cursor = connection.cursor()
+        cursor.execute(sql, [group_id])
+        creator_record = cursor.fetchmany()
+        return creator_record
+
 
     def create_group(self, group: Group):
 
@@ -75,3 +71,8 @@ class GroupDAOImp(GroupDAO):
         connection.commit()
         group_joined = cursor.fetchone()
         return group_joined
+
+a=GroupDAOImp()
+print(a.join_group(1,1))
+
+

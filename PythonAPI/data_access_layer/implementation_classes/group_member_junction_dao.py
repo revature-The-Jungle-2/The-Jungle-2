@@ -7,14 +7,15 @@ from entities.group_member_junction import GroupMemberJunction
 from util.database_connection import connection
 from custom_exceptions.group_member_junction_exceptions import *
 
+schema_prefix = "p3."
 
 class GroupMemberJunctionDao(GroupMemberJunctionAbs):
     # grabs all users first name last name user id and group id and puts it in a list
     def get_all_users_in_a_group(self, group_id: int) -> List[GroupMemberJunction]:
         try:
-            sql = "select first_name, last_name, user_table.user_id, group_member_junction_table.group_id from " \
-                  "user_table inner join group_member_junction_table on group_member_junction_table.user_id = " \
-                  "user_table.user_id where group_id = %s"
+            sql = "select first_name, last_name, "+schema_prefix+"user_table.user_id, group_member_junction_table.group_id from " \
+                  "user_table inner join "+schema_prefix+"group_member_junction_table on "+schema_prefix+"group_member_junction_table.user_id = " \
+                  +schema_prefix+"user_table.user_id where group_id = %s"
             cursor = connection.cursor()
             cursor.execute(sql, [group_id])
             group_record = cursor.fetchall()
@@ -33,7 +34,7 @@ class GroupMemberJunctionDao(GroupMemberJunctionAbs):
         for checks in check_list:
             if checks.group_id == group_id and checks.user_id == user_id:
                 try:
-                    sql = "delete from group_member_junction_table where user_id = %s and group_id = %s"
+                    sql = "delete from "+schema_prefix+"group_member_junction_table where user_id = %s and group_id = %s"
                     cursor = connection.cursor()
                     cursor.execute(sql, [user_id, group_id])
                     connection.commit()

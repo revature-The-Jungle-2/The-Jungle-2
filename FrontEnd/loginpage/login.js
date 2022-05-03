@@ -7,14 +7,14 @@ const specialChar2 = /[ `^*()+=\[\]{};':"\\|,<>\/~]/;
 const invalidIcon = document.querySelectorAll("[id='invalid-icon']");
 let invalidMessage = document.querySelectorAll("[id='signup-invalid-message']");
 let infoIcon = document.querySelectorAll(".info-icon");
-const url = "http://localhost:8080";
+const url = "http://44.200.50.0:8000";
 let validateCounter = 0;
 
 const div = document.getElementById("errorMessageGoesHere");
 div.textContent = "";
 
 async function login() {
-  let response = await fetch("http://localhost:8080/user/login", {
+  let response = await fetch(url+"/user/login", {
     method: "POST",
     mode: "cors",
     headers: { "Content-Type": "application/json" },

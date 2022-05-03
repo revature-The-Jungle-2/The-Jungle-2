@@ -3,7 +3,7 @@ let id = (id) => document.getElementById(id);
 const devUrl="http://44.200.50.0:8000";
 
 
-storage = JSON.parse(sessionStorage.getItem("userInfo"));
+storage = JSON.parse(localStorage.getItem("userInfo"));
 
 let ws;
 function createChatConnection(groupId) {

@@ -1,12 +1,10 @@
-package serviceLayerTests;
+//package serviceLayerTests;
 
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 
-public class serviceLayerChatTests {
+//public class serviceLayerChatTests {
 
-    @Test()
-    public void createChatSuccess(){
-        return;
-    }
+  //  @Test()
+   // public void createChatSuccess(
 
-}
+//}

@@ -26,3 +26,4 @@ class UserIdNonExistent(Exception):
 class GroupNameTaken(Exception):
     def __init__(self, message):
         self.message = message
+

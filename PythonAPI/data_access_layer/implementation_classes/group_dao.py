@@ -17,6 +17,7 @@ class GroupDAOImp(GroupDAO):
         creator_record = cursor.fetchmany()
         return creator_record
 
+
     def create_group(self, group: Group):
 
         # Check to see if the user id is in the database, raise an error otherwise.

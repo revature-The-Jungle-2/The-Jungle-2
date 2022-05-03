@@ -19,105 +19,154 @@
 # Scope
 
 ## User Testing
+
 ### Create User Tests
-- createUserFirstName
-    - Success
-    - TooLong(20 char limit)
-    - EmptyString
-- createUserLastName
-    - Success
-    - TooLong(20 char limit)
-    - EmptyString
-- createUerEmail
-    - Success
-    - Unique
-    - TooLong(50 char limit)
-    - EmptyString
-    - SpecialCharacters?
-- createUerUsername
-    - Success
-    - Unique
-    - TooLong(50 char limit)
-    - EmptyString
-    - Spaces
-    - 0
-- createUserPasscode
-    - Success
-    - TooLong(50 char limit)
-    - EmptyString
-    - Spaces
-    - 0
-- createUserUserAbout
-    - Success
-    - TooLong(500 char limit)
-- createUserUserBirthdate
-    - Success
-    - DateMonthOver12
-    - DateDayOver31
-    - DateYearOverCurrentYear
-- createUserimageFormat
++ Data Access Layer
+
+    - createUserFirstName
+        - Success
+    
+    - createUserLastName
+        - Success
+
+    - createUerEmail
+        - Success
+        - Unique
+
+    - createUerUsername
+        - Success
+         - Unique
+
+    - createUserPasscode
+        - Success
+
+    - createUserUserAbout
+        - Success
+
+    - createUserUserBirthdate
+        - Success
+
++ Service Layer
+
+    - CreateUserFirstName
+        - TooLong(20 char limit)
+        - EmptyString
+
+    - CreateUserLastName
+        - TooLong(20 char limit)
+        - EmptyString
+
+    - CreateUserEmail
+
+        - TooLong(50 char limit)
+        - EmptyString
+        - SpecialCharacters?
+        - missingDomain
+
+    - CreateUserUserName
+        - TooLong(50 char limit)
+        - EmptyString
+        - Spaces
+        - 0
+
+    - CreateUserPasscode
+        - TooLong(50 char limit)
+        - EmptyString
+        - Spaces
+        - 0
+
+    CreateUserAbout
+        - TooLong(500 char limit)
+
+    -CreateUserBirthdate
+        - DateMonthOver12
+        - DateDayOver31
+        - DateYearOverCurrentYear
+    
+    - createUserimageFormat
 
 ### Request Login Tests
- - Success
- - BlankInputs
- - InvalidUsername
- - InvalidPasscode
- - EmptyStringUsername
- - EmptyStringPasscode
- - UsernameTooLong
- - PasscodeTooLong
- - UserNamePasscodeNoMatch
- - UserNameNoMatchUserId
- - PasscodeNoMatchUserId
++ Data Access Layer
+    - Success
+
++ Service Access Layer
+    - BlankInputs
+    - InvalidUsername
+    - InvalidPasscode
+    - EmptyStringUsername
+    - EmptyStringPasscode
+    - UsernameTooLong
+    - PasscodeTooLong
+    - UserNamePasscodeNoMatch
+    - UserNameNoMatchUserId
+    - PasscodeNoMatchUserId
 
 ### Get User Tests
- - Success
- - NegativeUserId
- - UserIdFirstNameMatch
- - UserIdLastNameMatch
- - InvalidUsername
- - UserIDUsernameMatch
- - UserIdBirthdateMatch
- - UserIdEmailMatch
+
++ Data Access Layer
+     - Success
+
++ Service Access Layer
+    - NegativeUserId
+    - UserIdFirstNameMatch
+    - UserIdLastNameMatch
+    - InvalidUsername
+    - UserIDUsernameMatch
+    - UserIdBirthdateMatch
+    - UserIdEmailMatch
 
 ### Search For User
- - Success
- - UserNameFirstNameMatch
- - UserNameLastNameMatch
- - UserNameEmailMatch
- - UserNameBirthdateMatch
- - 
+
++ Data Access Layer
+    - Success
++ Service Access Layer
+    - UserNameFirstNameMatch
+    - UserNameLastNameMatch
+    - UserNameEmailMatch
+    - UserNameBirthdateMatch
+
 ### Get All Users
- - Success
- - EmailReturnsUsers
- - NegativeNumbers
- - BirthdateFormat
- - UsernameReturnsUsers
- - EmptyStringSearch
+
++ Data Access Layer
+    - Success
++ Service Access Layer 
+    - EmailReturnsUsers
+    - NegativeNumbers
+    - BirthdateFormat
+    - UsernameReturnsUsers
+    - EmptyStringSearch
 
 ### Get Groups Names
- - Success
- - GroupDoesNotExist
- - UserIdGroupIdNoMatch <- returning a group that you aren't apart of>
- - 
++ Data Access Layer
+     - Success
++ Service Access Layer 
+     - GroupDoesNotExist
+    - UserIdGroupIdNoMatch <- returning a group that you aren't apart of>
+
 ### Get Groups
- - Success
- - GroupIdDoesNotExist
- - GroupNameTooLong(40 chars)
++ Data Access Layer
+     - Success
++ Service Access Layer 
+    - GroupIdDoesNotExist
+    - GroupNameTooLong(40 chars)
 
 ## Chat Testing
 ### Create Message
- - Success
- - InvalidUserId
- - InvalidGroupId
- - MessageTooLong(300 char)
- - InvalidChatContent(Empty Message?)
- - InvalidTimeStamp
++ Data Access Layer
+     - Success
++ Service Access Layer     
+    - InvalidUserId
+    - InvalidGroupId
+    - MessageTooLong(300 char)
+    - InvalidChatContent(Empty Message?)
+    - InvalidTimeStamp
 
 ### Get Message History
- - Success
++ Data Access Layer
+     - Success
+
++ Service Access Layer
  - ChatIdInvalid
- - 
 
 # Deadline
  - Data Access Layer

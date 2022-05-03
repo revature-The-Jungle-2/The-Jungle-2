@@ -5,6 +5,8 @@ from data_access_layer.abstract_classes.user_profile_dao_abs import UserProfileD
 from entities.user import User
 from util.database_connection import connection
 
+# EDITED imports to change root of exceptions
+
 user_not_found_string = 'The user could not be found.'
 
 
@@ -36,7 +38,7 @@ class UserProfileDAOImp(UserProfileDAO):
         cursor.execute(sql, {'user_about': user.user_about, 'user_birth_date': user.user_birth_date,
                              'user_id': user.user_id})
 
-        sql = "select * from user_table where user_id = %(user_id)s"
+        sql = "select * from P3.user_table where user_id = %(user_id)s"
         cursor.execute(sql, {"user_id": user.user_id})
 
         connection.commit()
@@ -115,17 +117,18 @@ class UserProfileDAOImp(UserProfileDAO):
         """Stretch"""
         pass
 
-    def get_user_followers(self, user_id: int) -> dict[str:int]:
+    def get_user_followers(self, user_id: int) -> dict[str:int]:  # CHANGED user_follower_id -> user_follow_id. It didn't match up with table in database
         """Returns a dictionary with username as key and their userId as the value of the followers of userID"""
-        sql = "select * from user_table where user_id = %(user_id)s"
+        sql = "select * from p3.user_table where user_id = %(user_id)s"  # %(user_id)s
         cursor = connection.cursor()
         cursor.execute(sql, {'user_id': user_id})
+        print(user_id)
         if not cursor.fetchone():
             raise UserNotFound(user_not_found_string)
 
-        sql = "select user_table.username, user_follower_id from user_follow_junction_table" \
-              " inner join user_table on user_follow_junction_table.user_follower_id = user_table.user_id" \
-              " where user_follow_junction_table.user_id = %(user_id)s;"
+        sql = "select p3.user_table.username, user_follow_id from p3.user_follow_junction_table" \
+              " inner join p3.user_table on p3.user_follow_junction_table.user_follow_id = p3.user_table.user_id" \
+              " where p3.user_follow_junction_table.user_id = %(user_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": user_id})
         connection.commit()
@@ -135,17 +138,17 @@ class UserProfileDAOImp(UserProfileDAO):
             follower_dict.update({follower[0]: follower[1]})
         return follower_dict
 
-    def get_users_following_user(self, user_id: int) -> dict[str:int]:
+    def get_users_following_user(self, user_id: int) -> dict[str:int]:  # CHANGED user_follower_id -> user_follow_id
         """Stretch"""
-        sql = "select * from user_table where user_id = %(user_id)s"
+        sql = "select * from p3.user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {'user_id': user_id})
         if not cursor.fetchone():
             raise UserNotFound(user_not_found_string)
 
-        sql = "select user_table.username, user_table.user_id from user_follow_junction_table" \
-              " inner join user_table on user_follow_junction_table.user_id = user_table.user_id" \
-              " where user_follower_id = %(user_id)s;"
+        sql = "select user_table.username, user_table.user_id from p3.user_follow_junction_table" \
+              " inner join p3.user_table on user_follow_junction_table.user_id = p3.user_table.user_id" \
+              " where user_follow_id = %(user_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": user_id})
         connection.commit()
@@ -157,33 +160,33 @@ class UserProfileDAOImp(UserProfileDAO):
 
     def follow_user(self, user_follower_id: int, user_being_followed_id: int) -> bool:
 
-        sql = "select * from user_table where user_id = %(user_id)s"
+        sql = "select * from p3.user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": user_follower_id})
         if not cursor.fetchone():
             raise UserNotFound(user_not_found_string)
 
-        sql = "select * from user_table where user_id = %(user_id)s"
+        sql = "select * from p3.user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": user_being_followed_id})
         if not cursor.fetchone():
             raise UserNotFound(user_not_found_string)
 
-        sql = "insert into user_follow_junction_table values(%(user_follower_id)s, %(user_being_followed_id)s, false)"
+        sql = "insert into p3.user_follow_junction_table values(%(user_follower_id)s, %(user_being_followed_id)s)" # Removed "false" insert from table
         cursor = connection.cursor()
         cursor.execute(sql, {"user_follower_id": user_follower_id, "user_being_followed_id": user_being_followed_id})
         connection.commit()
         return True
 
     def unfollow_user(self, user_follower_id: int, user_being_followed_id: int) -> bool:
-        sql = "select * from user_follow_junction_table where user_follower_id = %(user_follower_id)s" \
+        sql = "select * from p3.user_follow_junction_table where user_follow_id = %(user_follower_id)s" \
               " and user_id = %(user_being_followed_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {'user_follower_id': user_follower_id, "user_being_followed_id": user_being_followed_id})
         if not cursor.fetchone():
             raise FollowerNotFound("The follower was not found.")
 
-        sql = "delete from user_follow_junction_table where user_follower_id = %(user_follower_id)s" \
+        sql = "delete from p3.user_follow_junction_table where user_follow_id = %(user_follower_id)s" \
               " and user_id = %(user_being_followed_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_follower_id": user_follower_id, "user_being_followed_id": user_being_followed_id})

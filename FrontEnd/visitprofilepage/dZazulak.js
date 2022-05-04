@@ -7,6 +7,7 @@ const profileUsername = document.getElementById("profileUsername");
 const profileDOB = document.getElementById("profileDOB");
 const profileEmail = document.getElementById("profileEmail");
 const devUrlJava="http://44.200.50.0:8000";
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
 visitedUserId = localStorage.getItem("visitUserIdPage");
 
 
@@ -104,7 +105,7 @@ function populateAboutMeForVisitedUser(){
 */
 async function updateUserProfileData(){
 
-    let url = "http://127.0.0.1:5000/user/profile/update/" + userId;
+    let url = devUrlPython+"/user/profile/update/" + userId;
     
     let updateUserProfileJSON = JSON.stringify({"firstName": "Shouldn't change",
         "lastName": "Shouldn't change",
@@ -168,7 +169,7 @@ function successMessageForProfileModal(){
     Grabs all the users followers from the database
 */
 async function getUserFollowers(){
-    let url = "http://127.0.0.1:5000/user/followers/" + visitedUserId;
+    let url = devUrlPython+"/user/followers/" + visitedUserId;
 
     let response = await fetch(url);
 
@@ -212,7 +213,7 @@ function populateUserFollowers(followerBody){
 async function getFollowerImage(followerBody){
     for(follower in followerBody){
         let image_Element = document.getElementById(`${follower}-image`);
-        let url = `http://127.0.0.1:5000/user/image/${followerBody[follower]}`;
+        let url = devUrlPython+`/user/image/${followerBody[follower]}`;
         console.log(url);
         let response = await fetch(url);
         if(response.status === 200){
@@ -224,7 +225,7 @@ async function getFollowerImage(followerBody){
 }
 
 async function getGroupsForUser(){
-    let url = "http://127.0.0.1:5000/group/user/" + visitedUserId;
+    let url = devUrlPython+"/group/user/" + visitedUserId;
 
     let response = await fetch(url);
 

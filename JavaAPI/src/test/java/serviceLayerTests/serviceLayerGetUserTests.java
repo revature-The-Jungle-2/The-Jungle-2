@@ -1,5 +1,4 @@
 package serviceLayerTests;
-
 import dev.com.thejungle.customexception.InvalidInputException;
 import org.testng.annotations.Test;
 import dev.com.thejungle.dao.implementations.UserDAO;

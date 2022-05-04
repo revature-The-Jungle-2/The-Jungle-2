@@ -2,17 +2,19 @@ import logging
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
 from custom_exceptions.birth_date_is_null import BirthDateIsNull
 from custom_exceptions.connection_error import ConnectionErrorr
 from custom_exceptions.follower_not_found import FollowerNotFound
-from custom_exceptions.group_exceptions import NullValues, InputTooShort, InputTooLong, GroupNameTaken
+from custom_exceptions.group_exceptions import NullValues, InputTooShort, InputTooLong, GroupNameTaken, \
+    GroupIdNonExistent
 from custom_exceptions.group_member_junction_exceptions import WrongId
+from custom_exceptions.group_not_found import GroupNotFound
 from custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
 from custom_exceptions.image_must_be_a_string import ImageMustBeAString
-from custom_exceptions.post_exceptions import InvalidInput, PostNotFound
+from custom_exceptions.post_exceptions import InvalidInput
 from custom_exceptions.post_id_must_be_an_integer import PostIdMustBeAnInteger
 from custom_exceptions.post_image_not_found import PostImageNotFound
+from custom_exceptions.post_not_found import PostNotFound
 from custom_exceptions.post_text_must_be_a_string import PostTextMustBeAString
 from custom_exceptions.too_many_characters import TooManyCharacters
 from custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
@@ -47,7 +49,6 @@ logging.basicConfig(filename="records.log", level=logging.DEBUG,
 # Setup flask
 app: Flask = Flask(__name__)
 CORS(app)
-
 
 @app.get("/")  # basic check for app running
 def on():
@@ -206,7 +207,7 @@ def update_profile_info(user_id):
 # -----------------------------------------------------------------------------------------------------
 
 # CREATE GROUP
-@app.post("/group")
+@app.post("/group/create")
 def create_group():
     try:
         group_data = request.get_json()
@@ -236,45 +237,62 @@ def create_group():
 
 
 # JOIN GROUP
-@app.post("/group/join/<group_id>/<user_id>")
+@app.get("/group/join/<group_id>/<user_id>")
 def join_group(group_id: str, user_id: str):
-    group_joined = group_service2.service_join_group(int(group_id), int(user_id))
-    group_joined_dictionary = {
-        "groupId": group_joined[0],
-        "userId": group_joined[1]
-    }
-    return jsonify(group_joined_dictionary), 200
+    try:
+        group_joined = group_service2.service_join_group(int(group_id), int(user_id))
+        group_joined_dictionary = {
+            "groupId": group_joined[0],
+            "userId": group_joined[1]
+        }
+        return jsonify(group_joined_dictionary), 200
+    except WrongId as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary), 400
+    except GroupNotFound as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary), 400
 
 
 # -----------------------------------------------------------------------------------------------------
 
-
 @app.get("/group/<group_id>")
 def get_group_by_id(group_id: str):
-    group = group_service.service_get_group_by_id(int(group_id))
-    group_as_dictionary = group.make_dictionary()
-    group_as_json = jsonify(group_as_dictionary)
-    return group_as_json
+    try:
+        group = group_service.service_get_group_by_id(int(group_id))
+        group_as_dictionary = group.make_dictionary()
+        group_as_json = jsonify(group_as_dictionary)
+        return group_as_json, 201
+    except GroupNotFound as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary), 400
 
 
 @app.get("/group")
 def get_all_groups():
-    groups_as_groups = group_service.service_get_all_groups()
-    groups_as_dictionary = []
-    for groups in groups_as_groups:
-        dictionary_group = groups.make_dictionary()
-        groups_as_dictionary.append(dictionary_group)
-    return jsonify(groups_as_dictionary)
-
+    try:
+        groups_as_groups = group_service.service_get_all_groups()
+        groups_as_dictionary = []
+        for groups in groups_as_groups:
+            dictionary_group = groups.make_dictionary()
+            groups_as_dictionary.append(dictionary_group)
+        return jsonify(groups_as_dictionary)
+    except GroupNotFound as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary), 400
 
 @app.get("/group/user/<user_id>")
 def get_all_groups_by_user_id(user_id: str):
-    groups_as_groups = group_service.service_get_groups_by_user_id(int(user_id))
-    groups_as_dictionary = []
-    for groups in groups_as_groups:
-        dictionary_group = groups.make_dictionary()
-        groups_as_dictionary.append(dictionary_group)
-    return jsonify(groups_as_dictionary)
+    try:
+        groups_as_groups = group_service.service_get_groups_by_user_id(int(user_id))
+        groups_as_dictionary = []
+        for groups in groups_as_groups:
+            dictionary_group = groups.make_dictionary()
+            groups_as_dictionary.append(dictionary_group)
+        return jsonify(groups_as_dictionary)
+    except UserNotFound as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary), 400
 
 
 """Group Junction API"""
@@ -334,7 +352,7 @@ def get_all_posts():
 def delete_a_post():
     try:
         data = request.get_json()
-        postid = data["post_id"]
+        postid = data["postId"]
         boolean = post_feed_service.delete_a_post_service(postid)
         return jsonify(boolean)
     except ConnectionErrorr as e:
@@ -400,13 +418,13 @@ def create_comment():
 
 @app.get("/creator/<group_id>")
 def get_creator_api(group_id: str):
-    result = group_service2.service_get_creator(int(group_id))
-    # dict = {
-    #     "firstName": result.index(0),
-    #     "lastName": result.index(1),
-    #     "username": result.index(2)
-    # }
-    return jsonify(result), 200
+    try:
+        result = group_service2.service_get_creator(int(group_id))
+        return jsonify(result), 200
+    except GroupIdNonExistent as e:
+        exception_dictionary = {"message": str(e)}
+        exception_json = jsonify(exception_dictionary)
+        return exception_json, 400
 
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -473,7 +491,6 @@ def delete_group_post(post_id: int):
 @app.get("/user/followers/<user_id>")
 def get_user_followers(user_id: int):
     try:
-        print(user_id)
         following = user_profile_service.get_user_followers_service(user_id)  # CHANGED the variable name and rewrote out the function. Seemed to fix
         return jsonify(following), 200
     except UserNotFound as e:
@@ -489,7 +506,6 @@ def get_user_followers(user_id: int):
 @app.get("/user/following/<user_id>")
 def get_user_following(user_id: int):
     try:
-        print(user_id)
         followers = user_profile_service.get_users_following_user_service(user_id)
         return jsonify(followers), 200
     except UserNotFound as e:
@@ -543,7 +559,4 @@ def unfollow_user(user_follower_id: int, user_being_followed_id: int):
         exception_json = jsonify(exception_dictionary)
         return exception_json, 400
 
-#comment out the first app.run() and uncomment the second app.run() to test over localhost
-#first app.run() is for the amazon virtual machine
-#app.run(host="ec2-204-236-138-16.us-west-1.compute.amazonaws.com", port=5000)
 app.run()

@@ -5,8 +5,6 @@ from data_access_layer.abstract_classes.user_profile_dao_abs import UserProfileD
 from entities.user import User
 from util.database_connection import connection
 
-# EDITED imports to change root of exceptions
-
 user_not_found_string = 'The user could not be found.'
 
 schema_prefix = "p3."

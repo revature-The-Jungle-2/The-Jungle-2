@@ -117,8 +117,9 @@ class UserProfileDAOImp(UserProfileDAO):
     def update_password(self, user_id: int, password: str) -> User:
         """Stretch"""
         pass
-
+      
     def get_user_followers(self, user_id: int) -> dict[str:int]:  # CHANGED user_follower_id -> user_follow_id. It didn't match up with table in database
+        #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Returns a dictionary with username as key and their userId as the value of the followers of userID"""
         sql = "select * from p3.user_table where user_id = %(user_id)s"  # %(user_id)s
         cursor = connection.cursor()
@@ -138,6 +139,7 @@ class UserProfileDAOImp(UserProfileDAO):
         return follower_dict
 
     def get_users_following_user(self, user_id: int) -> dict[str:int]:  # CHANGED user_follower_id -> user_follow_id
+        #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         sql = "select * from p3.user_table where user_id = %(user_id)s"
         cursor = connection.cursor()

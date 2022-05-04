@@ -542,7 +542,7 @@ def unfollow_user(user_follower_id: int, user_being_followed_id: int):
         exception_json = jsonify(exception_dictionary)
         return exception_json, 400
 
-
-app.run(host='localhost', debug=True)
-
-# app.run('host' = localhost, debug = True)
+#comment out the first app.run() and uncomment the second app.run() to test over localhost
+#first app.run() is for the amazon virtual machine
+app.run(host="ec2-204-236-138-16.us-west-1.compute.amazonaws.com", port=5000)
+#app.run() 

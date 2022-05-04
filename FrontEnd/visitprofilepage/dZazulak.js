@@ -6,12 +6,13 @@ const groupSectionDiv = document.getElementById("groups-div");
 const profileUsername = document.getElementById("profileUsername");
 const profileDOB = document.getElementById("profileDOB");
 const profileEmail = document.getElementById("profileEmail");
+const devUrlJava="http://44.200.50.0:8000";
 visitedUserId = localStorage.getItem("visitUserIdPage");
 
 
 
 async function getUserByUserId(){
-    let url = "http://127.0.0.1:5000/user/" + visitedUserId;
+    let url = devUrlJava+"/user/" + visitedUserId;
     let response = await fetch(url);
 
     if(response.status === 200){

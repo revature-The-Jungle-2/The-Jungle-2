@@ -1,4 +1,5 @@
 /** -----------------------------------------------------Join Group------------------------------------------------------------ */
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
 
 async function joinGroup() {
     // const groupId = localStorage.getItem("groupId").value;
@@ -6,7 +7,7 @@ async function joinGroup() {
     const groupId = 7;
     const userId = 9000;
 
-    let response = await fetch(url + `/group/join/${groupId}/${userId}`, {method: "POST", mode: "cors",
+    let response = await fetch(devUrlPython + `/group/join/${groupId}/${userId}`, {method: "POST", mode: "cors",
         headers: {"Content-Type": "application/json"}});
     
     await response.json();   

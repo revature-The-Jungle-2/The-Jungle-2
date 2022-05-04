@@ -6,5 +6,6 @@ import org.testng.annotations.Test;
 
 public class serviceLayerChatTests {
 
-    ChatService chatService = new ChatService(new ChatDAO();
+    ChatService chatService = new ChatService(new ChatDAO());
 
+}

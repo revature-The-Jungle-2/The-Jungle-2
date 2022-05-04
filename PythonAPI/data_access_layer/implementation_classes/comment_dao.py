@@ -1,7 +1,8 @@
 from typing import List
 
 from custom_exceptions.comment_not_found import CommentNotFound
-from custom_exceptions.post_not_found import PostNotFound
+from custom_exceptions.post_exceptions import PostNotFound
+
 from data_access_layer.abstract_classes.comment_dao_abs import CommentDAO
 from entities.comment import Comment
 from entities.returned_comment import ReturnedComment

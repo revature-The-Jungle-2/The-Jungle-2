@@ -117,7 +117,7 @@ class UserProfileDAOImp(UserProfileDAO):
         """Stretch"""
         pass
 
-    def get_user_followers(self, user_id: int) -> dict[str:int]:
+    def get_user_followers(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Returns a dictionary with username as key and their userId as the value of the followers of userID"""
         sql = "select * from "+schema_prefix+"user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
@@ -137,7 +137,7 @@ class UserProfileDAOImp(UserProfileDAO):
             follower_dict.update({follower[0]: follower[1]})
         return follower_dict
 
-    def get_users_following_user(self, user_id: int) -> dict[str:int]:
+    def get_users_following_user(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         sql = "select * from "+schema_prefix+"user_table where user_id = %(user_id)s"
         cursor = connection.cursor()

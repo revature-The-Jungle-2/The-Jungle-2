@@ -1,13 +1,14 @@
 let userId = 104; // temporary 
 let postId = 273; // temporary
-const devUrl="http://44.200.50.0:8000";
+const devUrlJava="http://44.200.50.0:8000";
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
 
 // this is just a proof of concept and does not contain styling elements of the finished code
 //assuming you are getting all the posts at once, this method will have to be called individually in a for loop for each post
 //rough method to get the post image from database, needs to be updated to get the image format
 //please refactor and modify as needed
 async function getPostImage(){// the postId and imageFormat will probably have to be passed as parameters
-  let url = devUrl+"/post/image/" + postId;//post_id parameter
+  let url = devUrlPython+"/post/image/" + postId;//post_id parameter
   console.log(url);
   let response = await fetch(url);
   console.log(response);
@@ -29,7 +30,7 @@ async function createPost(){
     let postText = document.getElementById("postText");
     console.log(postText.value)
     let postJson = JSON.stringify({"user_id":userId, "post_text": postText.value, "image_format": "false"});
-    let url = devUrl+"/post"
+    let url = devUrlPython+"/post"
     let thePost = await fetch(url, {
         method:"POST",
         headers:{'Content-Type': 'application/json'}, 
@@ -53,7 +54,7 @@ async function createPostWithImage() {
       if (base64gif.length < 1_000_000 && base64gif.startsWith("data:image/")){
         let postText = document.getElementById("postText");
         let postJson = JSON.stringify({"user_id":userId, "post_text": postText.value, "image_format": "true"});
-        let url = devUrl+"/post";
+        let url = devUrlPython+"/post";
         
         //Inserts the post into the post table
         let thePost = await fetch(url, {
@@ -91,7 +92,7 @@ async function createPostWithImage() {
 
 
   async function getPost() {
-    let response = await fetch(devUrl+"/user/post/" + userId, {
+    let response = await fetch(devUrlPython+"/user/post/" + userId, {
       method: "GET",
       mode: "cors",
     });
@@ -116,7 +117,7 @@ async function createPostWithImage() {
       // </div>`
       
       //add the poster image
-      let url = devUrl+"/user/image/" + post.user_id;
+      let url = devUrlPython+"/user/image/" + post.user_id;
       let response = await fetch(url);
       let user_image_text;
       if(response.status === 200){
@@ -124,7 +125,7 @@ async function createPostWithImage() {
         }
   
       //get the post image
-      url = devUrl+"/post/image/" + post.post_id;
+      url = devUrlPython+"/post/image/" + post.post_id;
       console.log(url);
       response = await fetch(url);
       console.log(response);
@@ -184,7 +185,7 @@ async function createPostWithImage() {
   getPost()
 
   async function deletePost(post_id) {
-    let deleteResponse = await fetch(devUrl+"/group_post/" + post_id, {
+    let deleteResponse = await fetch(devUrlPython+"/group_post/" + post_id, {
       method: "DELETE"
     })
     console.log(deleteResponse)

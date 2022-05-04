@@ -36,7 +36,7 @@ def test_dao_get_users_following_user_user_id_not_found():
 
 
 def test_dao_follow_user_success(): # CHECK DATABASE AND REFACTOR FROM HERE UNTIL BOTTOM FOR ID #s
-    result = user_profile_dao.follow_user(1, 2)
+    result = user_profile_dao.follow_user(1, 3)
     assert result is True
 
 

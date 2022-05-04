@@ -12,10 +12,11 @@ def test_get_all_posts():
 
 
 def test_delete_a_post():
-    result = PFImp.delete_a_post(test_feed.post_id)
-    assert result != 1
+    delete = Post()
+    result = PFImp.delete_a_post(delete.post_id)
+    assert result == True
 
 
 def test_get_all_posts_with_user_id():
     result = PFImp.get_all_posts_with_user_id(test_feed.user_id)
-    assert result == 1
+    assert result.__sizeof__() >= 1

@@ -12,7 +12,7 @@ class PostFeedDao(ABC):
 
     # postid changed to post_id , fixed error
     @abstractmethod
-    def delete_a_post(self, postid: int) -> bool:
+    def delete_a_post(self, post_id: int) -> bool:
         pass
 
     @abstractmethod

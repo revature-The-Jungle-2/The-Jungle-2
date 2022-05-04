@@ -5,7 +5,7 @@ import dev.com.thejungle.entity.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class dataAccessGetUserTests
+public class dataAccessCreateUserTests
 {
     public UserDAO userDAOImp = new UserDAO();
 
@@ -17,20 +17,12 @@ public class dataAccessGetUserTests
     int f = (int)(Math.random()*(max-min+1)+min);
 
 
-    // Positive Test
-    // Get user test displays/tests all individual requirements of (Get User Tests)
     @Test
-    public void SearchUserByIDSuccess()
+    public void CreateUserSuccess()
     {
-        User testUser = userDAOImp.getUserById(3);
-        User newUser = new User(3, "first", "last", "email@something.net", "newuser", 1903-01-02);
-        Assert.assertEquals(testUser,newUser);
-    }
-
-    // Positive Test
-    public void GetUsersByGroupIDSuccess()
-    {
-        User testUser = userDAOImp.;
+        User newUser = new User(0, "Lillith", "Thompson", "lilly" + b + "@gmail.com", "LunaBear", "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
+        User result = userDAOImp.createNewUser(newUser);
+        Assert.assertNotEquals(result.getUserId(), 0);
     }
 
 }

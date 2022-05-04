@@ -6,7 +6,7 @@ from data_access_layer.implementation_classes.group_dao import GroupDAOImp
 from data_access_layer.implementation_classes.group_view_postgres_dao import GroupViewPostgresDao
 from entities.group import Group
 from service_layer.abstract_classes.group_service_abs import GroupService
-from util import constraints
+# from util import constraints
 
 
 class GroupPostgreService(GroupService):

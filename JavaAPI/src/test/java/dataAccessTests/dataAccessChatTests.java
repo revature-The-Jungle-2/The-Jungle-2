@@ -2,6 +2,7 @@ package dataAccessTests;
 
 import dev.com.thejungle.dao.implementations.ChatDAO;
 import dev.com.thejungle.entity.ChatMessage;
+import org.eclipse.jetty.server.UserIdentity;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -48,6 +49,12 @@ public class dataAccessChatTests {
         Assert.assertFalse(testGetMessage.isEmpty());
     }
 
+
+    @Test()
+    public void getMessageHistoryChatIdSuccess(){
+        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(0);
+        Assert.assertFalse(testGetMessage.isEmpty());
+    }
 
 }
 

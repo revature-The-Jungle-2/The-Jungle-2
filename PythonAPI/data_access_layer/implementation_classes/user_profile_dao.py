@@ -125,7 +125,6 @@ class UserProfileDAOImp(UserProfileDAO):
         sql = "select * from p3.user_table where user_id = %(user_id)s"  # %(user_id)s
         cursor = connection.cursor()
         cursor.execute(sql, {'user_id': user_id})
-        print(user_id)
         if not cursor.fetchone():
             raise UserNotFound(user_not_found_string)
         sql = "select p3.user_table.username, user_follow_id from p3.user_follow_junction_table" \
@@ -176,17 +175,25 @@ class UserProfileDAOImp(UserProfileDAO):
         connection.commit()
         return True
 
-    def unfollow_user(self, user_follower_id: int, user_being_followed_id: int) -> bool:
-        sql = "select * from p3.user_follow_junction_table where user_follow_id = %(user_follower_id)s" \
-              " and user_id = %(user_being_followed_id)s"
+    def unfollow_user(self, user_follower_id: int, user_being_followed_id: int) -> bool:  # FIXED user ids being tied to wrong columns
+        sql = "select * from p3.user_follow_junction_table where user_follow_id = %(user_being_followed_id)s" \
+              " and user_id = %(user_follower_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {'user_follower_id': user_follower_id, "user_being_followed_id": user_being_followed_id})
         if not cursor.fetchone():
             raise FollowerNotFound("The follower was not found.")
-        sql = "delete from p3.user_follow_junction_table where user_follow_id = %(user_follower_id)s" \
-              " and user_id = %(user_being_followed_id)s"
+        sql = "delete from p3.user_follow_junction_table where user_follow_id = %(user_being_followed_id)s" \
+              " and user_id = %(user_follower_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_follower_id": user_follower_id, "user_being_followed_id": user_being_followed_id})
         connection.commit()
         return True
 
+# sql = "delete from p3.user_follow_junction_table where user_follow_id = %(user_follower_id)s" \
+#              " and user_id = %(user_being_followed_id)s"
+
+# sql = "delete from p3.user_follow_junction_table where user_follow_id = %(user_being_followed_id)s" \
+#               " and user_id = %(user_follower_id)s"
+
+# sql = "select * from p3.user_follow_junction_table where user_follow_id = %(user_follower_id)s" \
+#               " and user_id = %(user_being_followed_id)s"

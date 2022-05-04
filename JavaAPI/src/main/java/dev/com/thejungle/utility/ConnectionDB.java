@@ -13,7 +13,7 @@ public class ConnectionDB {
                     System.getenv("HOST"),
                     System.getenv("PORT"),
                     System.getenv("DB"),
-                    System.getenv("USER"),
+                    System.getenv("DBUSER"),
                     System.getenv("PASSWORD")
             );
             return DriverManager.getConnection(dbURL);

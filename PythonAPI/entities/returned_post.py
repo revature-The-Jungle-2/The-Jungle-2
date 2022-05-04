@@ -1,4 +1,4 @@
-class ReturnedPost:
+git class ReturnedPost:
     def __init__(self,
                  post_id: int = None,  # primary key
                  user_id: int = None,  # foreign key

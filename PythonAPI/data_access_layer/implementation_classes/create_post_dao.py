@@ -11,14 +11,14 @@ class CreatePostDAOImp(CreatePostDAO):
     def create_post(self, post: Post) -> Post:
         """a method to create a post in the database"""
         # Check to see if the user id is in the database, raise an error otherwise.
-        sql = "select * from user_table where user_id = %(user_id)s;"
+        sql = "select * from p3.user_table where user_id = %(user_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": post.user_id})
         if not cursor.fetchone():
             raise UserNotFound('The user could not be found.')
 
         # Create the post.
-        sql = "insert into post_table values(default, %s, NULL, %s, %s, 0, default) returning post_id"
+        sql = "insert into p3.post_table values(default, %s, NULL, %s, %s, 0, default) returning post_id"
         cursor = connection.cursor()
         cursor.execute(sql, (post.user_id, post.post_text, post.image_format))
         connection.commit()
@@ -26,7 +26,7 @@ class CreatePostDAOImp(CreatePostDAO):
 
         # get the image from the database and send it back
         cursor = connection.cursor()
-        sql = f"select * from post_table where post_id = %(post_id)s;"
+        sql = f"select * from p3.post_table where post_id = %(post_id)s;"
         cursor.execute(sql, {"post_id": returned_post_id})
         connection.commit()
         new_post = cursor.fetchone()

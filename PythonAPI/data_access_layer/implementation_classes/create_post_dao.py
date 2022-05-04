@@ -35,26 +35,26 @@ class CreatePostDAOImp(CreatePostDAO):
     def create_post_image(self, post_id: int, image: str) -> str:
         """a method to place a post image into the database"""
         # Check to see if the post id is in the database, raise an error otherwise.
-        sql = f"select * from post_table where post_id = %(post_id)s;"
+        sql = f"select * from p3.post_table where post_id = %(post_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"post_id": post_id})
         if not cursor.fetchone():
             raise PostNotFound('The post could not be found.')
 
         # Make certain there is no other image
-        sql = f"delete from post_picture_table where post_id = %(post_id)s;"
+        sql = f"delete from p3.post_picture_table where post_id = %(post_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"post_id": post_id})
         connection.commit()
 
         # insert the image into the database
-        sql = f"INSERT INTO post_picture_table VALUES (default, %(post_id)s, %(image)s)"
+        sql = f"INSERT INTO p3.post_picture_table VALUES (default, %(post_id)s, %(image)s)"
         cursor = connection.cursor()
         cursor.execute(sql, {"post_id": post_id, "image": image})
         connection.commit()
 
         # get the new image from the database and send it back
-        sql = f"select picture from post_picture_table where post_id = %(post_id)s;"
+        sql = f"select picture from p3.post_picture_table where post_id = %(post_id)s;"
         cursor.execute(sql, {"post_id": post_id})
         connection.commit()
         image = cursor.fetchone()[0]
@@ -64,7 +64,7 @@ class CreatePostDAOImp(CreatePostDAO):
     def get_post_image(self, post_id: int) -> str:
         """a method to get a post image from the database."""
         # Check to see if the post id is in the database, raise an error otherwise.
-        sql = f"select * from post_picture_table where post_id = %(post_id)s;"
+        sql = f"select * from p3.post_picture_table where post_id = %(post_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"post_id": post_id})
         if not cursor.fetchone():
@@ -72,7 +72,7 @@ class CreatePostDAOImp(CreatePostDAO):
 
         # get the image from the database and send it back
         cursor = connection.cursor()
-        sql = f"select picture from post_picture_table where post_id = %(post_id)s;"
+        sql = f"select picture from p3.post_picture_table where post_id = %(post_id)s;"
         cursor.execute(sql, {"post_id": post_id})
         connection.commit()
         image = cursor.fetchone()[0]

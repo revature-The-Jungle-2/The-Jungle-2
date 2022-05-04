@@ -1,5 +1,5 @@
-from PythonAPI.data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
-from PythonAPI.entities.user import User
+from data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
+from entities.user import User
 
 test_dao = UserProfileDAOImp()
 

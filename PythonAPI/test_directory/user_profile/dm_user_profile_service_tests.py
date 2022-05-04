@@ -1,13 +1,13 @@
 from unittest.mock import MagicMock
 
-from PythonAPI.custom_exceptions.birth_date_is_null import BirthDateIsNull
-from PythonAPI.custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
-from PythonAPI.custom_exceptions.image_must_be_a_string import ImageMustBeAString
-from PythonAPI.custom_exceptions.too_many_characters import TooManyCharacters
-from PythonAPI.custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
-from PythonAPI.data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
-from PythonAPI.entities.user import User
-from PythonAPI.service_layer.implementation_classes.user_profile_service import UserProfileServiceImp
+from custom_exceptions.birth_date_is_null import BirthDateIsNull
+from custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
+from custom_exceptions.image_must_be_a_string import ImageMustBeAString
+from custom_exceptions.too_many_characters import TooManyCharacters
+from custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
+from data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
+from entities.user import User
+from service_layer.implementation_classes.user_profile_service import UserProfileServiceImp
 
 test_dao = UserProfileDAOImp()
 test_sao = UserProfileServiceImp(test_dao)

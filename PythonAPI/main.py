@@ -10,10 +10,9 @@ from custom_exceptions.group_exceptions import NullValues, InputTooShort, InputT
 from custom_exceptions.group_member_junction_exceptions import WrongId
 from custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
 from custom_exceptions.image_must_be_a_string import ImageMustBeAString
-from custom_exceptions.post_exceptions import InvalidInput
+from custom_exceptions.post_exceptions import InvalidInput, PostNotFound
 from custom_exceptions.post_id_must_be_an_integer import PostIdMustBeAnInteger
 from custom_exceptions.post_image_not_found import PostImageNotFound
-from custom_exceptions.post_not_found import PostNotFound
 from custom_exceptions.post_text_must_be_a_string import PostTextMustBeAString
 from custom_exceptions.too_many_characters import TooManyCharacters
 from custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
@@ -48,6 +47,7 @@ logging.basicConfig(filename="records.log", level=logging.DEBUG,
 # Setup flask
 app: Flask = Flask(__name__)
 CORS(app)
+
 
 @app.get("/")  # basic check for app running
 def on():
@@ -334,7 +334,7 @@ def get_all_posts():
 def delete_a_post():
     try:
         data = request.get_json()
-        postid = data["postId"]
+        postid = data["post_id"]
         boolean = post_feed_service.delete_a_post_service(postid)
         return jsonify(boolean)
     except ConnectionErrorr as e:
@@ -473,8 +473,9 @@ def delete_group_post(post_id: int):
 @app.get("/user/followers/<user_id>")
 def get_user_followers(user_id: int):
     try:
-        followers = user_profile_service.get_user_followers_service(user_id)
-        return jsonify(followers), 200
+        following = user_profile_service.get_user_followers_service(user_id)  # CHANGED the variable name and rewrote out the function. Seemed to fix
+        print(following)
+        return jsonify(following), 200
     except UserNotFound as e:
         exception_dictionary = {"message": str(e)}
         exception_json = jsonify(exception_dictionary)
@@ -541,4 +542,7 @@ def unfollow_user(user_follower_id: int, user_being_followed_id: int):
         exception_json = jsonify(exception_dictionary)
         return exception_json, 400
 
-app.run()
+#comment out the first app.run() and uncomment the second app.run() to test over localhost
+#first app.run() is for the amazon virtual machine
+app.run(host="ec2-204-236-138-16.us-west-1.compute.amazonaws.com", port=5000)
+#app.run() 

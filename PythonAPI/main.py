@@ -473,7 +473,7 @@ def delete_group_post(post_id: int):
 @app.get("/user/followers/<user_id>")
 def get_user_followers(user_id: int):
     try:
-        following = user_profile_service.get_user_followers_service(user_id)  # CHANGED the variable name and rewrote out the function. Seemed to fix
+        following = user_profile_service.get_user_followers_service(int(user_id))  # CHANGED the variable name and rewrote out the function. Seemed to fix
         print(following)
         return jsonify(following), 200
     except UserNotFound as e:
@@ -489,7 +489,7 @@ def get_user_followers(user_id: int):
 @app.get("/user/following/<user_id>")
 def get_user_following(user_id: int):
     try:
-        followers = user_profile_service.get_users_following_user_service(user_id)
+        followers = user_profile_service.get_users_following_user_service(int(user_id))
         return jsonify(followers), 200
     except UserNotFound as e:
         exception_dictionary = {"message": str(e)}

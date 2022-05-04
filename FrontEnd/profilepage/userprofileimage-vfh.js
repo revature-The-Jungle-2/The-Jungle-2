@@ -1,8 +1,10 @@
-const devUrl="http://44.200.50.0:8000";
+const devUrlJava="http://44.200.50.0:8000";
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
+
 // let userId = 9000;
 
 async function getUserImage(){
-  let url = devUrl+"/user/image/" + userId;
+  let url = devUrlPython+"/user/image/" + userId;
   console.log(url);
   let response = await fetch(url);
   console.log(response);
@@ -39,7 +41,7 @@ async function createUserWithImage() {
         // console.log(theUser["user_id"]);
         let response = await fetch(
             //"http://127.0.0.1:5000/user/image/" + theUser["user_id"], 
-            devUrl+"/user/image/" + userId, { 
+            devUrlPython+"/user/image/" + userId, { 
               method: "POST",
               headers: {"Content-Type": "application/json"},
               body: String(base64gif)

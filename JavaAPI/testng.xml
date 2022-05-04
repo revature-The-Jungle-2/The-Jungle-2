@@ -3,10 +3,7 @@
 <suite name="Suite for my tests">
     <test name="The the jungle Tests">
         <classes>
-            <class name="dao.ChatDAOTests"/>
-            <class name="dao.UserDAOTests"/>
-            <class name="service.ChatServiceTests"/>
-            <class name="service.UserServiceTests"/>
+            <!---<class name="service.UserServiceTests"/>-->
         </classes>
     </test>
 

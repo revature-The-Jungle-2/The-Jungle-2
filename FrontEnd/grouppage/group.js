@@ -1,4 +1,5 @@
-const url = "http://127.0.0.1:5000/";
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
+
 
 /** -----------------------------------------------------Create Group------------------------------------------------------------ */
 async function createGroup() {
@@ -44,7 +45,7 @@ async function createGroup() {
         return;
     }
 
-    let response = await fetch(url + "group", {method: "POST", mode: "cors", headers: {"Content-Type": "application/json"},
+    let response = await fetch(devUrlPython + "group", {method: "POST", mode: "cors", headers: {"Content-Type": "application/json"},
         body: JSON.stringify(groupCreated)});
 
     let groupObject = await response.json();

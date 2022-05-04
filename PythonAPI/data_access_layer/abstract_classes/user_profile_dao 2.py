@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from PythonAPI.entities.user import User
+from entities.user import User
 
 
 class UserProfileDAO(ABC):

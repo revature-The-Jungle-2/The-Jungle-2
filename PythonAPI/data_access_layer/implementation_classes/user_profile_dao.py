@@ -28,7 +28,6 @@ class UserProfileDAOImp(UserProfileDAO):
 
     def update_user_profile(self, user: User) -> User:
         """ A method used to update information for the profile besides the image"""
-
         sql = "select * from "+schema_prefix+"user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {'user_id': user.user_id})
@@ -40,7 +39,6 @@ class UserProfileDAOImp(UserProfileDAO):
         cursor.execute(sql, {'user_about': user.user_about, 'user_birth_date': user.user_birth_date,
                              'user_id': user.user_id})
 
-
         sql = "select * from P3.user_table where user_id = %(user_id)s"
         cursor.execute(sql, {"user_id": user.user_id})
 
@@ -51,11 +49,13 @@ class UserProfileDAOImp(UserProfileDAO):
         """a method to get a user image from the database"""  # need to create a custom exception and database checker
 
         # Check to see if the post id is in the database, raise an error otherwise.
+
         sql = f"select user_id from "+schema_prefix+"user_picture_table where user_id = %(user_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": user_id})
         if not cursor.fetchone():
             raise UserImageNotFound('The user image could not be found.')
+
 
         sql = "select picture from "+schema_prefix+"user_picture_table where user_id = %(user_id)s;"
         cursor.execute(sql, {"user_id": user_id})

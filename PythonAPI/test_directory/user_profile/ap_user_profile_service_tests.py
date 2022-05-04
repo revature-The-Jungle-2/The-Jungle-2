@@ -1,8 +1,7 @@
 from unittest.mock import MagicMock
-
-from PythonAPI.custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
-from PythonAPI.data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
-from PythonAPI.service_layer.implementation_classes.user_profile_service import UserProfileServiceImp
+from custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
+from data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
+from service_layer.implementation_classes.user_profile_service import UserProfileServiceImp
 
 user_profile_dao = UserProfileDAOImp()
 user_profile_service = UserProfileServiceImp(user_profile_dao)

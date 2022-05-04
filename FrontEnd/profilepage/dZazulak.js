@@ -3,13 +3,13 @@ const userAboutMe = document.getElementById("userAboutMeInput");
 const modalMessageDiv = document.getElementById("profileModalMsg");
 const followerSectionDiv = document.getElementById("followers-div");
 const groupSectionDiv = document.getElementById("groups-div");
-
+const devUrl="http://44.200.50.0:8000";
 /*
     Grabs the user profile information from the update profile modal and sends it through the layers
 */
 async function updateUserProfileData(){
     // Will need to update this to use the current user's ID
-    let url = "http://127.0.0.1:5000/user/profile/update/9000"
+    let url = devUrl+"/user/profile/update/9000"
 
     let updateUserProfileJSON = JSON.stringify({"firstName": "Shouldn't change",
     "lastName": "Shouldn't change",

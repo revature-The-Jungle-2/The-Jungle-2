@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class ChatDAO implements ChatDAOInt {
 
+    public String schemaPrefix = "p3.";
+
     /**
      * connects to database to create a new ChatMessage
      * @param chatMessage Object that contains information of the chat sent by the user
@@ -18,7 +20,7 @@ public class ChatDAO implements ChatDAOInt {
     public ChatMessage createMessage(ChatMessage chatMessage) {
         try (Connection connection = ConnectionDB.createConnection()) {
             if(chatMessage.getGroupId() == 0) {
-                String sql = "insert into chat_log_table values(default, default, ?, null, ?) returning chat_id, chat_date";
+                String sql = "insert into "+schemaPrefix+"chat_log_table values(default, default, ?, null, ?) returning chat_id, chat_date";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, chatMessage.getUserId());
                 preparedStatement.setString(2, chatMessage.getChatContent());
@@ -33,7 +35,7 @@ public class ChatDAO implements ChatDAOInt {
                         chatMessage.getChatContent()
                 );
             } else {
-            String sql = "insert into chat_log_table values(default, default, ?, ?, ?) returning chat_id, chat_date";
+            String sql = "insert into "+schemaPrefix+"chat_log_table values(default, default, ?, ?, ?) returning chat_id, chat_date";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, chatMessage.getUserId());
             preparedStatement.setInt(2, chatMessage.getGroupId());
@@ -63,8 +65,8 @@ public class ChatDAO implements ChatDAOInt {
     @Override
     public ArrayList<ChatMessage> getMessageHistory(int groupId) {
         try (Connection connection = ConnectionDB.createConnection()) {
-                String sql = "select chat_id, chat_date, clt.user_id, ut.username, group_id, chat_content from chat_log_table clt " +
-            "inner join user_table ut on ut.user_id = clt.user_id " +
+                String sql = "select chat_id, chat_date, clt.user_id, ut.username, group_id, chat_content from "+schemaPrefix+"chat_log_table clt " +
+            "inner join "+schemaPrefix+"user_table ut on ut.user_id = clt.user_id " +
             "where clt.chat_date >= now() - interval '5 minutes' and group_id = ? " +
                         "order by chat_id asc";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -96,8 +98,8 @@ public class ChatDAO implements ChatDAOInt {
     @Override
     public ArrayList<ChatMessage> getMessageHistory() {
         try (Connection connection = ConnectionDB.createConnection()) {
-            String sql = "select chat_id, chat_date, clt.user_id, ut.username, group_id, chat_content from chat_log_table clt " +
-                    "inner join user_table ut on ut.user_id = clt.user_id " +
+            String sql = "select chat_id, chat_date, clt.user_id, ut.username, group_id, chat_content from "+schemaPrefix+"chat_log_table clt " +
+                    "inner join "+schemaPrefix+"user_table ut on ut.user_id = clt.user_id " +
                     "where clt.chat_date >= now() - interval '5 minutes' and group_id is null " +
                     "order by chat_id asc";
             Statement statement = connection.createStatement();

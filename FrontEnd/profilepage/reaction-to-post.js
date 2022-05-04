@@ -1,10 +1,11 @@
 let likeButton = document.getElementById("trigger");
+const devUrl="http://44.200.50.0:8000";
 console.log("JS is connected to HTML");
 
 likeButton.onclick = async function(e){
     e.preventDefault(); 
 
-    let response = await fetch(`http://127.0.0.1:5000/postfeed`, {
+    let response = await fetch(devUrl+`/postfeed`, {
         method : "POST",
         body : JSON.stringify({
         postId: 2 //need to be changed when integrated!

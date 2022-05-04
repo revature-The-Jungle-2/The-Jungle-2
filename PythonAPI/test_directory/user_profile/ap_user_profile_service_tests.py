@@ -14,6 +14,7 @@ def test_service_update_password_success():
 def test_service_get_user_followers_success():  #STUBBED
     user_profile_service.user_profile_dao.get_user_followers = MagicMock(return_value={'newuser', 3})
     followers = user_profile_service.get_user_followers_service(1)
+    print(followers)
     assert len(followers) >= 1
 
 
@@ -28,6 +29,7 @@ def test_service_get_user_followers_user_id_numeric():
 def test_service_get_users_following_user_success():  #STUBBED
     user_profile_service.user_profile_dao.get_users_following_user = MagicMock(return_value={'newuser', 3})
     users_following = user_profile_service.get_users_following_user_service(3)
+    print(users_following)
     assert len(users_following) >= 1
 
 

@@ -11,9 +11,9 @@ function createChatConnection(groupId) {
     id("chat").innerHTML = "";
     ws = new WebSocket(
       "ws://" +
-        "localhost" +
+        "44.200.50.0" +
         ":" +
-        "8080" +
+        "8000" +
         "/chat/" +
         groupId +
         "/" +

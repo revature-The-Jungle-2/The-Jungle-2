@@ -5,8 +5,6 @@ import dev.com.thejungle.entity.ChatMessage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-
 public class dataAccessChatTests {
 
 
@@ -42,11 +40,11 @@ public class dataAccessChatTests {
 
 
     }
-    @Test()
-    public void getMessageHistorySuccess() {
-        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(1);
-        Assert.assertFalse(testGetMessage.isEmpty());
-    }
+
+
+
+
+
 
 
 }

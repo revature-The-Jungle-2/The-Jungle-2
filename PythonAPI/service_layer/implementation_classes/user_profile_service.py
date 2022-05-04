@@ -1,11 +1,11 @@
-from PythonAPI.custom_exceptions.birth_date_is_null import BirthDateIsNull
-from PythonAPI.custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
-from PythonAPI.custom_exceptions.image_must_be_a_string import ImageMustBeAString
-from PythonAPI.custom_exceptions.too_many_characters import TooManyCharacters
-from PythonAPI.custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
-from PythonAPI.data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
-from PythonAPI.entities.user import User
-from PythonAPI.service_layer.abstract_classes.user_profile_service_abs import UserProfileService
+from custom_exceptions.birth_date_is_null import BirthDateIsNull
+from custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
+from custom_exceptions.image_must_be_a_string import ImageMustBeAString
+from custom_exceptions.too_many_characters import TooManyCharacters
+from custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
+from data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
+from entities.user import User
+from service_layer.abstract_classes.user_profile_service_abs import UserProfileService
 
 
 class UserProfileServiceImp(UserProfileService):
@@ -62,14 +62,14 @@ class UserProfileServiceImp(UserProfileService):
         """Stretch"""
         pass
 
-    def get_user_followers_service(self, user_id: int) -> dict[str:int]:
+    def get_user_followers_service(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         # Check to make sure the user_id is an integer
         if not str(user_id).isnumeric():
             raise UserIdMustBeAnInteger('The user id must be an integer.')
         return self.user_profile_dao.get_user_followers(user_id)
 
-    def get_users_following_user_service(self, user_id: int) -> dict[str:int]:
+    def get_users_following_user_service(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         # Check to make sure the user_id is an integer
         if not str(user_id).isnumeric():

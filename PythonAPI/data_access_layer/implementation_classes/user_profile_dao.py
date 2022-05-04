@@ -1,9 +1,9 @@
-from PythonAPI.custom_exceptions.follower_not_found import FollowerNotFound
-from PythonAPI.custom_exceptions.user_image_not_found import UserImageNotFound
-from PythonAPI.custom_exceptions.user_not_found import UserNotFound
-from PythonAPI.data_access_layer.abstract_classes.user_profile_dao_abs import UserProfileDAO
-from PythonAPI.entities.user import User
-from PythonAPI.util.database_connection import connection
+from custom_exceptions.follower_not_found import FollowerNotFound
+from custom_exceptions.user_image_not_found import UserImageNotFound
+from custom_exceptions.user_not_found import UserNotFound
+from data_access_layer.abstract_classes.user_profile_dao_abs import UserProfileDAO
+from entities.user import User
+from util.database_connection import connection
 
 user_not_found_string = 'The user could not be found.'
 
@@ -117,7 +117,7 @@ class UserProfileDAOImp(UserProfileDAO):
         """Stretch"""
         pass
 
-    def get_user_followers(self, user_id: int) -> dict[str:int]:
+    def get_user_followers(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Returns a dictionary with username as key and their userId as the value of the followers of userID"""
         sql = "select * from "+schema_prefix+"user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
@@ -137,7 +137,7 @@ class UserProfileDAOImp(UserProfileDAO):
             follower_dict.update({follower[0]: follower[1]})
         return follower_dict
 
-    def get_users_following_user(self, user_id: int) -> dict[str:int]:
+    def get_users_following_user(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         sql = "select * from "+schema_prefix+"user_table where user_id = %(user_id)s"
         cursor = connection.cursor()

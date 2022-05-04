@@ -38,13 +38,34 @@ public class dataAccessChatTests {
         ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
         Assert.assertEquals(testCreateMessage.getChatContent(), "Welcome");
 
+    }
+
+    //Duplicate ID
+
+    @Test()
+    public void createChatMessageDuplicateChatId(){
+        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertNull(testCreateMessage);
 
     }
 
+    @Test()
+    public void createChatMessageDuplicateGroupID(){
+        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertNull(testCreateMessage);
+    }
+
+    @Test()
+    public void createChatMessageDuplicateChatContent(){
+        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertNull(testCreateMessage);
 
 
 
-
+    }
 
 
 }

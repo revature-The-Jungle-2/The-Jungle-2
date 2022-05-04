@@ -16,10 +16,6 @@ def test_service_get_user_followers_success():  #STUBBED
     followers = user_profile_service.get_user_followers_service(1)
     assert len(followers) >= 1
 
-# def test_service_get_user_followers_success():  # CHECK DATABASE AND REFACTOR
-#     followers = user_profile_service.get_user_followers_service(1)
-#     assert len(followers) >= 1
-
 
 def test_service_get_user_followers_user_id_numeric():
     try:
@@ -29,7 +25,7 @@ def test_service_get_user_followers_user_id_numeric():
         assert str(e) == 'The user id must be an integer.'
 
 
-def test_service_get_users_following_user_success():  #STUBBED  # Pretty sure this is still broken
+def test_service_get_users_following_user_success():  #STUBBED
     user_profile_service.user_profile_dao.get_users_following_user = MagicMock(return_value={'newuser', 3})
     users_following = user_profile_service.get_users_following_user_service(3)
     assert len(users_following) >= 1

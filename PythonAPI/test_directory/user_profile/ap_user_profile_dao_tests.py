@@ -57,7 +57,7 @@ def test_dao_follow_user_user_being_followed_id_not_found():
 
 
 def test_dao_unfollow_user_success():
-    result = user_profile_dao.unfollow_user(2, 1)
+    result = user_profile_dao.unfollow_user(1, 2)
     assert result is True
 
 

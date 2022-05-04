@@ -1,6 +1,6 @@
-from PythonAPI.custom_exceptions.follower_not_found import FollowerNotFound
-from PythonAPI.custom_exceptions.user_not_found import UserNotFound
-from PythonAPI.data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
+from custom_exceptions.follower_not_found import FollowerNotFound
+from custom_exceptions.user_not_found import UserNotFound
+from data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
 
 user_profile_dao = UserProfileDAOImp()
 

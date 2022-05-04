@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock
 
 from PythonAPI.custom_exceptions.birth_date_is_null import BirthDateIsNull
+from PythonAPI.custom_exceptions.image_format_must_be_a_string import ImageFormatMustBeAString
+from PythonAPI.custom_exceptions.image_must_be_a_string import ImageMustBeAString
 from PythonAPI.custom_exceptions.too_many_characters import TooManyCharacters
 from PythonAPI.custom_exceptions.user_id_must_be_an_integer import UserIdMustBeAnInteger
 from PythonAPI.data_access_layer.implementation_classes.user_profile_dao import UserProfileDAOImp
@@ -46,25 +48,48 @@ def test_service_update_user_profile_success():
     assert test_sao.update_user_profile_service(test_user)
 
 def test_service_get_user_image_non_numeric_user_id():
-    pass
+    try:
+        test_sao.get_user_image_service('this will not work')
+        assert False
+    except UserIdMustBeAnInteger as e:
+        assert str(e) == 'The user id must be an integer.'
 
 def test_service_get_user_image_success():
-    pass
+    test_sao.get_user_image_service=MagicMock(return_value=True)
+    assert test_sao.get_user_image_service(1)
 
 def test_service_update_user_image_non_numeric_user_id():
-    pass
+    try:
+        test_sao.update_user_image_service('this will not work', 'downloads/Husky.jpg')
+        assert False
+    except UserIdMustBeAnInteger as e:
+        assert str(e) == 'The user id must be an integer.'
 
 def test_service_update_user_image_format_not_string():
-    pass
+    try:
+        test_sao.update_user_image_service(1, 1)
+        assert False
+    except ImageMustBeAString as e:
+        assert str(e) == "The image must be a string format."
 
 def test_service_update_user_image_success():
-    pass
+    test_sao.update_user_image_service=MagicMock(return_value=True)
+    assert test_sao.update_user_image_service(1)
 
 def test_service_update_user_image_format_non_numeric_user_id():
-    pass
+    try:
+        test_sao.update_user_image_format_service('this will not work', 'downloads/Husky.jpg')
+        assert False
+    except UserIdMustBeAnInteger as e:
+        assert str(e) == 'The user id must be an integer.'
 
 def test_service_update_user_image_format_format_not_string():
-    pass
+    try:
+        test_sao.update_user_image_format_service(1, 1)
+        assert False
+    except ImageFormatMustBeAString as e:
+        assert str(e) == 'The image format must be a string.'
 
 def test_service_update_user_image_format_success():
-    pass
+    test_sao.update_user_image_format_service=MagicMock(return_value=True)
+    assert test_sao.update_user_image_format_service(1, 'downloads/Husky.jpg')

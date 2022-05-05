@@ -45,7 +45,6 @@ public class dataAccessGetUserTests
     }
 
     // Positive Test
-    // Note: DAO imp does not have search for last name. May need to implement it.
     @Test
     public void SearchUserByLastNameSuccess()
     {

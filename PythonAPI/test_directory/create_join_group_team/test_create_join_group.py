@@ -88,7 +88,7 @@ def test_service_join_group_no_group_id():
 
 def test_get_creator():
     result = GDI.get_creator(1)
-    assert result[0][0] == 'matt'
+    assert result[0][0] == 'John'
 
 def test_service_get_creator():
     GDI.get_creator = MagicMock(return_value='matt')

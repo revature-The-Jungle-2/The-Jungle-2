@@ -1,3 +1,4 @@
+import random
 
 from custom_exceptions.group_exceptions import NullValues, InputTooLong, InputTooShort, GroupNameTaken, \
     GroupIdNonExistent
@@ -6,7 +7,6 @@ from data_access_layer.implementation_classes.group_dao import GroupDAOImp
 from data_access_layer.implementation_classes.group_view_postgres_dao import GroupViewPostgresDao
 from entities.group import Group
 from service_layer.abstract_classes.group_service_abs import GroupService
-# from util import constraints
 
 
 class GroupPostgreService(GroupService):
@@ -31,7 +31,6 @@ class GroupPostgreService(GroupService):
         return self.group_dao.create_group(group)
 
     def service_join_group(self, group_id: int, user_id: int):
-        constraints
         if type(group_id) != int or type(user_id) != int:
             raise WrongType("please enter a number")
         return self.group_dao.join_group(group_id, user_id)
@@ -44,9 +43,3 @@ class GroupPostgreService(GroupService):
             raise GroupIdNonExistent("This Id does not exist")
         return result
 
-# #
-# GDI = GroupDAOImp()
-# GVPD = GroupViewPostgresDao()
-# GPS = GroupPostgreService(GDI, GVPD)
-# result = GPS.service_join_group(10000000,1)
-# print(result)

@@ -100,7 +100,7 @@ class UserProfileDAOImp(UserProfileDAO):
             raise UserNotFound(user_not_found_string)
 
         # Update the user image format.
-        sql = f"update user_table set "+schema_prefix+"image_format = %(image_format)s where user_id = %(user_id)s;"
+        sql = f"update "+schema_prefix+"user_table set image_format = %(image_format)s where user_id = %(user_id)s;"
         cursor = connection.cursor()
         cursor.execute(sql, {"image_format": image_format, "user_id": user_id})
         connection.commit()

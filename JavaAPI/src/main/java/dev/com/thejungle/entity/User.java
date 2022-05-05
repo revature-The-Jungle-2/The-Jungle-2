@@ -152,6 +152,4 @@ public class User {
     public void setImageFormat(String imageFormat) {
         this.imageFormat = imageFormat;
     }
-
-
 }

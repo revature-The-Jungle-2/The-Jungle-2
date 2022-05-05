@@ -1,5 +1,6 @@
 package serviceLayerTests;
 
+
 import dev.com.thejungle.customexception.InvalidInputException;
 import dev.com.thejungle.dao.implementations.ChatDAO;
 import dev.com.thejungle.entity.ChatMessage;
@@ -22,5 +23,10 @@ public class serviceLayerChatTests {
         ChatMessage chatMessage = new ChatMessage(1, 2, "message");
         chatservice.serviceCreateMessageObject(chatMessage);
 
+    @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid User ID")
+    public void serviceCreateMessageFailInvalidUserId(){
+        ChatMessage chatMessage = new ChatMessage(0, 20, "Jungle");
+        chatService.serviceCreateMessageObject(chatMessage);
     }
 }
+  

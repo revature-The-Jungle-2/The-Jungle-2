@@ -1,3 +1,3 @@
-class PostImageNotFound(Exception):
+class PostIdNonExistent(Exception):
     def __init__(self, message):
         self.message = message

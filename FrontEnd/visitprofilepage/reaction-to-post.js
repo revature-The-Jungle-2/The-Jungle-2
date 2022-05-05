@@ -1,12 +1,13 @@
 // let likeButton = document.getElementById("trigger");
 // console.log("JS is connected to HTML");
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
 
 // likeButton.onclick = 
 async function likePost(e){
 
     let fetchJson = JSON.stringify({"postId": e})
 
-    let url = "http://127.0.0.1:5000/postfeed"
+    let url = devUrlPython+"/postfeed"
     
     let theResponse = await fetch(url, {
         method:"POST",

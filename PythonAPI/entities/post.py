@@ -8,7 +8,6 @@ class Post:
                  likes: int = None,
                  date_time_of_creation: str = None
                  ):
-
         self.post_id = post_id
         self.user_id = user_id
         self.group_id = group_id
@@ -16,7 +15,6 @@ class Post:
         self.image_format = image_format
         self.likes = likes
         self.date_time_of_creation = date_time_of_creation
-
 
     def make_dictionary(self):
         dictionary = {
@@ -27,6 +25,5 @@ class Post:
             "image_data": self.image_format,
             "likes": self.likes,
             "date_time_of_creation": self.date_time_of_creation
-            }
+        }
         return dictionary
-

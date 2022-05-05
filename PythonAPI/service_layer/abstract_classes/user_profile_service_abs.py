@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from PythonAPI.entities.user import User
+from entities.user import User
 
 
 class UserProfileService(ABC):
@@ -31,12 +31,12 @@ class UserProfileService(ABC):
         pass
 
     @abstractmethod
-    def get_user_followers_service(self, user_id: int) -> dict[str:int]:
+    def get_user_followers_service(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         pass
 
     @abstractmethod
-    def get_users_following_user_service(self, user_id: int) -> dict[str:int]:
+    def get_users_following_user_service(self, user_id: int): #removed type annotation for return to hopefully fix amazon virtual machine glitch
         """Stretch"""
         pass
 

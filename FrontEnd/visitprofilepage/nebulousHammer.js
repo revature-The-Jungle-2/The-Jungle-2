@@ -1,4 +1,5 @@
 let userId = JSON.parse(localStorage.getItem("userInfo")).userId;
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
 
 
 // async function getPostImage(){// the postId and imageFormat will probably have to be passed as parameters
@@ -23,7 +24,7 @@ let userId = JSON.parse(localStorage.getItem("userInfo")).userId;
 async function createPost(){
     let postText = document.getElementById("postText");
     let postJson = JSON.stringify({"user_id":userId, "post_text": postText.value, "image_format": "false"});
-    let url = "http://127.0.0.1:5000/post"
+    let url = devUrlPython+"/post"
     let thePost = await fetch(url, {
         method:"POST",
         headers:{'Content-Type': 'application/json'}, 
@@ -49,7 +50,7 @@ async function createPostWithImage() {
 
       if (base64gif.length < 1_000_000 && base64gif.startsWith("data:image/")){
         let postJson = JSON.stringify({"user_id":userId, "post_text": postText, "image_format": "true"});
-        let url = "http://127.0.0.1:5000/post"
+        let url = devUrlPython+"/post"
         
         //Inserts the post into the post table
         let thePost = await fetch(url, {
@@ -59,7 +60,7 @@ async function createPostWithImage() {
 
         //Inserts the image into the post_image_table
         let response = await fetch(
-            "http://127.0.0.1:5000/post/image/" + thePost["post_id"], {
+            devUrlPython+"/post/image/" + thePost["post_id"], {
               method: "POST",
               headers: {"Content-Type": "application/json"},
               body: String(base64gif)
@@ -86,7 +87,7 @@ async function createPostWithImage() {
 
 
   async function getPost() {
-    let response = await fetch("http://127.0.0.1:5000/user/post/" + userId, {
+    let response = await fetch(devUrlPython+"/user/post/" + userId, {
       method: "GET",
       mode: "cors",
     });
@@ -103,7 +104,7 @@ async function createPostWithImage() {
       let postBox = document.createElement('div');
       
       //add the poster image
-      let url = "http://127.0.0.1:5000/user/image/" + post.user_id;
+      let url = devUrlPython+"/user/image/" + post.user_id;
       let response = await fetch(url);
       let user_image_text;
       if(response.status === 200){
@@ -111,7 +112,7 @@ async function createPostWithImage() {
         }
   
       //get the post image
-      url = "http://127.0.0.1:5000/post/image/" + post.post_id;
+      url = devUrlPython+"/post/image/" + post.post_id;
       console.log(url);
       response = await fetch(url);
       console.log(response);
@@ -169,7 +170,7 @@ async function createPostWithImage() {
   }
 
   async function deletePost(post_id) {
-    let deleteResponse = await fetch("http://127.0.0.1:5000/group_post/" + post_id, {
+    let deleteResponse = await fetch(devUrlPython+"/group_post/" + post_id, {
       method: "DELETE"
     })
     console.log(deleteResponse)
@@ -197,7 +198,7 @@ async function createPostWithImage() {
     let postBox = document.createElement('div');
       
       //add the poster image
-      let url = "http://127.0.0.1:5000/user/image/" + post.user_id;
+      let url = devUrlPython+"/user/image/" + post.user_id;
       let response = await fetch(url);
       let user_image_text;
       if(response.status === 200){
@@ -205,7 +206,7 @@ async function createPostWithImage() {
         }
   
       //get the post image
-      url = "http://127.0.0.1:5000/post/image/" + post.post_id;
+      url = devUrlPython+"/post/image/" + post.post_id;
       console.log(url);
       response = await fetch(url);
       console.log(response);

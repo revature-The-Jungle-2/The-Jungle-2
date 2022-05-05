@@ -6,8 +6,6 @@ import org.eclipse.jetty.server.UserIdentity;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-
 public class dataAccessChatTests {
 
 
@@ -41,12 +39,33 @@ public class dataAccessChatTests {
         ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
         Assert.assertEquals(testCreateMessage.getChatContent(), "Welcome");
 
+    }
+
+    //Duplicate ID
+
+    @Test()
+    public void createChatMessageDuplicateChatId(){
+        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertNull(testCreateMessage);
 
     }
+
     @Test()
-    public void getMessageHistorySuccess() {
-        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(1);
-        Assert.assertFalse(testGetMessage.isEmpty());
+    public void createChatMessageDuplicateGroupID(){
+        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertNull(testCreateMessage);
+    }
+
+    @Test()
+    public void createChatMessageDuplicateChatContent(){
+        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertNull(testCreateMessage);
+
+
+
     }
 
 

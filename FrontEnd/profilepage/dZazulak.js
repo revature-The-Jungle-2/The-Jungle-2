@@ -3,13 +3,14 @@ const userAboutMe = document.getElementById("userAboutMeInput");
 const modalMessageDiv = document.getElementById("profileModalMsg");
 const followerSectionDiv = document.getElementById("followers-div");
 const groupSectionDiv = document.getElementById("groups-div");
-const devUrl="http://44.200.50.0:8000";
+const devUrlJava="http://44.200.50.0:8000";
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
 /*
     Grabs the user profile information from the update profile modal and sends it through the layers
 */
 async function updateUserProfileData(){
     // Will need to update this to use the current user's ID
-    let url = devUrl+"/user/profile/update/9000"
+    let url = devUrlPython+"/user/profile/update/9000"
 
     let updateUserProfileJSON = JSON.stringify({"firstName": "Shouldn't change",
     "lastName": "Shouldn't change",
@@ -66,7 +67,7 @@ function successMessageForProfileModal(){
 }
 
 async function getUserFollowers(){
-    let url = "http://127.0.0.1:5000/user/followers/32"
+    let url = devUrlPython+"/user/followers/32"
 
     let response = await fetch(url);
 
@@ -110,7 +111,7 @@ function populateUserFollowers(followerBody){
 async function getFollowerImage(followerBody){
     for(follower in followerBody){
         let image_Element = document.getElementById(`${follower}-image`);
-        let url = `http://127.0.0.1:5000/user/image/${followerBody[follower]}`;
+        let url = devUrlPython+`/user/image/${followerBody[follower]}`;
         console.log(url);
         let response = await fetch(url);
         if(response.status === 200){
@@ -122,7 +123,7 @@ async function getFollowerImage(followerBody){
 }
 
 async function getGroupsForUser(){
-    let url = "http://127.0.0.1:5000/group/user/10"
+    let url = devUrlPython+"/group/user/10"
 
     let response = await fetch(url);
 

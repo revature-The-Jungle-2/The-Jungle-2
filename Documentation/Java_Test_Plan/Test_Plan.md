@@ -158,6 +158,97 @@
 + Service Access Layer
  - ChatIdInvalid                    [16.3]
 
+ ### End 2 End tests acceptance criteria/id information for POM
+ogin page:
+	username field: usernameInput
+	password field: passcodeInput
+	submit button: submitLogin
+	
+	registration link: /html/body/div/div/div[1]/div/div[4]/span/span/a
+
+	error message p element invalid credential: errorMessageGoesHere
+	error message p element no username: signup-invalid-message
+
+profile-page:
+	chat link: /html/body/div/div/div[5]/div[1]/a/span
+	username search input box: searchInputBox
+	username search button: searchButton
+	drop down for username search results: searchList
+
+chat page:
+	chat window: chat-box
+	chat message input field: message
+	chat send button: send
+	group chat link: //*[@id="1"]
+	message inside of chat: //*[@id="chat"]/div/div
+
+registration page:
+	first name input field: signup-firstname
+	last name input field: signup-lastname
+	email input: signup-email
+	bday input: signup-bdate
+	username input: signup-username
+	password input: signup-password
+	error message p element: signup-invalid-message
+	submit button: signup-submit
+	<no error message for bad submission to api>
+
+
+acceptance criteria for java functionality:
+Feature:
+Scenario: As an un registered user i should not ba able to log in to access the profile page.
+Given i am on the login page
+When i enter a username
+When i enter a password
+When i click the login submit button
+Then i should be informed of incorrect credentials and remain on the login page
+
+Scenario: As an unregistered user i should be able to register a profile for access to the profile page.
+Given i am on the login page
+When i click on the sign up link
+Then i am redirected to the registration page
+
+
+this scenario will need to e broken down for the actual testing into unique tests for the input or lack thereof
+
+Scenario: As an unregistered user i should not be able to submit incomplete profile information
+Given i am on the registration page
+When i fail to enter a firstname i am told the firstname but be present
+When i fail to enter a lastname i am told the lastname but be present
+When i fail to enter a properly formtted email or leave the email blank i am told the email must be present or in correct format
+When i fail to enter a DOB i am told the DOB must be present
+When i fail to enter a properly formatted username or leave the username black i am told the username is missing or must be properly formatted
+When i fail to enter a properly formatted password or leave the password black i am told the password is missing or must be properly formatted
+Then i remain on the registration page
+
+Scenario: As an unregistered user i should be able to successfully create a profile
+Given i am on the registration page
+When i enter my profile info correctly
+When i click the registration submit button
+Then my profile is created and i am redirected to my profile page
+
+Scenario: As a registered user i should be able to log in to access my profile page
+Given i am on the log in page
+When i enter a username
+When i enter a password
+When i click the login submit button
+Then i am logged in and redirected to my profile page
+
+Scenario: As a user i should be able to access and use the chat from my profile page
+Given i am logged in an on my profile page
+When i click on the chat link
+When i am on the chat page i enter a message in the message input
+When i click on the send message button
+Then my message is seen in the chat window
+
+Scenario: As a user i should be able to access and use the group chat feature as well
+Given i am logged in an on my profile page
+When i click on the chat link
+When i am on the chat page i click on a group chat link
+When i click on the alert message informing me i am being switched to the group chat
+Then i have access to a group chat
+
+
 # Deadline
  - May 05, 2022 Unit Testing
  - Postman

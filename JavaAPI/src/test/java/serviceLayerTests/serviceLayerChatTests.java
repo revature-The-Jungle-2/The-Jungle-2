@@ -38,4 +38,3 @@ public class serviceLayerChatTests {
         chatservice.serviceGetMessageHistory(0);
     }
 }
-  

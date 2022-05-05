@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 
 public class serviceLayerCreateUserTests
 {
-    public UserDAO userDAOImp = new UserDAO();
-    public UserService userServiceSAOImp = new UserService(userDAOImp);
+    public static UserDAO userDAOImp = new UserDAO();
+    public static UserService userServiceSAOImp = new UserService(userDAOImp);
     public static User testUser;
 
     //    @BeforeClass

@@ -21,7 +21,8 @@ public class serviceLayerChatTests {
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid Chat Content")
     public void serviceCreateMessageObjectInvalidChatContent() {
         ChatMessage chatMessage = new ChatMessage(1, 2, "message");
-        chatservice.serviceCreateMessageObject(chatMessage);
+        chatservice.serviceCreateMessageObject(chatMessage);  
+    }
 
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid User ID")
     public void serviceCreateMessageFailInvalidUserId(){

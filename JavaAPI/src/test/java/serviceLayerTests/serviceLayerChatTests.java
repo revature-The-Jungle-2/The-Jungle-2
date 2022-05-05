@@ -27,7 +27,7 @@ public class serviceLayerChatTests {
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid User ID")
     public void serviceCreateMessageFailInvalidUserId(){
         ChatMessage chatMessage = new ChatMessage(0, 20, "Jungle");
-        chatService.serviceCreateMessageObject(chatMessage);
+        chatservice.serviceCreateMessageObject(chatMessage);
     }
 }
   

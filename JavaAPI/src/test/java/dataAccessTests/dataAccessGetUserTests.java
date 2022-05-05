@@ -32,7 +32,7 @@ public class dataAccessGetUserTests
 
 
 
-
+/*
             /////////////// Need to implement dao methods /////////////////
     // Positive Test
     // Note: DAO imp does not have search for first name. May need to implement it.
@@ -60,7 +60,7 @@ public class dataAccessGetUserTests
     {
         User testUser = userDAOImp.getUserByFirstName("NoFirstName");
         User newUser = new User(3, "first", "last", "email@something.net", "newuser", 1903-01-02);
-        Assert.assertNotEquals()
+        //Assert.assertNotEquals();
     }
 
     // Negative Test
@@ -73,7 +73,7 @@ public class dataAccessGetUserTests
         Assert.assertEquals(testUser,newUser);
     }
 
-
+*/
 
 
 

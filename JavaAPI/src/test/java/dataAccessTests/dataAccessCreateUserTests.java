@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class dataAccessCreateUserTests
 {
-    public UserDAO userDAOImp = new UserDAO();
+    public static UserDAO userDAOImp = new UserDAO();
 
     int min = 001;
     int max = 10000;

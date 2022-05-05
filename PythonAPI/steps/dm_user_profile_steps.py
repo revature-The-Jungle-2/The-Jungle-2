@@ -2,12 +2,12 @@ from behave import given, when, then
 
 @given(u'I am on the login page')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given I am on the login page')
+    context.driver.get("C:/Users/Almas/Desktop/The-Jungle-2/PythonAPI/chromedriver.exe")
 
 
 @when(u'I enter my <username>')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I enter my username')
+    context.dm_user_profile_pom.user_username().
 
 
 @when(u'I enter my <password>')

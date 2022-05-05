@@ -14,7 +14,7 @@ class UserProfileDAOImp(UserProfileDAO):
 
     def get_user_profile(self, user_id: int) -> User:
         """Grabs data from the user profile by user id"""
-        sql = 'select * from "+schema_prefix+"user_table where user_id = %(user_id)s'
+        sql = "select * from "+schema_prefix+"user_table where user_id = %(user_id)s"
         cursor = connection.cursor()
         cursor.execute(sql, {"user_id": user_id})
         profile_record = cursor.fetchone()

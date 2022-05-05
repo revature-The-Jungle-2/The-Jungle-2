@@ -76,9 +76,11 @@ like_post_service = LikePostServiceImp(like_post_dao)
 @app.get("/user/<user_id>")
 def get_a_user_id(user_id: int):
     try:
-        user = user_profile_service.service_get_user_profile_service(int(user_id))
+        user = user_profile_service.service_get_user_profile_service(user_id)
         user_as_dictionary = user.make_dictionary()
         return jsonify(user_as_dictionary), 200
+    except UserIdMustBeAnInteger as e:
+        return str(e), 400
     except UserNotFound as e:
         return str(e), 400
 

@@ -28,7 +28,7 @@
         - Unique                    [3.1]
 
     - createUerUsername
-         - Unique                   [4.1]
+        - Unique                   [4.1]
 
 + Service Layer
 
@@ -87,8 +87,8 @@
 ### Get User Tests
 
 + Data Access Layer
-     - Success                      [10.1]
-     - UserIdFirstNameMatch         [10.2]
+    - Success                       [10.1]
+    - UserIdFirstNameMatch          [10.2]
     - UserIdLastNameMatch           [10.3]
     - InvalidUsername               [10.4]
     - UserIDUsernameMatch           [10.5]
@@ -124,15 +124,15 @@
 
 ### Get Groups Names
 + Data Access Layer
-     - Success                      [13.1]
+    - Success                      [13.1]
 
 + Service Access Layer 
-     - GroupDoesNotExist            [13.2]
-    - UserIdGroupIdNoMatch          [13.3]  <- returning a group that you aren't apart of>
+    - GroupDoesNotExist            [13.2]
+    - UserIdGroupIdNoMatch         [13.3]  <- returning a group that you aren't apart of>
 
 ### Get Groups
 + Data Access Layer
-     - Success                      [14.1]
+    - Success                      [14.1]
 
 + Service Access Layer 
     - GroupIdDoesNotExist           [14.2]
@@ -141,7 +141,7 @@
 ## Chat Testing
 ### Create Message
 + Data Access Layer
-     - Success                      [15.1]
+    - Success                      [15.1]
 
 + Service Access Layer     
     - InvalidUserId                 [15.2]
@@ -152,11 +152,11 @@
 
 ### Get Message History
 + Data Access Layer
-     - Success                      [16.1]
-     - NegativeGroupId              [16.2]
+    - Success                      [16.1]
+    - NegativeGroupId              [16.2]
 
 + Service Access Layer
- - ChatIdInvalid                    [16.3]
+    - ChatIdInvalid                    [16.3]
 
 # Deadline
  - May 05, 2022 Unit Testing

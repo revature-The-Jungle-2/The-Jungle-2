@@ -132,7 +132,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!-- put your testng.xml file here -->
-                        <!--<suiteXmlFile>testng.xml</suiteXmlFile>-->
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

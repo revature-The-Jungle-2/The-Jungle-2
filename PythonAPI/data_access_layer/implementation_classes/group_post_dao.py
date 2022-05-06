@@ -8,6 +8,7 @@ from util.database_connection import connection
 schema_prefix = "p3."
 
 class GroupPostDAO(GroupPostDAOAbs):
+
     def create_post(self, post: GroupPost) -> GroupPost:
         try:
             sql = "insert into "+schema_prefix+"post_table values(default, %s, %s, %s, %s, %s, default) returning post_id"

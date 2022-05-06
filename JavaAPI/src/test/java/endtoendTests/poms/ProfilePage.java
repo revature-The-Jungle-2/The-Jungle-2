@@ -2,6 +2,7 @@ package endtoendTests.poms;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class ProfilePage {
     private WebDriver driver;
@@ -18,5 +19,11 @@ public class ProfilePage {
     private By userBirthdayInput = By.id("userBirthdateInput");
     private By saveChangesEditProfileButton = By.id("updateProfileModalBtn");
     private By closeEditProfileButton = By.id("updateProfileCloseModalBtn");
+
+    public ProfilePage(WebDriver driver){
+        this.driver = driver;
+        // the page factory abstracts away the logic for interacting with web elements
+        PageFactory.initElements(driver,this);
+    }
 
 }

@@ -240,12 +240,8 @@ def create_group():
 @app.get("/group/join/<group_id>/<user_id>")
 def join_group(group_id: str, user_id: str):
     try:
-        group_joined = group_service2.service_join_group(int(group_id), int(user_id))
-        group_joined_dictionary = {
-            "groupId": group_joined[0],
-            "userId": group_joined[1]
-        }
-        return jsonify(group_joined_dictionary), 200
+        result = group_service2.service_join_group(int(group_id), int(user_id))
+        return jsonify(result), 200
     except WrongId as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -276,7 +272,7 @@ def get_all_groups():
         for groups in groups_as_groups:
             dictionary_group = groups.make_dictionary()
             groups_as_dictionary.append(dictionary_group)
-        return jsonify(groups_as_dictionary)
+        return jsonify(groups_as_dictionary), 200
     except GroupNotFound as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -289,7 +285,7 @@ def get_all_groups_by_user_id(user_id: str):
         for groups in groups_as_groups:
             dictionary_group = groups.make_dictionary()
             groups_as_dictionary.append(dictionary_group)
-        return jsonify(groups_as_dictionary)
+        return jsonify(groups_as_dictionary), 200
     except UserNotFound as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -559,4 +555,4 @@ def unfollow_user(user_follower_id: int, user_being_followed_id: int):
         exception_json = jsonify(exception_dictionary)
         return exception_json, 400
 
-app.run()
+app.run(debug=False)

@@ -72,5 +72,4 @@ class GroupDAOImp(GroupDAO):
         cursor = connection.cursor()
         cursor.execute(sql, (group_id, user_id))
         connection.commit()
-        group_joined = cursor.fetchone()
-        return group_joined
+        return True

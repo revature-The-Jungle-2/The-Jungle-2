@@ -3,6 +3,7 @@ package endtoendTests.runner;
 
 
 
+import endtoendTests.poms.*;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
@@ -27,7 +28,7 @@ import java.time.Duration;
             plugin: this is an optional setting we use to generate a nice html report of the test results
          */
         features = {"src/test/java/endtoendTests/features"},
-//        glue = "src/test/java/endtoendTests/steps",
+//      glue = "src/test/java/endtoendTests/steps",
         glue = {"steps"},
         plugin = {"pretty","html:src/html-e2e-report.html"}
 )
@@ -40,6 +41,12 @@ public class TestRunner {
 
     public static WebDriver driver;
     public static WebDriverWait wait;
+    public static ChatPage chatPage;
+    public static GroupsPage groupsPage;
+    public static IndividualGroupsPage individualGroupsPage;
+    public static LoginPage loginPage;
+    public static ProfilePage profilePage;
+    public static SignupPage signupPage;
 
 
     @BeforeClass
@@ -50,10 +57,16 @@ public class TestRunner {
         driver = new ChromeDriver();
 
 ;
+        chatPage = new ChatPage(driver);
+        groupsPage = new GroupsPage(driver);
+        individualGroupsPage = new IndividualGroupsPage(driver);
+        loginPage = new LoginPage(driver);
+        profilePage = new ProfilePage(driver);
+        signupPage = new SignupPage(driver);
 
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-            wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        wait = new WebDriverWait(driver,Duration.ofSeconds(4));
     }
 
 

@@ -1,3 +1,5 @@
+import random
+
 from custom_exceptions import group_id_nonexistent
 
 from custom_exceptions.group_name_already_taken import GroupNameAlreadyTaken
@@ -36,7 +38,7 @@ class GroupDAOImp(GroupDAO):
             raise GroupNameAlreadyTaken('That group name has already been taken.')
 
         # create the group
-        sql = 'insert into "+schema_prefix+"group_table values(default, %s, %s, %s, %s) returning group_id'
+        sql = "insert into "+schema_prefix+"group_table values(default, %s, %s, %s, %s) returning group_id"
         cursor = connection.cursor()
         cursor.execute(sql, (group.user_id, group.group_name, group.group_about, group.image_format))
         connection.commit()
@@ -72,8 +74,3 @@ class GroupDAOImp(GroupDAO):
         connection.commit()
         group_joined = cursor.fetchone()
         return group_joined
-
-a=GroupDAOImp()
-print(a.join_group(1,1))
-
-

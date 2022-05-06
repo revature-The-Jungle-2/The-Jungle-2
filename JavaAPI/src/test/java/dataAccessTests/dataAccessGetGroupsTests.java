@@ -5,13 +5,54 @@ import dev.com.thejungle.entity.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class dataAccessGetGroupsTests {
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class dataAccessGetGroupsTests
+{
 
     public static UserDAO userDAOImp = new UserDAO();
 
-    public void getGroupSuccess(){
+    // Positive Test
+    //This gets/displays an array list of the group id a person is in by userID
+    @Test
+    public void getGroupSuccess()
+    {
+        ArrayList<Integer> result = userDAOImp.getGroups(1);
+        Assert.assertTrue(result.size() >= 1);
 
     }
+
+    // Negative Test
+    // Note: This incorrectly returns invalid input exception. It should say groups DNE because user DNE.
+    @Test
+    public void getGroupFailure()
+    {
+        ArrayList<Integer> result = userDAOImp.getGroups(100);
+        Assert.assertEquals(result.size(), 0);
+
+    }
+
+
+    // Positive Test
+    // This displays a hash map of the group id/name of the groups a person is in by userID
+    @Test
+    public void getGroupNamesSuccess()
+    {
+        HashMap<Integer, String> result = userDAOImp.getGroupsNames(1);
+        Assert.assertTrue(result.size() >= 1);
+
+    }
+
+    // Negative Test
+    @Test
+    public void getGroupNamesFailure()
+    {
+        HashMap<Integer, String> result = userDAOImp.getGroupsNames(100);
+        Assert.assertEquals(result.size(), 0);
+
+    }
+
 
 
 

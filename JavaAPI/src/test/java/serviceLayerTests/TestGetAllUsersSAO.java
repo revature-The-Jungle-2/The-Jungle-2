@@ -30,4 +30,9 @@ public class TestGetAllUsersSAO {
         Assert.assertTrue(lst.size() >= 2);
     }
 
+    @Test
+    public void getAllUsersEmpty() {
+        List<User> lst = userServiceSAOImp.getAllUsersService();
+        Assert.assertFalse(lst.isEmpty());
+    }
 }

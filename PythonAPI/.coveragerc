@@ -1,0 +1,6 @@
+[run]
+omit =
+    data_access_layer/implementation_classes/comment_dao.py
+    data_access_layer/implementation_classes/like_post_dao.py
+    service_layer/implementation_classes/comment_service.py
+    service_layer/implementation_classes/like_post_service.py

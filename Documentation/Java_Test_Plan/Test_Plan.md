@@ -251,8 +251,8 @@ Then i have access to a group chat
 
 # Deadline
  - May 05, 2022 Unit Testing
- - Postman
- - End to End
+ - May 05, 2022 Postman
+ - May 09, 2022 End to End
  - May 11, 20222 Code Freeze
  - May 12, 20222 for presentation
  

@@ -43,38 +43,15 @@ public class dataAccessChatTests {
 
     }
 
-    //Duplicate ID
-
     @Test()
-    public void createChatMessageDuplicateChatId(){
-        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
-        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-        Assert.assertNull(testCreateMessage);
-
-    }
-
-    @Test()
-    public void createChatMessageDuplicateGroupID(){
-        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
-        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-        Assert.assertNull(testCreateMessage);
-    }
-
-    @Test()
-    public void createChatMessageDuplicateChatContent(){
-        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
-        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-        Assert.assertNull(testCreateMessage);
-
-
-
-    }
-
-
-    @Test()
-    public void getMessageHistoryChatIdSuccess(){
-        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(0);
+    public void getMessageHistoryGroupIdSuccess(){
+        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(1);
         Assert.assertFalse(testGetMessage.isEmpty());
+    }
+    @Test
+    public void getMessageHistoryWrongGroupId(){
+        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(-1);
+        Assert.assertTrue(testGetMessage.isEmpty());
     }
 
 }

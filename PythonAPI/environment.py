@@ -10,7 +10,7 @@ def before_all(context: Context):
     #context.driver = webdriver.Chrome("chromedriver.exe") #change this as needed
     context.driver = WebDriver()
     ###PUT YOUR POM CONTEXTS BETWEEN THESE LINES.###
-    context.UserProfile = UserProfile(context.driver)
+    context.user_profile_pom = UserProfile(context.driver)
 
 
 

@@ -32,17 +32,6 @@ public class serviceLayerGetGroupsTests {
     int f = (int)(Math.random()*(max-min+1)+min);
 
 
-
-
-    @Test
-    public void groupIdDoesNotExist(){
-
-    }
-    @Test
-    public void groupNameTooLong(){
-
-    }
-
     // Negative Test
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "User Id needs to be positive and in range")
     public void getGroupOutOfRangeIDFailure()

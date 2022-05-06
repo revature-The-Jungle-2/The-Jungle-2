@@ -31,4 +31,9 @@ public class serviceLayerChatTests {
         ChatMessage chatMessage = new ChatMessage(0, 20, "Jungle");
         chatservice.serviceCreateMessageObject(chatMessage);
     }
+
+    @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid Input Exception")
+    public void serviceGetMessageHistoryNoGroupID(){
+        chatservice.serviceGetMessageHistory(0);
+    }
 }

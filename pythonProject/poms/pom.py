@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.safari.webdriver import WebDriver
 class UserProfile:
 
@@ -37,8 +36,4 @@ class UserProfile:
 
     def save_changes_button(self):
         element: WebElement = self.driver.find_element(By.ID, "updateProfileModalBtn")
-        return element
-
-    def follower_button(self):
-        element: WebElement = self.driver.find_element(By.ID, "FIND OUT LATER")
         return element

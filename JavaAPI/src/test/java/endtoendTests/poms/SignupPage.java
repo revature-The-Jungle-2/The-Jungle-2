@@ -22,4 +22,57 @@ public class SignupPage {
         PageFactory.initElements(driver,this);
     }
 
+    public void clickSignupFirstName(){
+        driver.findElement(signupFirstName).click();
+    }
+
+    public void sendKeysToFirstNameSignup(String input){
+        driver.findElement(signupFirstName).sendKeys(input);
+    }
+
+    public void clickSignupLastName(){
+        driver.findElement(signupLastName).click();
+    }
+
+    public void sendKeysToLastNameSignup(String input){
+        driver.findElement(signupLastName).sendKeys(input);
+    }
+
+    public void clickSignupEmail(){
+        driver.findElement(signupEmail).click();
+    }
+
+    public void sendKeysSignupEmail(String input){
+        driver.findElement(signupEmail).sendKeys(input);
+    }
+
+    public void clickSignupBirthdate(){
+        driver.findElement(signupBirthDate).click();
+    }
+
+    public void sendKeysSignupBirthdate(String input){
+        driver.findElement(signupBirthDate).sendKeys(input);
+    }
+
+    public void clickSignupUsername(){
+        driver.findElement(signupUsername).click();
+    }
+
+    public void sendKeysSignupUsername(String input){
+        driver.findElement(signupUsername).sendKeys(input);
+    }
+
+    public void clickSignupPassword(){
+        driver.findElement(signupPassword).click();
+    }
+
+    public void sendKeysSignupPassword(String input){
+        driver.findElement(signupPassword).sendKeys(input);
+    }
+
+    public void clickSignupButton(){driver.findElement(signupButton).click();
+    }
+
+
+
 }

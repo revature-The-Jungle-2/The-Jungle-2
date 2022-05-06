@@ -6,6 +6,8 @@ import org.eclipse.jetty.server.UserIdentity;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+
 public class dataAccessChatTests {
 
 

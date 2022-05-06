@@ -17,7 +17,6 @@ public class serviceLayerChatTests {
     public void serviceCreateMessageObjectInvalidGroupId() {
         ChatMessage chatMessage = new ChatMessage(1, -1, "message");
         chatservice.serviceCreateMessageObject(chatMessage);
-
     }
 
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Long Content")

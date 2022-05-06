@@ -16,10 +16,9 @@ public class dataAccessChatTests {
 
     @Test()
     public void createMessageChatIdSuccess() {
-    ChatMessage chatMessage = new ChatMessage(1, 1, "Welcome");
-    ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-    Assert.assertTrue(testCreateMessage.getUserId()!= 0);
-
+        ChatMessage chatMessage = new ChatMessage(1, 1, "Welcome");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertTrue(testCreateMessage.getUserId()!= 0);
     }
 
 
@@ -28,7 +27,6 @@ public class dataAccessChatTests {
         ChatMessage chatMessage = new ChatMessage(1,1,"Welcome");
         ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
         Assert.assertTrue(testCreateMessage.getGroupId()!= 0);
-
     }
 
     @Test()

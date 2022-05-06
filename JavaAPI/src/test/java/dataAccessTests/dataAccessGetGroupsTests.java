@@ -24,6 +24,7 @@ public class dataAccessGetGroupsTests
     }
 
     // Negative Test
+    // Note: This incorrectly returns invalid input exception. It should say groups DNE because user DNE.
     @Test
     public void getGroupFailure()
     {

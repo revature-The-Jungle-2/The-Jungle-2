@@ -24,7 +24,6 @@ Feature: As a User, I should be able to create and maintain a profile page that 
     When  I click the save changes button
     Then  I am left in the pop up
 
-    Examples:
      Examples:
        | username | password | about_me      | birthday |
        | username | password | I am a person |          |
@@ -41,7 +40,6 @@ Feature: As a User, I should be able to create and maintain a profile page that 
     When  I click the save changes button
     Then  I am left in the pop up
 
-    Examples:
      Examples:
        | username | password | about_me | birthday |
        | username | password | thisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylong         | 01011997 |
@@ -61,3 +59,7 @@ Feature: As a User, I should be able to create and maintain a profile page that 
       | username | password | about_me      | birthday |
       | username | password | I am a person | 01011997 |
 
+  Scenario:  As a User, I should be able to go to another user's profile
+    Given I am on the profile page
+    When  I click on my follower
+    Then  I am on their profile

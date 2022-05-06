@@ -3,7 +3,6 @@ package endtoendTests.runner;
 
 
 
-import endtoendTests.poms.ChatHome;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
@@ -51,7 +50,7 @@ public class TestRunner {
         driver = new ChromeDriver();
 
 ;
-            
+
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
             wait = new WebDriverWait(driver,Duration.ofSeconds(4));

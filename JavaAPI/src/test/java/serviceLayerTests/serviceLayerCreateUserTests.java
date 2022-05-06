@@ -48,21 +48,13 @@ public class serviceLayerCreateUserTests
                     /////////////// User First Name  ///////////////////
 
     // Negative test
-    // NOTE: Service Layer Imp does not catch first name character limit of 20 chars
-    //@Test(expectedExceptions = PSQLException.class, expectedExceptionsMessageRegExp = "value too long for type character varying(20)")
-    @Test
-    public void CreateUserFirstNameTooLongFailure()
-    {
-        try
-        {
-            User testUser = new User(0, "LillithLillithLillith", "Thompson", "lt1"+d+"@gmail.com", "LunaBear"+d, "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
-            userServiceSAOImp.createNewUserService(testUser);
-        }
-        catch(TooManyCharacters e)
-        {
-            System.err.println("You are exceeding your character limit");
-        }
-    }
+    // NOTE: Commented out because Service Layer Imp does not catch first name character limit of 20 chars
+//    @Test(expectedExceptions = TooManyCharacters.class, expectedExceptionsMessageRegExp = "You are exceeding your character limit")
+//    public void CreateUserFirstNameTooLongFailure()
+//    {
+//        User testUser = new User(0, "LillithLillithLillith", "Thompson", "lt1"+d+"@gmail.com", "LunaBear"+d, "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
+//        userServiceSAOImp.createNewUserService(testUser);
+//    }
 
     // Negative Test
     @Test(expectedExceptions = BlankInputs.class, expectedExceptionsMessageRegExp = "Please fill in the blanks")

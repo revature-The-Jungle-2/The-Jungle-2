@@ -5,6 +5,7 @@ import dev.com.thejungle.customexception.*;
 import dev.com.thejungle.entity.User;
 import dev.com.thejungle.service.implementations.UserService;
 import io.javalin.http.Handler;
+import org.postgresql.util.PSQLException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -158,6 +159,12 @@ public class UserController {
             ctx.result(resultsJson);
             ctx.status(200);
         } catch (InvalidInputException e) {
+            HashMap<String, String> message = new HashMap<>();
+            message.put("errorMessage", e.getMessage());
+            ctx.result(gson.toJson(message));
+            ctx.status(400);
+        }
+        catch (UserNotFound e) {
             HashMap<String, String> message = new HashMap<>();
             message.put("errorMessage", e.getMessage());
             ctx.result(gson.toJson(message));

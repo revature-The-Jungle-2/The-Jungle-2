@@ -3,7 +3,6 @@ package endtoendTests.runner;
 
 
 
-import endtoendTests.poms.ChatHome;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
@@ -40,7 +39,6 @@ public class TestRunner {
      */
 
     public static WebDriver driver;
-    public static ChatHome chatHome;
     public static WebDriverWait wait;
 
 
@@ -51,7 +49,6 @@ public class TestRunner {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
 
-            chatHome = new ChatHome(driver);
 ;
 
 

@@ -40,7 +40,6 @@ public class TestRunner {
      */
 
     public static WebDriver driver;
-    public static ChatHome chatHome;
     public static WebDriverWait wait;
 
 
@@ -51,9 +50,8 @@ public class TestRunner {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
 
-            chatHome = new ChatHome(driver);
 ;
-
+            
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
             wait = new WebDriverWait(driver,Duration.ofSeconds(4));

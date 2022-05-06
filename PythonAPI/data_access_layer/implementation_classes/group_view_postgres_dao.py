@@ -12,7 +12,10 @@ class GroupViewPostgresDao(GroupViewDao):
         cursor = connection.cursor()
         cursor.execute(sql, [group_id])
         group_records = cursor.fetchone()
-        group = Group(*group_records)
+        try:
+            group = Group(*group_records)
+        except:
+            return None
         return group
 
     def get_all_groups(self) -> List[Group]:
@@ -34,3 +37,4 @@ class GroupViewPostgresDao(GroupViewDao):
         for group in group_records:
             group_list.append(Group(*group))
         return group_list
+

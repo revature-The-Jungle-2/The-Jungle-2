@@ -14,7 +14,7 @@ def test_get_all_posts():
 # def test_get_all_posts_not_found():
 
 def test_delete_a_post():
-    delete = Post()
+    delete = Post(-1)
     result = PFImp.delete_a_post(delete.post_id)
     assert result == True
 

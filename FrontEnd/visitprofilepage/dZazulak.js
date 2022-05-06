@@ -7,7 +7,8 @@ const profileUsername = document.getElementById("profileUsername");
 const profileDOB = document.getElementById("profileDOB");
 const profileEmail = document.getElementById("profileEmail");
 const devUrlJava="http://44.200.50.0:8000";
-const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
+//const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
+const devUrlPython="http://127.0.0.1:5000"
 visitedUserId = localStorage.getItem("visitUserIdPage");
 
 

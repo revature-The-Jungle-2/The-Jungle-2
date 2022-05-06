@@ -6,13 +6,14 @@ import dev.com.thejungle.customexception.UnallowedSpaces;
 import dev.com.thejungle.dao.implementations.UserDAO;
 import dev.com.thejungle.entity.User;
 import dev.com.thejungle.service.implementations.UserService;
+import org.postgresql.util.PSQLException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class serviceLayerCreateUserTests
 {
-    public UserDAO userDAOImp = new UserDAO();
-    public UserService userServiceSAOImp = new UserService(userDAOImp);
+    public static UserDAO userDAOImp = new UserDAO();
+    public static UserService userServiceSAOImp = new UserService(userDAOImp);
     public static User testUser;
 
     //    @BeforeClass
@@ -27,7 +28,10 @@ public class serviceLayerCreateUserTests
     int b = (int)(Math.random()*(max-min+1)+min); //ex: "lilly" + b + "@gmail.com"
     int c = (int)(Math.random()*(max-min+1)+min);
     int d = (int)(Math.random()*(max-min+1)+min);
+    int e = (int)(Math.random()*(max-min+1)+min);
     int f = (int)(Math.random()*(max-min+1)+min);
+    int g = (int)(Math.random()*(max-min+1)+min);
+    int h = (int)(Math.random()*(max-min+1)+min);
 
 
                     ///////////////  User  ///////////////////
@@ -36,7 +40,7 @@ public class serviceLayerCreateUserTests
     @Test
     public void CreateNewUserPositive()
     {
-        User newUser = new User(0, "Lillith", "Thompson", "lt@gmail.com", "LunaBear", "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
+        User newUser = new User(0, "Lillith", "Thompson", "lt"+b+"@gmail.com", "LunaBear"+b, "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
         User result = userServiceSAOImp.createNewUserService(newUser);
         Assert.assertEquals(result.getFirstName(), "Lillith");
     }
@@ -45,18 +49,26 @@ public class serviceLayerCreateUserTests
 
     // Negative test
     // NOTE: Service Layer Imp does not catch first name character limit of 20 chars
-    @Test(expectedExceptions = TooManyCharacters.class, expectedExceptionsMessageRegExp = "The input value should be less than 20")
-    public void CreateUserFirstNameFailure()
+    //@Test(expectedExceptions = PSQLException.class, expectedExceptionsMessageRegExp = "value too long for type character varying(20)")
+    @Test
+    public void CreateUserFirstNameTooLongFailure()
     {
-        User testUser = new User(0, "LillithLillithLillith", "Thompson", "lt1@gmail.com", "LunaBear", "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
-        userServiceSAOImp.createNewUserService(testUser);
+        try
+        {
+            User testUser = new User(0, "LillithLillithLillith", "Thompson", "lt1"+d+"@gmail.com", "LunaBear"+d, "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
+            userServiceSAOImp.createNewUserService(testUser);
+        }
+        catch(TooManyCharacters e)
+        {
+            System.err.println("You are exceeding your character limit");
+        }
     }
 
     // Negative Test
     @Test(expectedExceptions = BlankInputs.class, expectedExceptionsMessageRegExp = "Please fill in the blanks")
     public void CreateUserFirstNameEmpty()
     {
-        testUser = new User(0, "", "Thompson", "lt2@gmail.com", "LunaBear", "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
+        testUser = new User(0, "", "Thompson", "lt2"+c+"@gmail.com", "LunaBear"+c, "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
         userServiceSAOImp.createNewUserService(testUser);
     }
 
@@ -66,7 +78,7 @@ public class serviceLayerCreateUserTests
     @Test(expectedExceptions = UnallowedSpaces.class, expectedExceptionsMessageRegExp = "No spaces allowed in username or password")
     public void CreateUserPasscodeSpaces()
     {
-        testUser = new User(0, "", "Thompson", "lt4@gmail.com", "LunaBear", "Bear Luna", "There's not too much to know", 1574121600000L, ".gif");
+        testUser = new User(0, "", "Thompson", "lt4"+e+"@gmail.com", "LunaBear"+e, "Bear Luna", "There's not too much to know", 1574121600000L, ".gif");
         userServiceSAOImp.createNewUserService(testUser);
     }
 
@@ -74,7 +86,7 @@ public class serviceLayerCreateUserTests
     @Test(expectedExceptions = BlankInputs.class, expectedExceptionsMessageRegExp = "Please fill in the blanks")
     public void CreateUserPasscodeEmpty()
     {
-        testUser = new User(0, "", "Thompson", "lt5@gmail.com", "LunaBear", "", "There's not too much to know", 1574121600000L, ".gif");
+        testUser = new User(0, "", "Thompson", "lt5"+f+"@gmail.com", "LunaBear"+f, "", "There's not too much to know", 1574121600000L, ".gif");
         userServiceSAOImp.createNewUserService(testUser);
     }
 

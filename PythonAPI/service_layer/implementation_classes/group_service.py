@@ -31,7 +31,7 @@ class GroupPostgreService(GroupService):
         return self.group_dao.create_group(group)
 
     def service_join_group(self, group_id: int, user_id: int):
-        if type(group_id) != int or type(user_id) != int:
+        if type(group_id) != int:
             raise WrongType("please enter a number")
         return self.group_dao.join_group(group_id, user_id)
 

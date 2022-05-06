@@ -38,4 +38,3 @@ def test_sl_leave_group():
     GMJD.leave_group = MagicMock(return_value=True)
     result = GMJS.leave_group(1, 1)
     assert result == True
-

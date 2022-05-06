@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class dataAccessCreateUserTests
 {
-    public UserDAO userDAOImp = new UserDAO();
+    public static UserDAO userDAOImp = new UserDAO();
 
     int min = 001;
     int max = 10000;
@@ -20,7 +20,7 @@ public class dataAccessCreateUserTests
     @Test
     public void CreateUserSuccess()
     {
-        User newUser = new User(0, "Lillith", "Thompson", "lilly" + b + "@gmail.com", "LunaBear", "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
+        User newUser = new User(0, "Lillith", "Thompson", "lilly" + b + "@gmail.com", "LunaBear"+b, "BearLuna", "There's not too much to know", 1574121600000L, ".gif");
         User result = userDAOImp.createNewUser(newUser);
         Assert.assertNotEquals(result.getUserId(), 0);
     }

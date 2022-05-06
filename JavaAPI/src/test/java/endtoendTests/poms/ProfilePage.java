@@ -12,6 +12,11 @@ public class ProfilePage {
     private By createANewPost = By.id("updateProfileEditProfileBtn");
     private By userImageFileInput = By.id("userImageFileInput");
     private By updateProfileEditButton = By.id("updateProfileEditProfileBtn");
-    private By chatButton = By.className("linkChat");
-    private By groupButton = By.className("linkGroups");
+    private By chatButton = By.xpath("/html/body/div/div/div[5]/div[1]/a/span");
+    private By groupButton = By.xpath("/html/body/div/div/div[5]/div[2]/a/img");
+    private By aboutMeTextField = By.id("userAboutMeInput");
+    private By userBirthdayInput = By.id("userBirthdateInput");
+    private By saveChangesEditProfileButton = By.id("updateProfileModalBtn");
+    private By closeEditProfileButton = By.id("updateProfileCloseModalBtn");
+
 }

@@ -9,13 +9,14 @@ test_group = GroupPost(1, 4, 1, "text", "image format", 0, "2022-05-05 19:30:21.
 # https://placebeard.it/640x360
 def test_create_post_success():
     GPImp.create_post(test_group)
-    result = GPImp.create_post.(test_group)
+    result = GPImp.create_post(test_group)
     assert result == test_group
 
 
 def test_create_post_id_zero_fail():
-    GPImp.create_post(GroupPost(0, 1, 1, "a", "gif", ))
-
+    # try:
+    #     # GPImp.create_post(GroupPost(0, 1, 1, "a", "gif", ))
+    pass
 
 # InvalidInput
 

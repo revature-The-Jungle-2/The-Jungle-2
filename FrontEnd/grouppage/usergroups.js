@@ -1,24 +1,25 @@
-// const userId = localStorage.getItem("userId").value;
-const userId = 1;
 const userGroupSectionDiv = document.getElementById("userGroups-div");
 
-async function getGroupsForUser() {
 
-    let url = "http://127.0.0.1:5000/" + "group/user/" + userId
+
+async function getGroupsForUser(){
+    let url = "http://127.0.0.1:5000/group/user/10"
 
     let response = await fetch(url);
 
-    if (response.status === 200) {
+    if(response.status === 200){
         let body = await response.json();
         console.log(body);
         populateGroupsForUsers(body);
-    } else {
-        // alert("Error with groups");
+    }
+    else{
+        alert("Error with groups");
     }
 }
 
-function populateGroupsForUsers(groupBody) {
-    for (let group in groupBody) {
+function populateGroupsForUsers(groupBody){
+    for (let group in groupBody){
+
         let groupsDiv = document.createElement("div");
         groupsDiv.setAttribute("class", "group-in-list");
 
@@ -35,10 +36,10 @@ function populateGroupsForUsers(groupBody) {
 
 
     }
-
+    
 }
+function goToGroupPages(groupId){
 
-function goToGroupPages(groupId) {
     localStorage.setItem("groupId", groupId);
 }
 

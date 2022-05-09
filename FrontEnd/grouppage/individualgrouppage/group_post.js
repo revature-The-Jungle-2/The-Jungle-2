@@ -1,3 +1,5 @@
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
+
 let tableBody = document.getElementById("postBody");
 
 //--------------------------------------------------- CREATE GROUP POST FUNCTION-------------------------------------------------------

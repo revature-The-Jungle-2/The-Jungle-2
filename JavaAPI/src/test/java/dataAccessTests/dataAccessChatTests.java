@@ -16,31 +16,24 @@ public class dataAccessChatTests {
 
     @Test()
     public void createMessageChatIdSuccess() {
-
-    ChatMessage chatMessage = new ChatMessage(1, 1, "Welcome");
-    ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-    Assert.assertTrue(testCreateMessage.getUserId()!= 0);
-
+        ChatMessage chatMessage = new ChatMessage(1, 1, "Welcome");
+        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
+        Assert.assertTrue(testCreateMessage.getUserId()!= 0);
     }
 
 
     @Test()
     public void createMessageGroupIdSuccess(){
-
         ChatMessage chatMessage = new ChatMessage(1,1,"Welcome");
         ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
         Assert.assertTrue(testCreateMessage.getGroupId()!= 0);
-
-
     }
 
     @Test()
     public void createChatContentSuccess(){
-
         ChatMessage chatMessage = new ChatMessage(1,1,"Welcome");
         ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
         Assert.assertEquals(testCreateMessage.getChatContent(), "Welcome");
-
     }
 
     @Test()
@@ -48,6 +41,7 @@ public class dataAccessChatTests {
         ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(1);
         Assert.assertFalse(testGetMessage.isEmpty());
     }
+
     @Test
     public void getMessageHistoryWrongGroupId(){
         ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(-1);

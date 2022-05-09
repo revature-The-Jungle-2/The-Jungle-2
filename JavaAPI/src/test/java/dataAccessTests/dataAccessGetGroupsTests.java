@@ -1,5 +1,7 @@
 package dataAccessTests;
 
+import dev.com.thejungle.customexception.InvalidInputException;
+import dev.com.thejungle.customexception.TooManyCharacters;
 import dev.com.thejungle.dao.implementations.UserDAO;
 import dev.com.thejungle.entity.User;
 import org.testng.Assert;
@@ -24,13 +26,10 @@ public class dataAccessGetGroupsTests
     }
 
     // Negative Test
-    // Note: This incorrectly returns invalid input exception. It should say groups DNE because user DNE.
-    @Test
+    @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "No user exists with that ID")
     public void getGroupFailure()
     {
-        ArrayList<Integer> result = userDAOImp.getGroups(100);
-        Assert.assertEquals(result.size(), 0);
-
+        userDAOImp.getGroups(100);
     }
 
 
@@ -44,14 +43,7 @@ public class dataAccessGetGroupsTests
 
     }
 
-    // Negative Test
-    @Test
-    public void getGroupNamesFailure()
-    {
-        HashMap<Integer, String> result = userDAOImp.getGroupsNames(100);
-        Assert.assertEquals(result.size(), 0);
 
-    }
 
 
 

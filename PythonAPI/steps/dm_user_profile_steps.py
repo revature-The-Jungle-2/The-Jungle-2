@@ -1,62 +1,66 @@
 from behave import given, when, then
 
 @given(u'I am on the login page')
-def step_impl(context):
+def log_in(context):
     context.driver.get('login.html')
 
 @when(u'I enter my {username}')
-def step_impl(context, username):
+def enter_username(context, username):
     context.user_profile_pom.username_input().send_keys(username)
 
-@when(u'I enter my {password}')
-def step_impl(context, password):
+@when(u'I enter my new {password}')
+def enter_password(context, password):
     context.user_profile_pom.password_input().send_keys(password)
 
 @when(u'I click the login button')
-def step_impl(context):
+def click_log_in(context):
     context.user_profile_pom.login_button().click()
 
 @when(u'I click the profile {picture}')
-def step_impl(context, picture):
+def click_prof_pic(context, picture):
     context.user_profile_pom.profile_picture().click()
     context.user_profile_pom.profile_picture().send_keys(picture)
 
-@then(u'I am back on the profile page')
-def step_impl(context):
+@then(u'I am on the profile page')
+def home_screen(context):
     assert context.driver.title == "Home"
 
+@given(u'I am on the profile page')
+def profile_page(context):
+    context.driver.get('profile.html')
+
 @when(u'I click the edit profile button')
-def step_impl(context):
+def edit_button(context):
     context.user_profile_pom.edit_profile_button().click()
 
 @when(u'I enter my {about_me} incorrectly')
-def step_impl(context, about_me):
+def about_me(context, about_me):
     context.user_profile_pom.about_me_input().send_keys(about_me)
 
 @when(u'I enter my {birthday} incorrectly')
-def step_impl(context, birthday):
+def birthday(context, birthday):
     context.user_profile_pom.birthday_input().send_keys(birthday)
 
 @when(u'I enter my {about_me}')
-def step_impl(context, about_me):
+def about_me_2(context, about_me):
     context.user_profile_pom.about_me_input().send_keys(about_me)
 
 @when(u'I enter my {birthday}')
-def step_impl(context, birthday):
+def birthday_2(context, birthday):
     context.user_profile_pom.birthday_input().send_keys(birthday)
 
 @when(u'I click the save changes button')
-def step_impl(context):
+def save_changes(context):
     context.user_profile_pom.save_changes_button().click()
 
 @then(u'I click the close button')
-def step_impl(context):
+def close(context):
     context.user_profile_pom.close_button().click()
 
 @when(u'I click on my follower')
-def step_impl(context):
+def click_follower(context):
     context.user_profile_pom.follower_button().click()
 
 @then(u'I am on their profile')
-def step_impl(context):
+def other_profile(context):
     assert context.driver.title == "profile-page.html"

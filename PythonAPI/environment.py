@@ -9,7 +9,7 @@ from poms.individual_group_page import individualGroupPage
 
 
 def before_all(context: Context):
-    context.driver = webdriver.Chrome("PythonAPI/features/chromedriver.exe")
+    context.driver = webdriver.Chrome("chromedriver.exe")
     context.groupPage = GroupPage(context.driver)
     context.individualGroupPage = individualGroupPage(context.driver)
     context.UserProfile = UserProfile(context.driver)

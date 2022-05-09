@@ -1,28 +1,24 @@
 /** -----------------------------------------------------Join Group------------------------------------------------------------ */
-// let url = "http://127.0.0.1:5000";
-// const groupId = 1;
-// const userId = 10;
 
 async function joinGroup() {
-    let url = "http://127.0.0.1:5000";
-    const groupId = 1;
-    const userId = 10;
-
-
     // const groupId = localStorage.getItem("groupId").value;
     // const userId = localStorage.getItem("userId").value;
+    const groupId = 7;
+    const userId = 9000;
 
+    let response = await fetch(devUrlPython + `/group/join/${groupId}/${userId}`, {method: "POST", mode: "cors",
+        headers: {"Content-Type": "application/json"}});
+    
+    await response.json();   
 
-    let response = await fetch(url + "/group/join/" + groupId + "/" + userId);
     if (response.status === 200) {
-        console.log(response);
         const groupJoined = document.getElementById("groupJoined");
         groupJoined.style.display = "block";
         setTimeout(fade_out, 5000);
         const hideJoinButton = document.getElementById("submitJoinGroup");
         hideJoinButton.style.display = "none";
-    } else {
-        console.log(response.status);
+    }
+    else {
         const groupNotJoined = document.getElementById("groupNotJoined");
         groupNotJoined.style.display = "block";
     }
@@ -31,3 +27,6 @@ async function joinGroup() {
 function fade_out() {
     document.getElementById("groupJoined").style.display = "none";
 }
+
+const submitJoinGroup = document.getElementById("submitJoinGroup");
+submitJoinGroup.addEventListener("click", joinGroup);

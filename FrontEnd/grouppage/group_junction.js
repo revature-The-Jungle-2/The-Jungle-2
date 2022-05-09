@@ -1,6 +1,7 @@
+
 async function getUserInGroups() {
     groupId = localStorage.getItem("groupId")
-    url = `http://127.0.0.1:5000/GroupJunction/UserList/${groupId}`
+    url = devUrlPython+`/GroupJunction/UserList/${groupId}`
     let response = await fetch(url)
 
     if(response.status === 200){
@@ -38,7 +39,7 @@ function createList(response) {
 async function deleteRequest() {
     userId = 9000
     groupId = localStorage.getItem("groupId")
-    url = `http://127.0.0.1:5000/group/leave/${userId}/${groupId}`
+    url = devUrlPython+`/group/leave/${userId}/${groupId}`
     let response = await fetch(url, { method: "DELETE", headers: { "Content-Type": "application/json" }});
     if(response.status === 200){
         location.replace("../group-page.html")
@@ -52,7 +53,7 @@ async function deleteRequest() {
 
 async function creatorOf() {
     groupId = localStorage.getItem("groupId")
-    url = `http://127.0.0.1:5000/creator/${groupId}`
+    url = devUrlPython+`/creator/${groupId}`
     let response = await fetch(url)
     if(response.status === 200){
         let body = await response.json()
@@ -72,7 +73,7 @@ async function creatorOf() {
 async function getGroup() {
     groupId = window.localStorage.getItem("groupId")
 
-    let url = `http://127.0.0.1:5000/group/${groupId}`
+    let url = devUrlPython+`/group/${groupId}`
 
     let response = await fetch(url)
 

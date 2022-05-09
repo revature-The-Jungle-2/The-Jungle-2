@@ -1,5 +1,3 @@
-let url = "http://127.0.0.1:5000";
-
 let tableBody = document.getElementById("postBody");
 
 //--------------------------------------------------- CREATE GROUP POST FUNCTION-------------------------------------------------------
@@ -20,7 +18,7 @@ async function createGroupPost() {
     "date_time_of_creation": ""
   }
 
-  let response = await fetch(url + "/group_post", {
+  let response = await fetch(devUrlPython + "/group_post", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -84,7 +82,7 @@ async function createGroupPost() {
 
 //--------------------------------------------------- LOAD GROUP POST FUNCTION-------------------------------------------------------
 async function getPost() {
-  let response = await fetch(url + "/group_post/group/9000", { //replace with "/group_post/group/" + group_id
+  let response = await fetch(devUrlPython + "/group_post/group/9000", { //replace with "/group_post/group/" + group_id
     method: "GET",
     mode: "cors",
   });
@@ -195,7 +193,7 @@ getPost()
 //--------------------------------------------------- DELETE GROUP POST FUNCTION-------------------------------------------------------
 
 async function deleteGroupPost(post_id) {
-  let response = await fetch(url + "/group_post/" + post_id, {
+  let response = await fetch(devUrlPython + "/group_post/" + post_id, {
     method: "DELETE",
     mode: "cors"
   });

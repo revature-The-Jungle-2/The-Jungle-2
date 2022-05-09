@@ -1,6 +1,5 @@
 let userId = JSON.parse(localStorage.getItem("userInfo")).userId;
-//const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
-const devUrlPython="http://127.0.0.1:5000"
+
 
 // async function getPostImage(){// the postId and imageFormat will probably have to be passed as parameters
 //   let url = "http://127.0.0.1:5000/post/image/" + postId;//post_id parameter

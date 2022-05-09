@@ -1,7 +1,6 @@
 Feature: As a user, user can join a group
-  Feature: I can join a group
 
-   Scenario:
+  Scenario:I can join a group
      Given I am on the grouppage home page
      When click on the Groups on the side bar
      When I am on the individual group page

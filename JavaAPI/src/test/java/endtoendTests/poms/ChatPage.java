@@ -26,9 +26,7 @@ public class ChatPage {
 
     public void clickWriteMessage(String input) { driver.findElement(writeMessage).click(); }
 
-    public void sendKeysToWriteMessage(String input) { driver.findElement(writeMessage).click(); }
-
-    //public void sendKeysToWriteMessage(String input){ driver.findElement(writeMessage).sendKeys(input); }
+    public void sendKeysToWriteMessage(String input){ driver.findElement(writeMessage).sendKeys(input); }
 
     public void clickMessageButton() { driver.findElement(messageButton).click(); }
 

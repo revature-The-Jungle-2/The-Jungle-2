@@ -6,7 +6,7 @@
             <class name="dataAccessTests.dataAccessChatTests"/>
             <class name="dataAccessTests.dataAccessCreateUserTests"/>
             <class name="dataAccessTests.dataAccessGetGroupsTests"/>
-            <class name="dataAccessTests.dataAccessGetUserTests"/>
+            <!--<class name="dataAccessTests.dataAccessGetUserTests"/>-->
             <class name="EntityTests.EntityChatMessageTests"/>
             <class name="serviceLayerTests.serviceLayerChatTests"/>
             <class name="serviceLayerTests.serviceLayerCreateUserTests"/>

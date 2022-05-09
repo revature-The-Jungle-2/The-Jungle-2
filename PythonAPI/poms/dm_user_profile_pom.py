@@ -42,6 +42,10 @@ class UserProfile:
         element: WebElement = self.driver.find_element(By.ID, "updateProfileModalBtn")
         return element
 
+    def close_button(self):
+        element: WebElement = self.driver.find_element(By.ID, "")
+        return element
+
     def follower_button(self):
         element: WebElement = self.driver.find_element(By.ID, "FIND OUT LATER")
         return element

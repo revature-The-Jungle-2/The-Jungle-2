@@ -37,7 +37,7 @@ Feature: As a User, I should be able to create and maintain a profile page that 
     When  I enter my <about_me>
     When  I enter my <birthday> incorrectly
     When  I click the save changes button
-    Then  I am left in the pop up
+    Then  I click the close button
 
      Examples:
        | username | password | about_me | birthday |

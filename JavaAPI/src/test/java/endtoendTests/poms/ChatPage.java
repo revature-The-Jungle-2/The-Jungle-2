@@ -12,7 +12,7 @@ public class ChatPage {
     private By writeMessage = By.xpath("/html/body/div/div/div[2]/div/div[1]/div[3]/div/div/input");
     private By chatLink = By.xpath("/html/body/div/div/div[1]/div[2]/div[1]/a/span");
     private By groupLink = By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/a/span");
-    private By messageButton = By.xpath("");
+    private By messageButton = By.xpath("/html/body/div/div/div[2]/div/div[1]/div[3]/button/img\"");
 
     public ChatPage(WebDriver driver) {
         this.driver = driver;
@@ -24,11 +24,9 @@ public class ChatPage {
 
     public void sendKeysToChatLink(String input) { driver.findElement(chatLink).sendKeys(input); }
 
-    public void clickWriteMessage(String input) { driver.findElement(writeMessage).click(); }
+    public void clickWriteMessage() { driver.findElement(writeMessage).click(); }
 
-    public void sendKeysToWriteMessage(String input) { driver.findElement(writeMessage).click(); }
-
-    //public void sendKeysToWriteMessage(String input){ driver.findElement(writeMessage).sendKeys(input); }
+    public void sendKeysToWriteMessage(String input) { driver.findElement("I love to ski").sendKeys(input); }
 
     public void clickMessageButton() { driver.findElement(messageButton).click(); }
 

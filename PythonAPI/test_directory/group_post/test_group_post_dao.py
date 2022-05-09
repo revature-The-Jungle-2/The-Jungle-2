@@ -14,7 +14,9 @@ def test_create_post_success():
 
 
 def test_create_post_no_input_given_fail():
-    pass
+    GPImp.create_post(GroupPost())
+    result = GPImp.create_post(GroupPost())
+    assert False
 
 
 # InputTooLong >500
@@ -53,6 +55,7 @@ def test_get_all_posts_by_group_id_group_id_not_found_fail():
 
 def test_delete_post_by_post_id_success():
     pass
+
 
 # boolean
 

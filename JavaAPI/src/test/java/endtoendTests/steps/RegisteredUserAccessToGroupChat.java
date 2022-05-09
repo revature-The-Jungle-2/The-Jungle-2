@@ -10,11 +10,11 @@ public class RegisteredUserAccessToGroupChat {
 //      // Write code here that turns the phrase above into concrete actions
 //       throw new io.cucumber.java.PendingException();
 //   }
-    @When("i click on the chat link")
-    public void i_click_on_the_chat_link() {
+   // @When("i click on the chat link")
+    //public void i_click_on_the_chat_link() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+      //  throw new io.cucumber.java.PendingException();
+  //  }
     @When("i am on the chat page i click on a group chat link")
     public void i_am_on_the_chat_page_i_click_on_a_group_chat_link() {
         // Write code here that turns the phrase above into concrete actions

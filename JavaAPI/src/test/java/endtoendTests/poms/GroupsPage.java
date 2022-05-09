@@ -18,4 +18,11 @@ public class GroupsPage {
         PageFactory.initElements(driver,this);
     }
 
+    public void clickChatLink() { driver.findElement(chatLink).click(); }
+
+    public void sendKeysToChatLink(String input) { driver.findElement(chatLink).sendKeys(input); }
+
+    public void clickGroupButton() { driver.findElement(groupsButton).click(); }
+
+    public void sendKeysToGroupButton(String input) { driver.findElement(groupButton).sendKeys(input); }
 }

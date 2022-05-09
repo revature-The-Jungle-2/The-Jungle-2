@@ -1,9 +1,10 @@
+// const userId = localStorage.getItem("userId").value;
+const userId = 1;
 const userGroupSectionDiv = document.getElementById("userGroups-div");
 
-
-
 async function getGroupsForUser() {
-    let url = "http://127.0.0.1:5000/" + "group/user/1"
+
+    let url = "http://127.0.0.1:5000/" + "group/user/" + userId
 
     let response = await fetch(url);
 

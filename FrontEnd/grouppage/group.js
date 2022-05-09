@@ -1,9 +1,7 @@
 /** -----------------------------------------------------Create Group------------------------------------------------------------ */
+// const userId = localStorage.getItem("userId").value;
+const userId = 1;
 async function createGroup() {
-    // const userId = localStorage.getItem("userId").value;
-
-    //for testing 
-    const userId = 1;
     const groupName = document.getElementById("groupName").value.trim();
     const groupAbout = document.getElementById("groupAbout").value.trim();
     let groupCreated = { "groupId": 0, "userId": userId, "groupName": groupName, "groupAbout": groupAbout, "imageFormat": "imageFormat" };

@@ -23,3 +23,18 @@ class GroupPage:
         element: WebElement = self.driver.find_element(By.ID, "messageGroupCreated")
         return element
 
+    def select_group(self):
+        element: WebElement = self.driver.find_element(By.XPATH, '//*[@id="groups-div"]/div[1]/div')
+        return element
+
+    def get_title(self):
+        return self.driver.title
+
+    def join_group(self):
+        element: WebElement = self.driver.find_element(By.ID, "submitJoinGroup")
+        return element
+
+    def get_message_join(self):
+        element: WebElement = self.driver.find_element(By.ID, "groupNotJoined")
+        return element
+

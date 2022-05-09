@@ -29,7 +29,7 @@ import java.time.Duration;
          */
         features = {"src/test/java/endtoendTests/features"},
 //      glue = "src/test/java/endtoendTests/steps",
-        glue = {"steps"},
+        glue = {"endtoendTests.steps"},
         plugin = {"pretty","html:src/html-e2e-report.html"}
 )
 public class TestRunner {

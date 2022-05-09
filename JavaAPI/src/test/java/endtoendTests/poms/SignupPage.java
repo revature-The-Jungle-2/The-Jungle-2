@@ -2,6 +2,7 @@ package endtoendTests.poms;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
 import org.openqa.selenium.support.PageFactory;
 
 public class SignupPage {
@@ -46,9 +47,10 @@ public class SignupPage {
         driver.findElement(signupEmail).sendKeys(input);
     }
 
-    public void clickSignupBirthdate(){
-        driver.findElement(signupBirthDate).click();
-    }
+    // Using tab instead for birthday selection bug
+//    public void clickSignupBirthdate(){
+//        driver.findElement(signupBirthDate).click();
+//    }
 
     public void sendKeysSignupBirthdate(String input){
         driver.findElement(signupBirthDate).sendKeys(input);
@@ -71,6 +73,7 @@ public class SignupPage {
     }
 
     public void clickSignupButton(){driver.findElement(signupButton).click();
+
     }
 
 

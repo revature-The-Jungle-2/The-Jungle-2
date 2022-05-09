@@ -3,6 +3,7 @@ Feature:  Post Feed Features
         Given I am on the Login Page
         When I enter my Username
         When I enter my Password
+        When I click the welcome back
         When I click Login
         Then I am redirected to my Profile Page
 

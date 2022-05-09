@@ -1,5 +1,5 @@
-Feature: As a user, user can create a new group.
 
+Feature: As a user, user can create a new group.
   Scenario Outline: I can create a group
     Given I am on the grouppage home page
     When I enter the <groupname> in the group name text box
@@ -10,5 +10,4 @@ Feature: As a user, user can create a new group.
     Examples:
       | groupname | description      |
       | noname    | not much to know |
-
 

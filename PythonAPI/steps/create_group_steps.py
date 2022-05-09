@@ -1,7 +1,7 @@
 from behave import given, when, then
 from selenium.webdriver.support.wait import WebDriverWait
-
 # add_cooki
+
 @given(u'I am on the grouppage home page')
 def step_impl(context):
     context.driver.get("C:/Users/Yeonghwan Choi/Desktop/The-Jungle-2/FrontEnd/grouppage/group-page.html")

@@ -3,23 +3,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
 
-class GroupPage:
+class createGroupHome:
+
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
-    def groupName(self):
+    def group_name(self):
         element: WebElement = self.driver.find_element(By.ID, "groupName")
         return element
 
-    def groupAbout(self):
+    def group_description(self):
         element: WebElement = self.driver.find_element(By.ID, "groupAbout")
         return element
 
     def add_group_button(self):
-        element: WebElement = self.driver.find_element(By.ID, "submitCreateGroup")
+        element: WebElement =  self.driver.find_element(By.ID, "submitCreateGroup")
         return element
 
     def get_message(self):
         element: WebElement = self.driver.find_element(By.ID, "messageGroupCreated")
         return element
-

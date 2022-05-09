@@ -1,5 +1,5 @@
-Feature: As a user, user can join a group
 
+Feature: As a user, user can join a group
   Scenario:I can join a group
      Given I am on the grouppage home page
      When click on the Groups on the side bar

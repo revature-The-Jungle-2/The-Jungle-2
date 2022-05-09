@@ -2,25 +2,11 @@ from behave import given, when, then
 
 @given(u'I am on the login page')
 def step_impl(context):
-<<<<<<< HEAD
-<<<<<<< HEAD
-    context.driver.get("C:/Users/Almas/Desktop/The-Jungle-2/PythonAPI/chromedriver.exe")
-
-
-@when(u'I enter my <username>')
-def step_impl(context):
-    context.dm_user_profile_pom.user_username().
-
-=======
-    context.driver.get('')
-=======
     context.driver.get('login.html')
->>>>>>> e8dd1ab089cb9077a859322f7df5f8f2124b21a0
 
 @when(u'I enter my {username}')
 def step_impl(context, username):
     context.user_profile_pom.username_input().send_keys(username)
->>>>>>> cc5254cb60cc1a0b4d95e6fc925da4f05974e8e0
 
 @when(u'I enter my {password}')
 def step_impl(context, password):

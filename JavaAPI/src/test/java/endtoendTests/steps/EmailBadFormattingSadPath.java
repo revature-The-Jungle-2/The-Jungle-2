@@ -33,14 +33,15 @@ public class EmailBadFormattingSadPath {
         TestRunner.signupPage.clickSignupLastName();
         TestRunner.signupPage.sendKeysToLastNameSignup("Bear");
         TestRunner.signupPage.clickSignupEmail();
-        TestRunner.signupPage.sendKeysSignupEmail("LunaBearasdfasdfasdfdasfasdfasdfasdfasdfsadfsadfasdfasdfsadfasdfasdfasdfsadfasdfsadfasdfsadfasdfasdfasdf"+ b + "@gmail.com");
+        TestRunner.signupPage.sendKeysSignupEmail("LunaBear"+ b  + b + b + b + b + b + b + b + b + b + "@gmail.com");
         act.sendKeys(Keys.TAB).build().perform();
         TestRunner.signupPage.sendKeysSignupBirthdate("19901121");
         TestRunner.signupPage.clickSignupUsername();
-        TestRunner.signupPage.sendKeysSignupUsername("LunaBear" + c);
+        TestRunner.signupPage.sendKeysSignupUsername("LunaBear" + b);
         TestRunner.signupPage.clickSignupPassword();
         TestRunner.signupPage.sendKeysSignupPassword("password");
-        TestRunner.signupPage.clickSignupButton();
+        // no button to click so commented out
+//        TestRunner.signupPage.clickSignupButton()
     }
 //    @Then("i remain on the registration page")
 //    public void i_remain_on_the_registration_page() {

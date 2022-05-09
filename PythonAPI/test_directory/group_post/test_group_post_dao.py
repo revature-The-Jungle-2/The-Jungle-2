@@ -13,21 +13,10 @@ def test_create_post_success():
     assert result == test_group
 
 
-def test_create_post_id_zero_fail():
-    # try:
-    #     # GPImp.create_post(GroupPost(0, 1, 1, "a", "gif", ))
-    pass
-
-# InvalidInput
-
-def test_create_post_post_id_not_int_fail():
-    pass
-
-
-# WrongTypeInput
-
 def test_create_post_no_input_given_fail():
-    pass
+    GPImp.create_post(GroupPost())
+    result = GPImp.create_post(GroupPost())
+    assert False
 
 
 # InputTooLong >500
@@ -60,11 +49,7 @@ def test_get_all_posts_by_group_id_success():
     pass
 
 
-def test_get_all_posts_by_group_id_group_id_not_found():
-    pass
-
-
-def test_get_all_posts_by_group_id_fail():
+def test_get_all_posts_by_group_id_group_id_not_found_fail():
     pass
 
 
@@ -73,6 +58,7 @@ def test_delete_post_by_post_id_success():
 
 
 # boolean
+
 
 def test_delete_post_by_post_id_fail():
     pass

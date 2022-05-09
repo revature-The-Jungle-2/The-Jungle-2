@@ -52,9 +52,9 @@ def step_impl(context, birthday):
 def step_impl(context):
     context.user_profile_pom.save_changes_button().click()
 
-@then(u'I am left in the pop up')
+@then(u'I click the close button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I am left in the pop up')
+    context.user_profile_pom.close_button().click()
 
 @when(u'I click on my follower')
 def step_impl(context):

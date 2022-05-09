@@ -3,7 +3,21 @@
 <suite name="Suite for my tests">
     <test name="The the jungle Tests">
         <classes>
-            <!---<class name="service.UserServiceTests"/>-->
+            <class name="dataAccessTests.dataAccessChatTests"/>
+            <class name="dataAccessTests.dataAccessCreateUserTests"/>
+            <class name="dataAccessTests.dataAccessGetGroupsTests"/>
+            <class name="dataAccessTests.dataAccessGetUserTests"/>
+            <class name="EntityTests.EntityChatMessageTests"/>
+            <class name="serviceLayerTests.serviceLayerChatTests"/>
+            <class name="serviceLayerTests.serviceLayerCreateUserTests"/>
+            <class name="serviceLayerTests.serviceLayerGetGroupsTests"/>
+            <class name="serviceLayerTests.serviceLayerLastNameTests"/>
+            <class name="serviceLayerTests.serviceLayerGetUserTests"/>
+            <class name="serviceLayerTests.serviceLayerUserAboutTests"/>
+            <class name="serviceLayerTests.serviceLayerUserBirthdateTests"/>
+            <class name="serviceLayerTests.TestCreateUserUsernameSAO"/>
+            <class name="serviceLayerTests.TestGetAllUsersSAO"/>
+            <class name="serviceLayerTests.TestRequestLoginsSAO"/>
         </classes>
     </test>
 

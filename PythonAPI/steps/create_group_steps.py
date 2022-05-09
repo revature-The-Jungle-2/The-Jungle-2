@@ -10,13 +10,13 @@ def step_impl(context):
 
 @when(u'I enter the {groupname} in the group name text box')
 def step_impl(context, groupname: str):
-    context.create_group.group_name.send_keys(groupname)
+    context.create_group.group_name().send_keys(groupname)
 
 
 
 @when(u'I enter the {description} in the description text box')
 def step_impl(context, description: str):
-    context.create_group.group_description.send_keys(description)
+    context.create_group.group_description().send_keys(description)
 
 
 @when(u'I click the Add Group button')

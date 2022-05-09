@@ -3,20 +3,29 @@ from selenium import webdriver
 from selenium.webdriver.safari.webdriver import WebDriver
 
  
-from poms.dm_user_profile_pom import UserProfile
+# from poms.dm_user_profile_pom import UserProfilefrom behave.runner import Context
+from selenium import webdriver
+
+from poms.create_group_home import createGroupHome
+from poms.join_group_home import joinGroupHome
 
 
 def before_all(context: Context):
-    #context.driver = webdriver.Chrome("chromedriver.exe") #change this as needed
-    context.driver = WebDriver()
+    context.driver = webdriver.Chrome(executable_path=r"C:\Users\master\Desktop\The-Jungle-2\PythonAPI\features\chromedriver.exe") #change this as needed
+
     ###PUT YOUR POM CONTEXTS BETWEEN THESE LINES.###
-    context.UserProfile = UserProfile(context.driver)
+    context.create_group = createGroupHome(context.driver)
+    context.join_group = joinGroupHome(context.driver)
+    context.driver.implicitly_wait(2)
 
 
 
     ###PUT YOUR POM CONTEXTS BETWEEN THESE LINES.###
 
     context.driver.implicitly_wait(1)
+
+def after_all(context: Context):
+    context.driver.quit()
 
 
 def after_all(context: Context):

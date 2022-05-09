@@ -278,7 +278,7 @@ def get_all_groups():
         for groups in groups_as_groups:
             dictionary_group = groups.make_dictionary()
             groups_as_dictionary.append(dictionary_group)
-        return jsonify(groups_as_dictionary)
+        return jsonify(groups_as_dictionary), 200
     except GroupNotFound as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -291,7 +291,7 @@ def get_all_groups_by_user_id(user_id: str):
         for groups in groups_as_groups:
             dictionary_group = groups.make_dictionary()
             groups_as_dictionary.append(dictionary_group)
-        return jsonify(groups_as_dictionary)
+        return jsonify(groups_as_dictionary), 200
     except UserNotFound as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400

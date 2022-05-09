@@ -3,14 +3,14 @@ from selenium.webdriver.support.expected_conditions import alert_is_present
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-@given(u'I am on the grouppage home page')
+@given(u'I am on the group-page home page')
 def step_impl(context):
     context.driver.get("file:///C:/Users/master/Desktop/The-Jungle-2/FrontEnd/grouppage/group-page.html")
 
 
 @when(u'I enter the {groupname} in the group name text box')
 def step_impl(context, groupname: str):
-    context.create_group.group_name().send_keys(groupname)
+   context.create_group.group_name().send_keys(groupname)
 
 
 
@@ -26,4 +26,4 @@ def step_impl(context):
 
 @then(u'I get a message created the group successfully')
 def step_impl(context):
-    WebDriverWait(context.driver, 2).until(alert_is_present())
+    assert context.create_group.get_message().getText() == "Group created successfully!"

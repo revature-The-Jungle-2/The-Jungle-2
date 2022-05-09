@@ -20,5 +20,6 @@ class createGroupHome:
         element: WebElement =  self.driver.find_element(By.ID, "submitCreateGroup")
         return element
 
-    def get_alert(self):
-        return self.driver.switch_to.alert
+    def get_message(self):
+        element: WebElement = self.driver.find_element(By.ID, "messageGroupCreated")
+        return element

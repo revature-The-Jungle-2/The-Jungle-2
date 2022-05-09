@@ -66,14 +66,7 @@ public class UserService implements UserServiceInt {
     @Override
     public HashMap<Integer, String> getGroupsNames(int userId) {
         if (userId > 0) {
-            if(this.userDAO.getGroupsNames(userId).isEmpty())
-            {
-                throw new UserNotFound("User not found");
-            }
-            else
-            {
                 return this.userDAO.getGroupsNames(userId);
-            }
         } else {
             throw new InvalidInputException("User Id needs to be positive");
         }

@@ -30,13 +30,10 @@ def step_impl(context, password):
 def step_impl(context):
     context.user_profile_pom.login_button().click()
 
-@when(u'I click the profile picture')
-def step_impl(context):
-    context.user_profile_pom.profile_picture().click()
-
-@when(u'I choose my {picture}')
+@when(u'I click the profile {picture}')
 def step_impl(context, picture):
-    context.user_profile_pom.choose_picture().send_keys(picture)
+    context.user_profile_pom.profile_picture().click()
+    context.user_profile_pom.profile_picture().send_keys(picture)
 
 @then(u'I am back on the profile page')
 def step_impl(context):

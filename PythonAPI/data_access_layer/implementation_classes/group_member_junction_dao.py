@@ -14,7 +14,7 @@ class GroupMemberJunctionDao(GroupMemberJunctionAbs):
     def get_all_users_in_a_group(self, group_id: int) -> List[GroupMemberJunction]:
         try:
             sql = "select first_name, last_name, "+schema_prefix+"user_table.user_id, group_member_junction_table.group_id from " \
-                  "user_table inner join "+schema_prefix+"group_member_junction_table on "+schema_prefix+"group_member_junction_table.user_id = " \
+                  "p3.user_table inner join "+schema_prefix+"group_member_junction_table on "+schema_prefix+"group_member_junction_table.user_id = " \
                   +schema_prefix+"user_table.user_id where group_id = %s"
             cursor = connection.cursor()
             cursor.execute(sql, [group_id])

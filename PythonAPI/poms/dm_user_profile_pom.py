@@ -23,7 +23,10 @@ class UserProfile:
         element: WebElement = self.driver.find_element(By.ID, "userImageFileInput")
         return element
 
-    def edit_profile(self):
+    def choose_picture(self):
+        pass
+
+    def edit_profile_button(self):
         element: WebElement = self.driver.find_element(By.ID, "updateProfileEditProfileBtn")
         return element
 

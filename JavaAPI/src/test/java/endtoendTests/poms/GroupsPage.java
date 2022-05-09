@@ -17,7 +17,7 @@ public class GroupsPage {
         // the page factory abstracts away the logic for interacting with web elements
         PageFactory.initElements(driver,this);
     }
-
+/*
     public void clickChatLink() { driver.findElement(chatLink).click(); }
 
     public void sendKeysToChatLink(String input) { driver.findElement(chatLink).sendKeys(input); }
@@ -25,4 +25,6 @@ public class GroupsPage {
     public void clickGroupButton() { driver.findElement(groupsButton).click(); }
 
     public void sendKeysToGroupButton(String input) { driver.findElement(groupButton).sendKeys(input); }
+*/
+
 }

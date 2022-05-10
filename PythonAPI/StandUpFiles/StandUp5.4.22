@@ -1,0 +1,32 @@
+Stand Up Wednesday 5/4/2022 - PYTHON GROUP -THE JUNGLE PROJECT
+
+Scrum Master:   Zachary Wilmer - Python Group
+
+Scrum Leader:   William Blair
+
+Scrumlings:	    Yeonghwan Choi
+		        Ken Felix
+		        Julio Jacquet
+		        Dylan Mercer
+		        Andraey Pompey
+		        Jeryl Skinner
+		        Vathsala Vijayaraghavan
+
+
+Project Status:
+
+* Bugs/blockers:
+    * Andraey found the following bug in the database:
+        CHANGED user_follower_id -> user_follow_id in  each function that has the user_follow_junction_table
+    * Andraey and Dylan cannot get a URL for the API testing
+    * Will and Jeryl seem to have some issues with importing existing files (e.g. custom exceptions). These issues
+        are causing the unit testing to throw errors on his computer, and on Jeryl's computer, the program is stuck on
+        on instantiating until it is stopped. Will is working on checking the imports and naming conventions.
+* Will asked that we all maintain a record of the bugs so that we can merge them into a team bug record.
+* We can all merge without needing a review, but we need to make sure to merge to the Python master, not to the main.
+* We agreed to use their Acceptance Criteria to build the feature files, and catch any errors in the testing.
+* We discussed that we will need to have a collaborative effort with the Java team to test the front end, as we will
+    need their portion for the Alpha testing.
+
+
+

@@ -1,3 +1,4 @@
+
 const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
 
 const allGroupSectionDiv = document.getElementById("groups-div");
@@ -23,6 +24,7 @@ async function getAllGroupsForUser(){
 
 function populateAllGroupsForUsers(allGroupBody){
     for (let groups in allGroupBody){
+
         let allGroupsDiv = document.createElement("div");
         allGroupsDiv.setAttribute("class", "group-in-list");
 
@@ -38,8 +40,6 @@ function populateAllGroupsForUsers(allGroupBody){
         allGroupSectionDiv.appendChild(allGroupsDiv);
         allGroupsDiv.appendChild(groupImage1);
         allGroupsDiv.appendChild(allGroupNameDiv);
-
-
     }
    
 }
@@ -47,8 +47,7 @@ function populateAllGroupsForUsers(allGroupBody){
 function goToGroupPage(groupId){
     localStorage.setItem("groupId", groupId);
     console.log(localStorage.getItem("groupId"))
-    
-}
+    }
 // async function getGroup() {
 //     groupId = localStorage.getItem("groupId")
 
@@ -61,7 +60,6 @@ function goToGroupPage(groupId){
 //         // groupdef.innerHTML = body
 
 //     }
-    
 // }
 
 getAllGroupsForUser();

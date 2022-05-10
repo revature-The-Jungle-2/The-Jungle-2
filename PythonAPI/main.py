@@ -278,7 +278,7 @@ def get_all_groups():
         for groups in groups_as_groups:
             dictionary_group = groups.make_dictionary()
             groups_as_dictionary.append(dictionary_group)
-        return jsonify(groups_as_dictionary)
+        return jsonify(groups_as_dictionary), 200
     except GroupNotFound as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -291,7 +291,7 @@ def get_all_groups_by_user_id(user_id: str):
         for groups in groups_as_groups:
             dictionary_group = groups.make_dictionary()
             groups_as_dictionary.append(dictionary_group)
-        return jsonify(groups_as_dictionary)
+        return jsonify(groups_as_dictionary), 200
     except UserNotFound as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -563,5 +563,5 @@ def unfollow_user(user_follower_id: int, user_being_followed_id: int):
 
 #comment out the first app.run() and uncomment the second app.run() to test over localhost
 #first app.run() is for the amazon virtual machine
-app.run(host="ec2-204-236-138-16.us-west-1.compute.amazonaws.com", port=5000)
-#app.run()
+app.run(host="ec2-204-236-138-16.us-west-1.compute.amazonaws.com", port=5000, debug=True)
+#app.run(debug=True)

@@ -1,65 +1,70 @@
 Feature: As a User, I should be able to create and maintain a profile page that is visible to other users.
-  Scenario Outline: As a user, I should be able to update my profile picture.
+
+  Scenario Outline: As a user, I should be able to log in.
     Given I am on the login page
     When  I enter my <username>
-    When  I enter my <password>
+    When  I type in my new <password>
+    When I click the welcome back
     When  I click the login button
-    When  I am on the profile page
-    When  I click the profile picture
-    When  I choose my <new_profile_picture>
-    Then  I am back on the profile page
+    Then I am on the profile page
+
+
 
     Examples:
-      | username | password | new_profile_picture |
-      | username | password | downloads/Husky.jpg |
+      | username | password |  |  |
+      | username | password |  |  |
+
+
+  Scenario Outline: As a user, I should be able to update my profile picture.
+    Given I am on the home page
+    When  I choose my <new_profile_picture>
+    Then  I am on the profile page
+
+    Examples:
+      |  |  | new_profile_picture                               |
+      |  |  | C:\Users\pompa\Pictures\Saved Pictures\agator.jpg |
 
   Scenario Outline:  As a user, I should not be able to incorrectly update my about me section.
-    Given I am on the login page
-    When  I enter my <username>
-    When  I enter my <password>
-    When  I click the login button
-    When  I am on the profile page
-    When  I enter my <about_me> incorrectly
-    When  I enter my <birthday>
+    Given I am on the home page
+    When  I click the edit profile button
+    When  I update my <about_me> section
+    When  I wrongly type out my <birthday>
     When  I click the save changes button
-    Then  I am left in the pop up
+    When  I click the close button
+    Then  I am on the profile page
 
      Examples:
-       | username | password | about_me      | birthday |
-       | username | password | I am a person |          |
-
-
+       |  |  | about_me      | birthday  |
+       |  |  | I am a person | this wont work|
+##
+#
   Scenario Outline:  As a user, I should not be able to incorrectly update my birthday section.
-    Given I am on the login page
-    When  I enter my <username>
-    When  I enter my <password>
-    When  I click the login button
-    When  I am on the profile page
-    When  I enter my <about_me>
-    When  I enter my <birthday> incorrectly
+    Given I am on the home page
+    When  I click the edit profile button
+    When  I insert my <about_me> incorrectly
+    When  I type out my <birthday>
     When  I click the save changes button
-    Then  I am left in the pop up
+    When  I click the close button
+    Then I am on the profile page
 
      Examples:
-       | username | password | about_me | birthday |
-       | username | password | thisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylong         | 01011997 |
+       |  |  | about_me                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | birthday |
+       |  |  | thisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylongthisaboutmesectioniswaywaywaywaywaywaywaytoolongtopassthroughthecharactercheckingtestsoIwillmakeitextremelylong | 01011997 |
 
   Scenario Outline:  As a user, I should be able to update my about me and birthday sections.
-    Given I am on the login page
-    When  I enter my <username>
-    When  I enter my <password>
-    When  I click the login button
-    When  I am on the profile page
-    When  I enter my <about_me>
-    When  I enter my <birthday>
+    Given I am on the home page
+    When  I click the edit profile button
+    When  I update my <about_me> section
+    When  I type out my <birthday>
     When  I click the save changes button
-    Then  I am back on the profile page
+    Then  I am on the profile page
 
     Examples:
-      | username | password | about_me      | birthday |
-      | username | password | I am a person | 01011997 |
-
+      |  |  | about_me      | birthday |
+      |  |  | I am a person | 01011997 |
+#
   Scenario:  As a User, I should be able to go to another user's profile
-    Given I am on the profile page
+    Given I am on the home page
     When  I click on my follower
     Then  I am on their profile
+

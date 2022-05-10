@@ -27,5 +27,7 @@ class GroupPost:
         element: WebElement = self.driver.find_element(By.CLASS_NAME, "groups")
         return element
 
+    # def alert_button(self):
+    #     element: WebElement = self.driver.find_element()
 
 

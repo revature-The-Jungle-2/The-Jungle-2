@@ -25,6 +25,9 @@ def groups_click(context):
     WebDriverWait(context.driver, 2).until(element_to_be_clickable(context.group_post_p.groups_button()))
     context.group_post_p.groups_button().click()
 
+# @when(u'I accept the alert button')
+# def step_impl(context):
+#     context.group_post_p.alert_button().click()
 
 @when(u'I select groups the second time')
 def groups_click_two(context):

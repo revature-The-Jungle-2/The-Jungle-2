@@ -1,7 +1,5 @@
 // small helper function for selecting element by id
 let id = (id) => document.getElementById(id);
-const devUrl="http://44.200.50.0:8000";
-
 
 storage = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -156,7 +154,7 @@ chatGroupDiv.setAttribute(
 
 //Displaying the Group Names by grabbing the userId's to display the names on the top right...
 async function getAllGroupByUserId() {
-  let url = devUrl+"/user/groupNames/" + storage.userId;
+  let url = devUrlJava+"/user/groupNames/" + storage.userId;
   let response = await fetch(url);
   if (response.status === 200) {
     let body = await response.json();

@@ -1,62 +1,83 @@
+import time
+
 from behave import given, when, then
 
 @given(u'I am on the login page')
 def step_impl(context):
-    context.driver.get('login.html')
+    context.driver.get('http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/loginpage/login.html')
 
-@when(u'I enter my username {username}')
-def step_impl(context, username):
+@when(u'I enter my {username}')
+def enter_username(context, username: str):
     context.user_profile_pom.username_input().send_keys(username)
 
-@when(u'I type my password {password}')
-def step_impl(context, password):
-    context.user_profile_pom.password_input().send_keys(password)
+@when(u'I type in my new {password}')
+def enter_password(context, password: str):
+    context.user_profile_pom.input_password().send_keys(password)
+
+@when(u'I click the welcome back')
+def click_welcome(context):
+    context.user_profile_pom.welcome_text().click()
 
 @when(u'I click the login button')
-def step_impl(context):
+def click_log_in(context):
+    # WebDriverWait(context.driver, 10).until(
+    #     ec.element_to_be_clickable((By.ID, "submitLogin")))
     context.user_profile_pom.login_button().click()
 
-@when(u'I click the profile picture {picture}')
-def step_impl(context, picture):
-    context.user_profile_pom.profile_picture().click()
+@when(u'I choose my {picture}')
+def click_prof_pic(context, picture):
+    #context.user_profile_pom.profile_picture().click()
     context.user_profile_pom.profile_picture().send_keys(picture)
 
 @then(u'I am on the profile page')
-def step_impl(context):
+def home_screen(context):
     assert context.driver.title == "Home"
 
+@given(u'I am on the home page')
+def profile_page(context):
+    context.driver.get('http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/profilepage/profile-page.html')
+
 @when(u'I click the edit profile button')
-def step_impl(context):
+def edit_button(context):
     context.user_profile_pom.edit_profile_button().click()
 
-@when(u'I enter my personal {about_me} incorrectly')
-def step_impl(context, about_me):
+@when(u'I insert my {about_me} incorrectly')
+def about_me(context, about_me):
     context.user_profile_pom.about_me_input().send_keys(about_me)
 
-@when(u'I type my birthday {birthday} incorrectly')
-def step_impl(context, birthday):
+@when(u'I wrongly type out my {birthday}')
+def birthday(context, birthday):
     context.user_profile_pom.birthday_input().send_keys(birthday)
 
-@when(u'I enter my personal {about_me}')
-def step_impl(context, about_me):
+
+@when(u'I update my {about_me} section')
+def about_me_2(context, about_me):
     context.user_profile_pom.about_me_input().send_keys(about_me)
 
-@when(u'I type my birthday {birthday}')
-def step_impl(context, birthday):
+@when(u'I type out my {birthday}')
+def birthday_2(context, birthday):
     context.user_profile_pom.birthday_input().send_keys(birthday)
 
 @when(u'I click the save changes button')
-def step_impl(context):
+def save_changes(context):
     context.user_profile_pom.save_changes_button().click()
 
 @when(u'I click the close button')
-def step_impl(context):
+def close(context):
     context.user_profile_pom.close_button().click()
 
 @when(u'I click on my follower')
-def step_impl(context):
+def click_follower(context):
     context.user_profile_pom.follower_button().click()
 
+
 @then(u'I am on their profile')
-def step_impl(context):
-    assert context.driver.title == "profile-page.html"
+def other_profile(context):
+    assert context.driver.title == "Visited User Page"
+
+#http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/loginpage/login.html
+#http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/profilepage/profile-page.html
+
+#file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/loginpage/login.html
+#file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/profilepage/profile-page.html
+

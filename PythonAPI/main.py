@@ -76,9 +76,11 @@ like_post_service = LikePostServiceImp(like_post_dao)
 @app.get("/user/<user_id>")
 def get_a_user_id(user_id: int):
     try:
-        user = user_profile_service.service_get_user_profile_service(int(user_id))
+        user = user_profile_service.service_get_user_profile_service(user_id)
         user_as_dictionary = user.make_dictionary()
         return jsonify(user_as_dictionary), 200
+    except UserIdMustBeAnInteger as e:
+        return str(e), 400
     except UserNotFound as e:
         return str(e), 400
 
@@ -240,8 +242,12 @@ def create_group():
 @app.get("/group/join/<group_id>/<user_id>")
 def join_group(group_id: str, user_id: str):
     try:
-        result = group_service2.service_join_group(int(group_id), int(user_id))
-        return jsonify(result), 200
+        group_joined = group_service2.service_join_group(int(group_id), int(user_id))
+        group_joined_dictionary = {
+            "groupId": group_joined[0],
+            "userId": group_joined[1]
+        }
+        return jsonify(group_joined_dictionary), 200
     except WrongId as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary), 400
@@ -487,8 +493,8 @@ def delete_group_post(post_id: int):
 @app.get("/user/followers/<user_id>")
 def get_user_followers(user_id: int):
     try:
-        followers = user_profile_service.get_user_followers_service(user_id)
-        return jsonify(followers), 200
+        following = user_profile_service.get_user_followers_service(user_id)  # CHANGED the variable name and rewrote out the function. Seemed to fix
+        return jsonify(following), 200
     except UserNotFound as e:
         exception_dictionary = {"message": str(e)}
         exception_json = jsonify(exception_dictionary)
@@ -555,4 +561,7 @@ def unfollow_user(user_follower_id: int, user_being_followed_id: int):
         exception_json = jsonify(exception_dictionary)
         return exception_json, 400
 
-app.run(debug=False)
+#comment out the first app.run() and uncomment the second app.run() to test over localhost
+#first app.run() is for the amazon virtual machine
+app.run(host="ec2-204-236-138-16.us-west-1.compute.amazonaws.com", port=5000, debug=True)
+#app.run(debug=True)

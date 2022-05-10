@@ -1,20 +1,20 @@
 const usernames = document.getElementById("usernameInput");
 const passcodes = document.getElementById("passcodeInput");
 const submitLogin = document.getElementById("submitLogin");
-submitLogin.disabled = true;
+ submitLogin.disabled = true;
 let loginStatus = false;
 const specialChar2 = /[ `^*()+=\[\]{};':"\\|,<>\/~]/;
 const invalidIcon = document.querySelectorAll("[id='invalid-icon']");
 let invalidMessage = document.querySelectorAll("[id='signup-invalid-message']");
 let infoIcon = document.querySelectorAll(".info-icon");
-const url = "http://44.200.50.0:8000";
+const url = "http://44.200.50.0:8000"; 
 let validateCounter = 0;
 
 const div = document.getElementById("errorMessageGoesHere");
 div.textContent = "";
 
 async function login() {
-  let response = await fetch(url+"/user/login", {
+  let response = await fetch(devUrlJava+"/user/login", {
     method: "POST",
     mode: "cors",
     headers: { "Content-Type": "application/json" },

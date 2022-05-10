@@ -2,13 +2,13 @@
 async function getUserInGroups() {
     groupId = localStorage.getItem("groupId")
     url = devUrlPython+`/GroupJunction/UserList/${groupId}`
-    let response = await fetch(url)
+    let response = await fetch(url, {mode: "cors"})
 
     if(response.status === 200){
         let body = await response.json()
         console.log(body)
          createList(body)
-         buttonCheck(body)
+         //buttonCheck(body)
 
     }
     
@@ -37,10 +37,10 @@ function createList(response) {
     }
 
 async function deleteRequest() {
-    userId = 9000
+    userId = user.userId;
     groupId = localStorage.getItem("groupId")
     url = devUrlPython+`/group/leave/${userId}/${groupId}`
-    let response = await fetch(url, { method: "DELETE", headers: { "Content-Type": "application/json" }});
+    let response = await fetch(url, { method: "DELETE", mode: "cors", headers: { "Content-Type": "application/json" }});
     if(response.status === 200){
         location.replace("../group-page.html")
         
@@ -86,9 +86,9 @@ async function getGroup() {
     }
     
 }
-
+/*
 function buttonCheck(response) {
-    userId = localStorage.getItem('userId')
+    userId = user.userId
     groupId = localStorage.getItem('groupId')
     if (response == undefined ) {
         let button = document.getElementById('tbd')
@@ -108,8 +108,8 @@ function buttonCheck(response) {
     }
        
     
-}
+}*/
 getUserInGroups()
 creatorOf()
 getGroup();
-buttonCheck();
+//buttonCheck();

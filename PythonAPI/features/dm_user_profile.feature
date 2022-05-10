@@ -1,7 +1,7 @@
 Feature: As a User, I should be able to create and maintain a profile page that is visible to other users.
   Scenario Outline: As a user, I should be able to update my profile picture.
     Given I am on the login page
-    When  I enter my <username>
+    When  I type in my <username>
     When  I enter my <password>
     When  I click the login button
     When  I click the profile picture
@@ -14,12 +14,12 @@ Feature: As a User, I should be able to create and maintain a profile page that 
 
   Scenario Outline:  As a user, I should not be able to incorrectly update my about me section.
     Given I am on the login page
-    When  I enter my <username>
+    When  I type in my <username>
     When  I enter my <password>
     When  I click the login button
     When  I click the edit profile button
-    When  I enter my <about_me> incorrectly
-    When  I enter my <birthday>
+    When  I fill out my <about_me> incorrectly
+    When  I supply my <birthday>
     When  I click the save changes button
     Then  I click the close button
 
@@ -30,12 +30,12 @@ Feature: As a User, I should be able to create and maintain a profile page that 
 
   Scenario Outline:  As a user, I should not be able to incorrectly update my birthday section.
     Given I am on the login page
-    When  I enter my <username>
+    When  I type in my <username>
     When  I enter my <password>
     When  I click the login button
     When  I click the edit profile button
-    When  I enter my <about_me>
-    When  I enter my <birthday> incorrectly
+    When  I fill in my <about_me>
+    When  I give my <birthday> incorrectly
     When  I click the save changes button
     Then  I click the close button
 
@@ -45,12 +45,12 @@ Feature: As a User, I should be able to create and maintain a profile page that 
 
   Scenario Outline:  As a user, I should be able to update my about me and birthday sections.
     Given I am on the login page
-    When  I enter my <username>
+    When  I type in my <username>
     When  I enter my <password>
     When  I click the login button
     When  I click the edit profile button
-    When  I enter my <about_me>
-    When  I enter my <birthday>
+    When  I fill in my <about_me>
+    When  I supply my <birthday>
     When  I click the save changes button
     Then  I am back on the profile page
 
@@ -60,7 +60,7 @@ Feature: As a User, I should be able to create and maintain a profile page that 
 
   Scenario:  As a User, I should be able to go to another user's profile
     Given I am on the login page
-    When  I enter my <username>
+    When  I type in my <username>
     When  I enter my <password>
     When  I click the login button
     When  I click on my follower

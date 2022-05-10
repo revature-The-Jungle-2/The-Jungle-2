@@ -2,7 +2,7 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
 
-class LoginPage:
+class PostFeed:
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
@@ -14,3 +14,7 @@ class LoginPage:
 
     def select_login_button(self):
         return self.driver.find_element(By.ID, 'submitLogin')
+
+    def select_post_column(self):
+        return self.driver.find_element(By.ID, 'post column')
+

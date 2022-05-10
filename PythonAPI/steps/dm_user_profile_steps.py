@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 @given(u'I am on the login page')
 def step_impl(context):
-    context.driver.get('file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/loginpage/login.html')
+    context.driver.get('http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/loginpage/login.html')
 
 
 @when(u'I enter my {username}')
@@ -35,10 +35,10 @@ def click_log_in(context):
 
 @when(u'I choose my {picture}')
 def click_prof_pic(context, picture):
-    time.sleep(3)
-    #context.user_profile_pom.profile_picture().click()
 
+    #context.user_profile_pom.profile_picture().click()
     context.user_profile_pom.profile_picture().send_keys(picture)
+
 
 @then(u'I am on the profile page')
 def home_screen(context):
@@ -47,33 +47,35 @@ def home_screen(context):
 
 @given(u'I am on the home page')
 def profile_page(context):
-    context.driver.get('file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/profilepage/profile-page.html')
+    context.driver.get('http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/profilepage/profile-page.html')
 
 @when(u'I click the edit profile button')
 def edit_button(context):
     context.user_profile_pom.edit_profile_button().click()
 
-# @when(u'I enter my {about_me} incorrectly')
-# def about_me(context, about_me):
-#     context.user_profile_pom.about_me_input().send_keys(about_me)
 
-# @when(u'I enter my {birthday} incorrectly')
-# def birthday(context, birthday):
-#     context.user_profile_pom.birthday_input().send_keys(birthday)
+@when(u'I insert my {about_me} incorrectly')
+def about_me(context, about_me):
+    context.user_profile_pom.about_me_input().send_keys(about_me)
 
-# @when(u'I enter my {about_me}')
-# def about_me_2(context, about_me):
-#     context.user_profile_pom.about_me_input().send_keys(about_me)
+@when(u'I wrongly type out my {birthday}')
+def birthday(context, birthday):
+    context.user_profile_pom.birthday_input().send_keys(birthday)
 
-# @when(u'I enter my {birthday}')
-# def birthday_2(context, birthday):
-#     context.user_profile_pom.birthday_input().send_keys(birthday)
+
+@when(u'I update my {about_me} section')
+def about_me_2(context, about_me):
+    context.user_profile_pom.about_me_input().send_keys(about_me)
+
+@when(u'I type out my {birthday}')
+def birthday_2(context, birthday):
+    context.user_profile_pom.birthday_input().send_keys(birthday)
 
 @when(u'I click the save changes button')
 def save_changes(context):
     context.user_profile_pom.save_changes_button().click()
 
-@then(u'I click the close button')
+@when(u'I click the close button')
 def close(context):
     context.user_profile_pom.close_button().click()
 
@@ -81,6 +83,13 @@ def close(context):
 def click_follower(context):
     context.user_profile_pom.follower_button().click()
 
+
 @then(u'I am on their profile')
 def other_profile(context):
-    assert context.driver.title == "profile-page.html"
+    assert context.driver.title == "Visited User Page"
+
+#http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/loginpage/login.html
+#http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/profilepage/profile-page.html
+
+#file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/loginpage/login.html
+#file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/profilepage/profile-page.html

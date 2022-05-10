@@ -4,11 +4,11 @@ from behave import given, when, then
 def step_impl(context):
     context.driver.get('login.html')
 
-@when(u'I enter my {username}')
+@when(u'I enter my username {username}')
 def step_impl(context, username):
     context.user_profile_pom.username_input().send_keys(username)
 
-@when(u'I enter my {password}')
+@when(u'I type my password {password}')
 def step_impl(context, password):
     context.user_profile_pom.password_input().send_keys(password)
 
@@ -16,12 +16,12 @@ def step_impl(context, password):
 def step_impl(context):
     context.user_profile_pom.login_button().click()
 
-@when(u'I click the profile {picture}')
+@when(u'I click the profile picture {picture}')
 def step_impl(context, picture):
     context.user_profile_pom.profile_picture().click()
     context.user_profile_pom.profile_picture().send_keys(picture)
 
-@then(u'I am back on the profile page')
+@then(u'I am on the profile page')
 def step_impl(context):
     assert context.driver.title == "Home"
 
@@ -29,19 +29,19 @@ def step_impl(context):
 def step_impl(context):
     context.user_profile_pom.edit_profile_button().click()
 
-@when(u'I enter my {about_me} incorrectly')
+@when(u'I enter my personal {about_me} incorrectly')
 def step_impl(context, about_me):
     context.user_profile_pom.about_me_input().send_keys(about_me)
 
-@when(u'I enter my {birthday} incorrectly')
+@when(u'I type my birthday {birthday} incorrectly')
 def step_impl(context, birthday):
     context.user_profile_pom.birthday_input().send_keys(birthday)
 
-@when(u'I enter my {about_me}')
+@when(u'I enter my personal {about_me}')
 def step_impl(context, about_me):
     context.user_profile_pom.about_me_input().send_keys(about_me)
 
-@when(u'I enter my {birthday}')
+@when(u'I type my birthday {birthday}')
 def step_impl(context, birthday):
     context.user_profile_pom.birthday_input().send_keys(birthday)
 
@@ -49,7 +49,7 @@ def step_impl(context, birthday):
 def step_impl(context):
     context.user_profile_pom.save_changes_button().click()
 
-@then(u'I click the close button')
+@when(u'I click the close button')
 def step_impl(context):
     context.user_profile_pom.close_button().click()
 

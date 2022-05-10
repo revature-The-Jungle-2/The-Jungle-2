@@ -55,16 +55,12 @@ public class TestRunner {
         File file = new File("chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
-
-;
         chatPage = new ChatPage(driver);
         groupsPage = new GroupsPage(driver);
         individualGroupsPage = new IndividualGroupsPage(driver);
         loginPage = new LoginPage(driver);
         profilePage = new ProfilePage(driver);
         signupPage = new SignupPage(driver);
-
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         wait = new WebDriverWait(driver,Duration.ofSeconds(4));
 

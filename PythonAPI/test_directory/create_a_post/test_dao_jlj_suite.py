@@ -1,5 +1,5 @@
 
-from custom_exceptions.post_not_found import PostNotFound
+
 from custom_exceptions.user_not_found import UserNotFound
 from data_access_layer.implementation_classes.create_post_dao import CreatePostDAOImp
 from entities.post import Post

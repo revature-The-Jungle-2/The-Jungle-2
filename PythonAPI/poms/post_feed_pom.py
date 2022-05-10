@@ -1,16 +1,20 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class PostFeed:
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
-    def select_username_box(self):
-        return self.driver.find_element(By.ID, 'usernameInput')
+    def username_input(self):
+        element: WebElement = self.driver.find_element(By.ID, "usernameInput")
+        return element
 
-    def select_password_box(self):
-        return self.driver.find_element(By.ID, 'passcodeInput')
+    def password_input(self):
+        element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='passcodeInput']")
+        return element
 
-    def select_login_button(self):
-        return self.driver.find_element(By.ID, 'submitLogin')
+    def login_button(self):
+        element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='submitLogin']")
+        return element

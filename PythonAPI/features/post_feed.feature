@@ -1,11 +1,4 @@
 Feature:  Post Feed Features
-    Scenario: Users can log in to their Profile Page
-        Given I am on the Login Page
-        When I type in my Username
-        When I enter my Password
-        When I click the welcome back
-        When I click Login
-        When I am redirected to my Profile Page
-        When I accept the alert
-        Then I can view the Post Feed
-po
+     Scenario: As a user, I should be able to log in and see my posts
+    Given I am logged in
+    Then I am on the profile page and can see the post feed

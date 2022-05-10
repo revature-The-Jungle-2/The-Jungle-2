@@ -1,24 +1,31 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
 
-<<<<<<<< HEAD:PythonAPI/poms/post_feed_home.py
-class PostFeed:
-========
 class GroupPost:
->>>>>>>> e8d884ad0306f4faaf7406617cc49e97cff0e922:PythonAPI/poms/group_post_pom.py
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
-    def select_username_box(self):
-        return self.driver.find_element(By.ID, 'usernameInput')
+    def username_input(self):
+        element: WebElement = self.driver.find_element(By.ID, "usernameInput")
+        return element
 
-    def select_password_box(self):
-        return self.driver.find_element(By.ID, 'passcodeInput')
+    def input_password(self):
+        element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='passcodeInput']")
+        return element
 
-    def select_login_button(self):
-        return self.driver.find_element(By.ID, 'submitLogin')
+    def login_button(self):
+        element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='submitLogin']")
+        return element
 
-    def select_post_column(self):
-        return self.driver.find_element(By.ID, 'post column')
+    def groups_button(self):
+        element: WebElement = self.driver.find_element(By.CLASS_NAME, "linkGroups")
+        return element
+
+    def groups_button_two(self):
+        element: WebElement = self.driver.find_element(By.CLASS_NAME, "groups")
+        return element
+
+
 

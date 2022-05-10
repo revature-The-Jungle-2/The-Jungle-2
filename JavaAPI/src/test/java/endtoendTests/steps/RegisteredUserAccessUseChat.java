@@ -46,7 +46,7 @@ public class RegisteredUserAccessUseChat {
 
     @When("i am on the chat page i enter a message in the message input")
     public void i_am_on_the_chat_page_i_enter_a_message_in_the_message_input() {
-        TestRunner.chatPage.clickWriteMessage("test");
+        TestRunner.chatPage.sendKeysToWriteMessage("test");
     }
 
 

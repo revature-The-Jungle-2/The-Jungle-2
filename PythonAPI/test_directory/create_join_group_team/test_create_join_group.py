@@ -68,20 +68,13 @@ def test_sl_too_long_group_about():
     except InputTooLong as e:
         assert str(e) == "You have exceeded the 500-character limit!"
 #
-def test_get_join_group():
-    result = GDI.join_group(1,1)
-    assert result == True
+def test_dao_get_join_group():
+    result = GDI.join_group(1, 1)
+    assert result == (1, 1)
 
-def test_get_join_group():
+def test_sl_get_join_group():
     result = GPS.service_join_group(1,1)
-    assert result == True
-
-def test_service_join_group_wrong_group_id_type():
-    try:
-        GPS.service_join_group("1", 1)
-        assert False
-    except WrongType as e:
-        assert str(e) == "please enter a number"
+    assert result == (1, 1)
 
 def test_service_join_group_no_group_id():
     try:

@@ -24,11 +24,11 @@ class UserProfile:
         return element
 
     def profile_picture(self):
-        element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='userImageFileInput']")
+        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/div[6]/div[1]/input")
         return element
 
     def edit_profile_button(self):
-        element: WebElement = self.driver.find_element(By.ID, "updateProfileEditProfileBtn")
+        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/div[6]/div[4]/button")
         return element
 
     def about_me_input(self):

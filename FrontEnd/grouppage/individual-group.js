@@ -1,6 +1,5 @@
 /** -----------------------------------------------------Join Group------------------------------------------------------------ */
-//const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
-const devUrlPython="http://127.0.0.1:5000"
+const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
 
 async function joinGroup() {
     // const groupId = localStorage.getItem("groupId").value;

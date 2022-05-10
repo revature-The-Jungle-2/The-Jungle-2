@@ -24,10 +24,10 @@
 - As a User, I should be able to create and maintain a profile page that is visible to other users. -> Dylan Mercer, Andraey Pompey
 
 ## Deadlines
-Soft Deadline 1 - All Tests Written - Friday April 6th
-
-
-## We are testing to ensure the business rules are covered and all methods function correctly
+All Tests Written - Friday, May 6th
+All Tests Ready for Presentation - Tuesday, May 10th
+Code Freeze - end of day Tuesday, May 10th
+Presentation - Thursday, May 12th
 
 ### Update user profile (Dylan, Andraey)
 - Get user profile:

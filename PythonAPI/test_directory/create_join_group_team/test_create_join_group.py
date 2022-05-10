@@ -70,7 +70,11 @@ def test_sl_too_long_group_about():
 #
 def test_get_join_group():
     result = GDI.join_group(1,1)
-    assert result[0]== 1
+    assert result == True
+
+def test_get_join_group():
+    result = GPS.service_join_group(1,1)
+    assert result == True
 
 def test_service_join_group_wrong_group_id_type():
     try:
@@ -88,7 +92,7 @@ def test_service_join_group_no_group_id():
 
 def test_get_creator():
     result = GDI.get_creator(1)
-    assert result[0][0] == 'matt'
+    assert result[0][0] == 'John'
 
 def test_service_get_creator():
     GDI.get_creator = MagicMock(return_value='matt')

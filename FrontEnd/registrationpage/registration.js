@@ -1,5 +1,4 @@
 const signupSubmitButton = document.getElementById("signup-submit");
-const devUrl="http://44.200.50.0:8000";
 signupSubmitButton.disabled = true;
 
 const signupFirstName = document.getElementById("signup-firstname");
@@ -175,7 +174,7 @@ async function registerUser(event) {
   let userUsername = jsonUserObject.username;
   let userPasscode = jsonUserObject.passcode;
   let userBirthdate = jsonUserObject.userBirthdate;
-  const registerRoute = devUrl+"/user/registration";
+  const registerRoute = devUrlJava+"/user/registration";
   let response = await fetch(registerRoute, {
     headers: { "Content-Type": "application/json" },
     method: ["POST"],

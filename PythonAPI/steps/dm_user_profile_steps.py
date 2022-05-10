@@ -84,3 +84,4 @@ def click_follower(context):
 @then(u'I am on their profile')
 def other_profile(context):
     assert context.driver.title == "profile-page.html"
+

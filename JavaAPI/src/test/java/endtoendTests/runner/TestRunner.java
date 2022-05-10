@@ -56,7 +56,7 @@ public class TestRunner {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
 
-;
+        ;
         chatPage = new ChatPage(driver);
         groupsPage = new GroupsPage(driver);
         individualGroupsPage = new IndividualGroupsPage(driver);

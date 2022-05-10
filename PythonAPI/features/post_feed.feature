@@ -3,6 +3,7 @@ Feature:  Post Feed Features
         Given I am on the Login Page
         When I type in my Username
         When I enter my Password
+        When I click the welcome back
         When I click Login
         When I am redirected to my Profile Page
         When I accept the alert

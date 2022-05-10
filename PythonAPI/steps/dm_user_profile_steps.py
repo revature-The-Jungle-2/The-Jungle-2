@@ -33,9 +33,11 @@ def click_log_in(context):
     #     ec.element_to_be_clickable((By.ID, "submitLogin")))
     context.user_profile_pom.login_button().click()
 
-@when(u'I click the profile {picture}')
+@when(u'I choose my {picture}')
 def click_prof_pic(context, picture):
-    context.user_profile_pom.profile_picture().click()
+    time.sleep(3)
+    #context.user_profile_pom.profile_picture().click()
+
     context.user_profile_pom.profile_picture().send_keys(picture)
 
 @then(u'I am on the profile page')
@@ -43,9 +45,9 @@ def home_screen(context):
     WebDriverWait(context.driver, 10).until(title_contains("Home"))
     assert context.driver.title == "Home"
 
-@given(u'I am on the profile page')
+@given(u'I am on the home page')
 def profile_page(context):
-    context.driver.get('profile.html')
+    context.driver.get('file:///C:/Users/pompa/Desktop/The-Jungle-2/FrontEnd/profilepage/profile-page.html')
 
 @when(u'I click the edit profile button')
 def edit_button(context):

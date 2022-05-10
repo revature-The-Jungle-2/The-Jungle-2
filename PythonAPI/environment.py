@@ -11,6 +11,7 @@ def before_all(context: Context):
     #context.driver = WebDriver()
     ###PUT YOUR POM CONTEXTS BETWEEN THESE LINES.###
     context.user_profile_pom = UserProfile(context.driver)
+    context.post_home = CreatePostHome(context.driver)
 
 
 

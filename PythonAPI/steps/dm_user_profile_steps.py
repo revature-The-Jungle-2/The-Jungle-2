@@ -35,9 +35,8 @@ def click_log_in(context):
 
 @when(u'I choose my {picture}')
 def click_prof_pic(context, picture):
-    time.sleep(3)
-    #context.user_profile_pom.profile_picture().click()
 
+    #context.user_profile_pom.profile_picture().click()
     context.user_profile_pom.profile_picture().send_keys(picture)
 
 @then(u'I am on the profile page')

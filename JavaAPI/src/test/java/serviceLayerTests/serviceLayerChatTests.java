@@ -17,7 +17,6 @@ public class serviceLayerChatTests {
     public void serviceCreateMessageObjectInvalidGroupId() {
         ChatMessage chatMessage = new ChatMessage(1, -1, "message");
         chatservice.serviceCreateMessageObject(chatMessage);
-
     }
 
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Long Content")
@@ -30,5 +29,10 @@ public class serviceLayerChatTests {
     public void serviceCreateMessageFailInvalidUserId(){
         ChatMessage chatMessage = new ChatMessage(0, 20, "Jungle");
         chatservice.serviceCreateMessageObject(chatMessage);
+    }
+
+    @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid Input Exception")
+    public void serviceGetMessageHistoryNoGroupID(){
+        chatservice.serviceGetMessageHistory(0);
     }
 }

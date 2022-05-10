@@ -2,6 +2,7 @@ package serviceLayerTests;
 
 import dev.com.thejungle.customexception.BlankInputs;
 import dev.com.thejungle.customexception.InvalidInputException;
+import dev.com.thejungle.customexception.UserNotFound;
 import dev.com.thejungle.dao.implementations.UserDAO;
 import dev.com.thejungle.entity.User;
 import dev.com.thejungle.service.implementations.UserService;
@@ -37,7 +38,6 @@ public class serviceLayerGetGroupsTests {
     public void getGroupOutOfRangeIDFailure()
     {
         userServiceSAOImp.getGroups(1000060);
-
     }
 
     // Negative Test
@@ -46,4 +46,14 @@ public class serviceLayerGetGroupsTests {
     {
         userServiceSAOImp.getGroups(-10);
     }
+
+    // Negative Test
+    // would independent check for nonexistant user which was not implemented by previous batch
+    //@Test(expectedExceptions = UserNotFound.class, expectedExceptionsMessageRegExp = "User not found")
+    //public void getGroupNamesFailure()
+    //{
+    //    userServiceSAOImp.getGroupsNames(100);
+    //}
+
+
 }

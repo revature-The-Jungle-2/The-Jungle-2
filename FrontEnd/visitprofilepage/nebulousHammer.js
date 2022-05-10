@@ -1,5 +1,4 @@
 let userId = JSON.parse(localStorage.getItem("userInfo")).userId;
-const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
 
 
 

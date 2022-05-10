@@ -50,7 +50,8 @@ public class UserDAO implements UserDAOInt {
                 throw new DuplicateUsername("This username is already taken");
             } else if (q.getMessage().contains("email")) {
                 throw new DuplicateEmail("Email is already in use");
-            } else {
+            }
+            else {
                 q.printStackTrace();
                 return null;
             }
@@ -212,7 +213,7 @@ public class UserDAO implements UserDAOInt {
             ResultSet resultSet = preparedStatement.executeQuery();
             ArrayList<Integer> groupIds = new ArrayList<>();
             if (!resultSet.isBeforeFirst()){
-                throw new InvalidInputException();
+                throw new InvalidInputException("No user exists with that ID");
             } else {
                 while (resultSet.next()) {
                     groupIds.add(resultSet.getInt("group_id"));

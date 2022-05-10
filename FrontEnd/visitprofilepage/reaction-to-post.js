@@ -2,8 +2,6 @@
 // console.log("JS is connected to HTML");
 
 
-const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
-
 
 // likeButton.onclick = 
 async function likePost(e){

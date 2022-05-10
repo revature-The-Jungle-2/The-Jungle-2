@@ -16,7 +16,6 @@ public class ChatPage {
 
     public ChatPage(WebDriver driver) {
         this.driver = driver;
-
         PageFactory.initElements(driver,this);
     }
 

@@ -37,9 +37,8 @@ public class RegisteredUserAccessUseChat {
 
     }
 
-
-     @When("i click on the chat link")
-   public void i_click_on_the_chat_link() {
+    @When("i click on the chat link")
+    public void i_click_on_the_chat_link() {
         TestRunner.chatPage.clickChatLink();
      }
 
@@ -58,7 +57,6 @@ public class RegisteredUserAccessUseChat {
     @Then("my message is seen in the chat window")
     public void my_message_is_seen_in_the_chat_window() {
         TestRunner.chatPage.sendKeysToMessageButton("test");
-
 
     }
 

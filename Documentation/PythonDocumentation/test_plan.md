@@ -29,130 +29,166 @@ All Tests Ready for Presentation - Tuesday, May 10th
 Code Freeze - end of day Tuesday, May 10th
 Presentation - Thursday, May 12th
 
-### Update user profile (Dylan, Andraey)
-- Get user profile:
--     Success.
-      User ID must be numeric.
-      User not found.
-- Update user profile: 
--     Success.
-      Birthdate is not null.
-      “About me” section has too many characters.
-      User not found.
+## Test Suites
+- Get user profile: 
+  - Success.
+  - User ID must be numeric.
+  - User not found.
+- Update user profile:
+  - Birthdate is not null.
+  - “About me” section has too many characters. 
+  - User not found. 
 - Get user image:
--     Success.
-      User ID must be numeric.
-      User image not found.
-- Update user image: 
--     Success.
-      User ID must be numeric.
-      Image must be a string format.
-      User not found.
-- Update user image format: 
--     Success.
-      User ID must be numeric.
-      Image format must be a string.
-      User not found.
+  - Success.
+  - User ID must be numeric.
+  - User image not found.
+- Update user image:
+  - Success.
+  - User ID must be numeric.
+  - Image must be a string format.
+  - User not found.
+- Update user image format:
+  - Success.
+  - User ID must be numeric 
+  - Image format must be a string.
+  - User not found.
 - Get user followers
--     Success
-      User Id not found
-      User Id numeric
-- Get users following user
--     Success
--     User Id not found
--     User Id numeric
-- Follow user
--     Success
--     User follower Id not found
--     User being followed Id not found
--     User follower Id numeric
--     User being followed id numeric
-- Unfollow user
--     Success
--     User follower Id not found
--     User being followed Id not found
--     User follower Id numeric
--     User being followed id numeric
+  - Success.
+  - User Id not found.
+  - User Id numeric.
+- Get users following user 
+  - Success.
+  - User Id not found.
+  - User Id numeric.
+- Follow user (Back End)
+  - Success.
+  - User follower Id not found. 
+  - User being followed Id not found.
+  - User follower Id numeric.
+  - User being followed id numeric.
+- Unfollow user (Back End)
+  - Success. 
+  - User follower Id not found.  
+  - User being followed Id not found.
+  - User follower Id numeric. 
+  - User being followed id numeric.
+- Post Feed DAL test file:
+  - Get all posts 
+  - Delete a post 
+  - Get all posts with user id
+- Post Feed Service (with Magic Mock)
+  - Get all post - id not found
+  - Get all posts - not post id found
+  - Get all posts with user id - id not found
+  - Delete a post - id not found
+  - Delete a post - no post id found
+  - Delete a post - id not an integer
+- Group Post DAO:
+  - Create post success
+  - Create post no input given fail
+  - Create post image success
+  - Create post image_image_not_found
+  - Get all posts success
+  - Get all posts no posts found fail
+  - Get all posts by group id success
+  - Get all posts by group id group_id_not_found
+  - Delete post by post id success
+- Group Post Service (with Magic Mock:
+  - Create post success
+  - Create post id zero fail
+  - Create post post id not integer fail
+  - Create post no input given fail
+  - Create post input too long
+  - Create post image success
+  - Create post image image_not_found_fail
+  - Get post by id success
+  - Get post by id no_id_found_fail
+  - Get all posts success
+  - Get all posts no post found fail
+  - Get all posts by group id success
+  - Get all posts by group id group_id_not_found
+  - Get all posts by group id fail (no group posts found)
+  - Delete post by post-id success
+  - Delete post by post id fail
+- Post Feed E2E
+  - Login Success
+  - View Posts on Feed
+- Group Post E2E 
+  - Create Post
+  - Delete Post
 
-### Create a Post(Ken, Julio) Part 1(Ken)
-- Create a post dal layer
- Create_post_image
-PTest Success
- NTest PostNotFound For no post
- Get_post_image
-Ptest Success
-Ntest PostImageNotFound
-Create a post Service layer
-Create_post_image
-Mock Sucess
-Mock Fail with line 6 error
-NTest PostIdMustBeInteger
-Ntest ImageMustBeAString
- Get_post_image
-Mock Sucess
-Mock Fail for line 9
-Ntest PostIdMustBeInteger
-Create a post Api layer
-Create_post_image
-Ptest success
-Ntest PostIdMustBeAnInteger
-Ntest PostNotFound
-Ntest ImageMustBeAString
-Get_post_image
-Ptest Success
-Ntest PostIdMustBeAnInteger
-Ntest PostImageNotFound
+- Create a Post
+  - Create a post dal layer
+    - Create_post_image
+      - Success
+      - PostNotFound For no post
+    - Get_post_image
+      - Success
+      - PostImageNotFound
+  - Create a post Service layer
+    - Create_post_image
+      - Success
+      - PostIdMustBeInteger
+      - ImageMustBeAString
+    - Get_post_image
+      - Success
+      - PostIdMustBeInteger
+  - Create a post Api layer
+    - Create_post_image
+      - success
+      - PostIdMustBeAnInteger
+      - PostNotFound
+      - ImageMustBeAString
+    - Get_post_image
+      - Success
+      - PostIdMustBeAnInteger
+      - PostImageNotFound
+- Create_group
+  - test_dao_create_group
+  - test_sl_create_group
+  - test_sl_name_taken
+  - test_sl_nullvalue_group_name
+  - test_sl_too_short_group_name
+  - test_sl_too_long_group_name
+  - test_sl_too_long_group_about
+  - test_dao_get_creator
+  - test_service_get_creator
+  - test_service_get_creator_wrong_id_type
+  - test_service_get_creator_no_id
+- Join_group
+  - test_dao_join_group
+  - test_sl_get_join_group
+  - test_service_join_group_wrong_group_id_type
+  - test_service_join_group_no_group_id
+- Get_groups
+  - test_dao_get_group_by_id
+  - test_sl_get_group_by_id
+  - test_sl_get_group_by_no_id
+  - test_dao_get_all_groups
+  - test_sl_get_all_groups
+  - test_sl_get_all_groups_server_error()
+  - test_dao_get_all_groups_by_user_id
+  - test_sl_get_all_groups_by_user_id
+  - test_sl_get_all_groups_by_no_user_id()
+- Group Integration test
+  - test create_group
+  - test create_group_used_name
+  - test create_group_nullvalue
+  - test create_group_too_short_name
+  - test create_group_too_long_name
+  - test create_group_too_long_group_about
+  - test get_creator
+  - test get_creator_fail
+  - test join_group
+  - test join_group_no_groupid
+  - test get_group_by_id
+  - test get_group_by_no_id
+  - test get_all_groups
+  - test get_all_groups_by_user_id
+  - test get_all_groups_by_no_user_id
 
-
-Create a post data access layer
-Create_post
-Positive test 
-Negative test
-
-Create a post Service layer
-Create_post
-Mock Success
-Mock Fail
-Negative Test PostIdMustBeInteger
-Negative test PostTextMustBeString
-
-
-
-As a User, I should be able to create or join a group where there can be collaborative posts only for the group to view.
-Vathsala Vijayaraghavan, Younghwan Choi
-		1.  Create Group
-Positive test create group DAL
-Positive test create group SL
-Negative test for invalid group id SL
-Negative test for invalid user id SL
-Negative test for invalid group name for Null value SL
-Negative test for invalid group name for length less than 3 characters SL
-Negative test for invalid group name for length greater than 40 characters SL
-Negative test for invalid string length for group about  greater than 500 characters SL
-Negative test for invalid image SL
-Negative test for invalid group image string length greater than 40 characters SL
-Negative test for invalid group name already taken
-		2.  Join Group
-Positive test Join Group
-Negative type error Int (groupid, userid) SL
-Negative no group id SL
-		3.  Get Creator 
-Positive test get creator DAL  
-Negative no group id SL
-Negative type error Int SL
-  
-
-As a User, I should have a post feed that displays other user's posts.
-Jeryl Skinner, William Blair
-get_all_posts
-Delete_a_post
-Get_all_posts_with_user_id
-
-As a User, I should be able to create a post with text and images.
-Kenn Felix, Julio Jaquet
-
-## We are NOT testing …
-
-## Stretch Goals
-- 
+## What Is Not Being Testing
+- Update Password (Stretch)
+- Add Likes to post
+- Add comments to post
 

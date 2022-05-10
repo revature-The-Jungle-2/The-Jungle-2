@@ -5,6 +5,7 @@ import dev.com.thejungle.customexception.InvalidInputException;
 import dev.com.thejungle.dao.implementations.ChatDAO;
 import dev.com.thejungle.entity.ChatMessage;
 import dev.com.thejungle.service.implementations.ChatService;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -34,5 +35,11 @@ public class serviceLayerChatTests {
     @Test(expectedExceptions = InvalidInputException.class, expectedExceptionsMessageRegExp = "Invalid Input Exception")
     public void serviceGetMessageHistoryNoGroupID(){
         chatservice.serviceGetMessageHistory(0);
+    }
+
+    @Test(priority = 2)
+    public void serGetMessageHistory(){
+        ArrayList<ChatMessage> listChat = chatservice.serviceGetMessageHistory(1);
+        Assert.assertFalse(listChat.isEmpty());
     }
 }

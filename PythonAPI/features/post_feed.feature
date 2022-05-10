@@ -1,11 +1,13 @@
 Feature:  Post Feed Features
-    Scenario: Users can log in to their Profile Page
-        Given I am on the Login Page
-        When I type in my Username
-        When I enter my Password
-        When I click the welcome back
-        When I click Login
-        When I am redirected to my Profile Page
-        When I accept the alert
-        Then I can view the Post Feed
-po
+     Scenario Outline: As a user, I should be able to log in.
+    Given I am on the group login page
+    When  I enter my group <username>
+    When  I type in my new group <password>
+    When I click the welcome back
+    When  I click the login button
+    Then I am on the profile page
+
+
+    Examples:
+        | username | password |
+        | LunaBear | BearLuna |

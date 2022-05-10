@@ -39,6 +39,6 @@ def home_screen(context):
     WebDriverWait(context.driver, 10).until(title_contains("Home"))
     assert context.driver.title == "Home"
 
-@given(u'I am on the profile page')
-def profile_page(context):
-    context.driver.get('profile.html')
+# @given(u'I am on the profile page')
+# def profile_page(context):
+#     context.driver.get('profile.html')

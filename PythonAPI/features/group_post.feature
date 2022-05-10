@@ -14,14 +14,14 @@ Feature: I can log into my profile page, create a group post and delete a group 
 
 
 
-  Scenario Outline: Users can get all posts from group
-    Given  I am on the profile page with <title>
-    When I click on groups
-    Then I can see all posts in the group
-
-    Examples:
-      | title |  |
-      | Home  |  |
+#  Scenario Outline: Users can get all posts from group
+#    Given  I am on the profile page with <title>
+#    When I click on groups
+#    Then I can see all posts in the group
+#
+#    Examples:
+#      | title |  |
+#      | Home  |  |
 
 
 # Following features were not completed

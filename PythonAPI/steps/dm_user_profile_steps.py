@@ -1,3 +1,4 @@
+
 from selenium.webdriver.support import expected_conditions as ec
 import time
 
@@ -55,32 +56,32 @@ def edit_button(context):
 # @when(u'I enter my {about_me} incorrectly')
 # def about_me(context, about_me):
 #     context.user_profile_pom.about_me_input().send_keys(about_me)
-
+#
 # @when(u'I enter my {birthday} incorrectly')
 # def birthday(context, birthday):
 #     context.user_profile_pom.birthday_input().send_keys(birthday)
-
+#
 # @when(u'I enter my {about_me}')
 # def about_me_2(context, about_me):
 #     context.user_profile_pom.about_me_input().send_keys(about_me)
-
+#
 # @when(u'I enter my {birthday}')
 # def birthday_2(context, birthday):
 #     context.user_profile_pom.birthday_input().send_keys(birthday)
-
-@when(u'I click the save changes button')
-def save_changes(context):
-    context.user_profile_pom.save_changes_button().click()
-
-@then(u'I click the close button')
-def close(context):
-    context.user_profile_pom.close_button().click()
-
-@when(u'I click on my follower')
-def click_follower(context):
-    context.user_profile_pom.follower_button().click()
-
-@then(u'I am on their profile')
-def other_profile(context):
-    assert context.driver.title == "profile-page.html"
-
+#
+# @when(u'I click the save changes button')
+# def save_changes(context):
+#     context.user_profile_pom.save_changes_button().click()
+#
+# @then(u'I click the close button')
+# def close(context):
+#     context.user_profile_pom.close_button().click()
+#
+# @when(u'I click on my follower')
+# def click_follower(context):
+#     context.user_profile_pom.follower_button().click()
+#
+# @then(u'I am on their profile')
+# def other_profile(context):
+#     assert context.driver.title == "profile-page.html"
+#

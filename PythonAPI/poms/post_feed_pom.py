@@ -11,12 +11,8 @@ class PostFeed:
         element: WebElement = self.driver.find_element(By.ID, "usernameInput")
         return element
 
-    def input_password(self):
+    def password_input(self):
         element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='passcodeInput']")
-        return element
-
-    def welcome_text(self):
-        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/div[1]/div/div[1]/div[1]")
         return element
 
     def login_button(self):

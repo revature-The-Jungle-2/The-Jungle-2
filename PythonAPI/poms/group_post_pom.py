@@ -15,15 +15,17 @@ class GroupPost:
         element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='passcodeInput']")
         return element
 
-    def welcome_text(self):
-        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/div[1]/div/div[1]/div[1]")
-        return element
-
     def login_button(self):
         element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='submitLogin']")
         return element
 
     def groups_button(self):
-        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/comment()[2]")
+        element: WebElement = self.driver.find_element(By.CLASS_NAME, "linkGroups")
         return element
+
+    def groups_button_two(self):
+        element: WebElement = self.driver.find_element(By.CLASS_NAME, "groups")
+        return element
+
+
 

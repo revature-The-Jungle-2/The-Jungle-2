@@ -1,24 +1,16 @@
 Feature: I can log into my profile page, create a group post and delete a group post.
-  Scenario Outline: As a user, I should be able to log in.
-    Given I am on the group login page
-    When  I enter my group <username>
-    When  I type in my new group <password>
-    When I click the welcome back
-    When  I click the login button
-    Then I am on the profile page
+  Scenario: As a user, I should be able to log in.
+    Given I am logged in
+    When I am on the profile page and can see the post feed
+    When I select groups
+    When I select groups the second time
+    Then I am on the page to make a group post
 
-
-    Examples:
-      | username | password |
-      | fool     | fool     |
-
-
-
-#  Scenario Outline: Users can get all posts from group
-#    Given  I am on the profile page with <title>
-#    When I click on groups
+#  Scenario: Users can get all posts from group
+#    Given  I am on the profile page
+#    When I click on a group
 #    Then I can see all posts in the group
-#
+
 #    Examples:
 #      | title |  |
 #      | Home  |  |

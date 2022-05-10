@@ -1,5 +1,6 @@
 const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
 
+
 async function getUserInGroups() {
     groupId = localStorage.getItem("groupId")
     url = devUrlPython+`/GroupJunction/UserList/${groupId}`

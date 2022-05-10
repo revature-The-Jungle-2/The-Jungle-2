@@ -1,7 +1,7 @@
 const usernames = document.getElementById("usernameInput");
 const passcodes = document.getElementById("passcodeInput");
 const submitLogin = document.getElementById("submitLogin");
-submitLogin.disabled = true;
+ submitLogin.disabled = true;
 let loginStatus = false;
 const specialChar2 = /[ `^*()+=\[\]{};':"\\|,<>\/~]/;
 const invalidIcon = document.querySelectorAll("[id='invalid-icon']");
@@ -14,7 +14,7 @@ const div = document.getElementById("errorMessageGoesHere");
 div.textContent = "";
 
 async function login() {
-  let response = await fetch(url+"/user/login", {
+  let response = await fetch(devUrlJava+"/user/login", {
     method: "POST",
     mode: "cors",
     headers: { "Content-Type": "application/json" },

@@ -2,8 +2,11 @@ package dataAccessTests;
 
 import dev.com.thejungle.dao.implementations.ChatDAO;
 import dev.com.thejungle.entity.ChatMessage;
+import org.eclipse.jetty.server.UserIdentity;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
 
 public class dataAccessChatTests {
 
@@ -40,33 +43,16 @@ public class dataAccessChatTests {
 
     }
 
-    //Duplicate ID
-
     @Test()
-    public void createChatMessageDuplicateChatId(){
-        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
-        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-        Assert.assertNull(testCreateMessage);
-
+    public void getMessageHistoryGroupIdSuccess(){
+        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(1);
+        Assert.assertFalse(testGetMessage.isEmpty());
     }
-
-    @Test()
-    public void createChatMessageDuplicateGroupID(){
-        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
-        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-        Assert.assertNull(testCreateMessage);
+    @Test
+    public void getMessageHistoryWrongGroupId(){
+        ArrayList<ChatMessage> testGetMessage = chatDAO.getMessageHistory(-1);
+        Assert.assertTrue(testGetMessage.isEmpty());
     }
-
-    @Test()
-    public void createChatMessageDuplicateChatContent(){
-        ChatMessage chatMessage = new ChatMessage(0,0,"Message");
-        ChatMessage testCreateMessage = chatDAO.createMessage(chatMessage);
-        Assert.assertNull(testCreateMessage);
-
-
-
-    }
-
 
 }
 

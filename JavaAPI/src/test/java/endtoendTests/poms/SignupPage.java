@@ -17,6 +17,7 @@ public class SignupPage {
     private By signupPassword = By.id("signup-password");
     private By signupButton = By.id("signup-submit"); //may need to be clicked twice
 
+
     public SignupPage(WebDriver driver){
         this.driver = driver;
         // the page factory abstracts away the logic for interacting with web elements
@@ -72,9 +73,9 @@ public class SignupPage {
         driver.findElement(signupPassword).sendKeys(input);
     }
 
-    public void clickSignupButton(){driver.findElement(signupButton).click();
+    public void clickSignupButton(){driver.findElement(signupButton).click();}
 
-    }
+
 
 
 

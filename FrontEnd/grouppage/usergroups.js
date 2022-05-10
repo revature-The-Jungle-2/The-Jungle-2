@@ -1,4 +1,3 @@
-
 const userGroupSectionDiv = document.getElementById("userGroups-div");
 
 
@@ -20,6 +19,7 @@ async function getGroupsForUser(){
 
 function populateGroupsForUsers(groupBody){
     for (let group in groupBody){
+
         let groupsDiv = document.createElement("div");
         groupsDiv.setAttribute("class", "group-in-list");
 
@@ -39,6 +39,7 @@ function populateGroupsForUsers(groupBody){
     
 }
 function goToGroupPages(groupId){
+
     localStorage.setItem("groupId", groupId);
 }
 

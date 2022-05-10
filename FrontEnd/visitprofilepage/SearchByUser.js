@@ -1,4 +1,3 @@
-const url = "http://44.200.50.0:8000";
 const searchField = document.getElementById("searchInputBox");
 const searchListResults = document.getElementById("searchList");
 function referToProfile(userId) {
@@ -10,7 +9,7 @@ const searchUserButton = document.getElementById("searchButton");
 
 const searchByUsername = async() => {
     const username = searchField.value
-    const response = await fetch(url + "/user/search/" + username,{
+    const response = await fetch(devUrlJava + "/user/search/" + username,{
         method: "GET", 
         mode: "cors" 
     });

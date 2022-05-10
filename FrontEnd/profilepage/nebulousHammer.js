@@ -1,7 +1,9 @@
-let userId = 104; // temporary 
+let user = JSON.parse(localStorage.getItem("userInfo")); // temporary 
+let userId = user.userId; // temporary 
 let postId = 273; // temporary
 const devUrlJava="http://44.200.50.0:8000";
 const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
+
 
 // this is just a proof of concept and does not contain styling elements of the finished code
 //assuming you are getting all the posts at once, this method will have to be called individually in a for loop for each post
@@ -65,7 +67,7 @@ async function createPostWithImage() {
         //Inserts the image into the post_image_table
         console.log(thePost["post_id"]);
         let response = await fetch(
-            devUrl+"/post/image/" + thePost["post_id"], {
+            devUrlPython+"/post/image/" + thePost["post_id"], { // This had the worng url variable it did not have the Python at the end
               method: "POST",
               headers: {"Content-Type": "application/json"},
               body: String(base64gif)

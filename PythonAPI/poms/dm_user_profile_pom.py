@@ -24,7 +24,7 @@ class UserProfile:
         return element
 
     def profile_picture(self):
-        element: WebElement = self.driver.find_element(By.ID, "userImageFileInput")
+        element: WebElement = self.driver.find_element(By.XPATH, "//*[@id='userImageFileInput']")
         return element
 
     def edit_profile_button(self):
@@ -50,3 +50,10 @@ class UserProfile:
     def follower_button(self):
         element: WebElement = self.driver.find_element(By.ID, "FIND OUT LATER")
         return element
+
+    # WebElement
+    # upload_file = driver.findElement(By.xpath("//input[@id='file_up']"));
+    #
+    # upload_file.sendKeys("C:/Users/Sonali/Desktop/upload.png")
+
+

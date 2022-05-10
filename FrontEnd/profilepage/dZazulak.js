@@ -5,6 +5,7 @@ const followerSectionDiv = document.getElementById("followers-div");
 const groupSectionDiv = document.getElementById("groups-div");
 const devUrlJava="http://44.200.50.0:8000";
 const devUrlPython="http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000";
+
 /*
     Grabs the user profile information from the update profile modal and sends it through the layers
 */

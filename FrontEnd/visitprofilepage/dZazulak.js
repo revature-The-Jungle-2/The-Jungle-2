@@ -116,6 +116,7 @@ async function updateUserProfileData(){
 
     let response = await fetch(url, {
         method: "PATCH",
+        mode: "cors",
         headers:{"Content-Type": 'application/json'},
         body:updateUserProfileJSON})
 
@@ -169,7 +170,7 @@ function successMessageForProfileModal(){
 async function getUserFollowers(){
     let url = devUrlPython+"/user/followers/" + visitedUserId;
 
-    let response = await fetch(url);
+    let response = await fetch(url, {mode: "cors"});
 
     if(response.status === 200){
         let body = await response.json();
@@ -213,7 +214,7 @@ async function getFollowerImage(followerBody){
         let image_Element = document.getElementById(`${follower}-image`);
         let url = devUrlPython+`/user/image/${followerBody[follower]}`;
         console.log(url);
-        let response = await fetch(url);
+        let response = await fetch(url, {mode: "cors"});
         if(response.status === 200){
             const image_text = await response.text();
             image_Element.src = image_text;
@@ -225,7 +226,7 @@ async function getFollowerImage(followerBody){
 async function getGroupsForUser(){
     let url = devUrlPython+"/group/user/" + visitedUserId;
 
-    let response = await fetch(url);
+    let response = await fetch(url, {mode: "cors"});
 
     if(response.status === 200){
         let body = await response.json();

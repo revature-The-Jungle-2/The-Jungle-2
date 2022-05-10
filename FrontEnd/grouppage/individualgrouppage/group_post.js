@@ -1,5 +1,6 @@
 let tableBody = document.getElementById("postBody");
-
+console.log(user.userId);
+let group_id = localStorage.getItem("groupId");
 //--------------------------------------------------- CREATE GROUP POST FUNCTION-------------------------------------------------------
 
 document.getElementById("sendGroupPostButton").addEventListener("click", createGroupPost);
@@ -9,9 +10,9 @@ async function createGroupPost() {
   let data = {
     "post_id": "0",
     // "user_id": Number(sessionStorage.getItem("user_id")),
-    // "group_id": Number(sessionStorage.getItem("group_id")),
-    "user_id": 9000,
-    "group_id": 9000,
+    "group_id": group_id,
+    "user_id": user.userId,
+    //"group_id": 9000,
     "post_text": post_text,
     "image_data": "",
     "likes": 0,
@@ -32,19 +33,21 @@ async function createGroupPost() {
   let responseBody = await response.json();
   if (response.status == 201) {
 
-    console.log(responseBody);
+    console.log(responseBody.post_id);
     // document.getElementById("postInfo").innerHTML = `Post sent`
     document.getElementById("postInfo").innerHTML = `
-      <div class="overlap-group1" id="headingNew${post.post_id}">
-      <p> ` + post_id + `</p>
-      <p> ` + user_id + `</p>
-      <p> ` + post_text + `</p> 
-      <p> Likes: ` + likes + `</p>
-      <p> ` + date_time_of_creation + `</p>
-      <button id="deletePost${post.post_id}" onclick="deletePost(${post.post_id})">Delete</button>
+    <div class="flex-row">
+      <div class="overlap-group" id="headingNew${responseBody.post_id}>
+      <p> ` + responseBody.post_id + `</p>
+      <p> ` + responseBody.user_id + `</p>
+      <p> ` + responseBody.post_text + `</p> 
+      <p> Likes: ` + responseBody.likes + `</p>
+      <p> ` + responseBody.date_time_of_creation + `</p>
+      <button id="deletePost${responseBody.post_id}" onclick="deletePost(${responseBody.post_id})">Delete</button>
       </div>
+    </div>
         `;
-    thePost = `
+   /* thePost = `
     <div class="flex-row">
                 <div class="overlap-group">
                   <div class="new-york-ny valign-text-middle poppins-bold-pink-swan-14px">New York, NY</div>
@@ -74,7 +77,7 @@ async function createGroupPost() {
                   JostSNL21
         </div>
       </div>`
-    document.getElementById("postInfo").innerHTML = thePost
+    document.getElementById("postInfo").innerHTML = thePost*/
   } else {
     document.getElementById("postInfo").innerHTML = `Post could not be sent`
   }
@@ -82,7 +85,7 @@ async function createGroupPost() {
 
 //--------------------------------------------------- LOAD GROUP POST FUNCTION-------------------------------------------------------
 async function getPost() {
-  let response = await fetch(devUrlPython + "/group_post/group/9000", { //replace with "/group_post/group/" + group_id
+  let response = await fetch(devUrlPython + "/group_post/group/" + group_id, { //replace with "/group_post/group/" + group_id
     method: "GET",
     mode: "cors",
   });

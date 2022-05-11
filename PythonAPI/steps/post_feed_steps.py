@@ -1,62 +1,24 @@
+from behave import given, when, then
+from selenium.webdriver import Keys
+from selenium.webdriver.support.expected_conditions import title_contains
+from selenium.webdriver.support.wait import WebDriverWait
 
 
+@given(u'I am logged in')
+def step_impl(context):
+    context.driver.get("http://the-jungle-2-rev-bucket.s3-website-us-east-1.amazonaws.com/FrontEnd/loginpage/login.html")
+    context.post_feed_p.username_input().send_keys("fool")
+    context.post_feed_p.password_input().send_keys("fool")
+    context.post_feed_p.password_input().send_keys(Keys.TAB)
+    context.post_feed_p.login_button().click()
 
 
-# @given(u'I am on the Login Page')
+@then(u'I am on the profile page and can see the post feed')
+def home_screen(context):
+    WebDriverWait(context.driver, 10).until(title_contains("Home"))
+    assert context.driver.title == "Home"
+
+
+# @when(u'I accept the alert button')
 # def step_impl(context):
-#     raise NotImplementedError(u'STEP: Given I am on the Login Page')
-#
-#
-# @when(u'I enter my Username')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: When I enter my Username')
-#
-#
-# @when(u'I enter my Password')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: When I enter my Password')
-#
-#
-# @when(u'I click Login')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: When I click Login')
-#
-#
-# @then(u'I can see posts in my feed')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: Then I can see posts in my feed')
-#
-#
-# @given(u'I am on the Visit Profile Page')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: Given I am on the Profile Page')
-#
-#
-# @when(u'I click on the "Search for Friends" button')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: When I click on the "Search for Friends" button')
-#
-#
-# @then(u'I can view the Post Feed for my friends')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: Then I can view the Post Feed for my friends')
-#
-#
-# @given(u'I am on the Profile Page')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: Given I am on the Profile Page')
-#
-#
-# @when(u'I input post id')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: When I input post id')
-#
-#
-# @when(u'I click Delete Post')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: When I click Delete Post')
-#
-#
-# @then(u'My post id deleted')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: Then My post id deleted')
+#     context.post_feed_home.alert_button().click()

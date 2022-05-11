@@ -45,6 +45,7 @@ async function createGroup() {
     let response = await fetch(devUrlPython + "group", {method: "POST", mode: "cors", headers: {"Content-Type": "application/json"},
         body: JSON.stringify(groupCreated)});
 
+
     let groupObject = await response.json();
     
     if (groupObject.message) {
@@ -55,8 +56,10 @@ async function createGroup() {
     else {
         let messageGroupCreated = document.getElementById("messageGroupCreated");
         messageGroupCreated.style.display = "block";   
+
     }
 }
 
 const submitCreateGroup = document.getElementById("submitCreateGroup");
 submitCreateGroup.addEventListener("click", createGroup);
+

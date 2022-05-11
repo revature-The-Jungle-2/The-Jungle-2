@@ -1,7 +1,7 @@
 const usernames = document.getElementById("usernameInput");
 const passcodes = document.getElementById("passcodeInput");
 const submitLogin = document.getElementById("submitLogin");
-submitLogin.disabled = true;
+ submitLogin.disabled = true;
 let loginStatus = false;
 const specialChar2 = /[ `^*()+=\[\]{};':"\\|,<>\/~]/;
 const invalidIcon = document.querySelectorAll("[id='invalid-icon']");

@@ -1,6 +1,8 @@
 // let likeButton = document.getElementById("trigger");
 // console.log("JS is connected to HTML");
 
+
+
 // likeButton.onclick = 
 async function likePost(e){
 

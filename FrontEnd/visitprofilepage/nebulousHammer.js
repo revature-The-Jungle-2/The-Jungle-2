@@ -1,6 +1,7 @@
 let userId = JSON.parse(localStorage.getItem("userInfo")).userId;
 
 
+
 // async function getPostImage(){// the postId and imageFormat will probably have to be passed as parameters
 //   let url = "http://127.0.0.1:5000/post/image/" + postId;//post_id parameter
 //   console.log(url);

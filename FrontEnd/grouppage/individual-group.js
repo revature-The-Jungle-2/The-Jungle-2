@@ -11,6 +11,7 @@ async function joinGroup() {
     
     await response.json();   
 
+
     if (response.status === 200) {
         const groupJoined = document.getElementById("groupJoined");
         groupJoined.style.display = "block";
@@ -19,6 +20,7 @@ async function joinGroup() {
         hideJoinButton.style.display = "none";
     }
     else {
+
         const groupNotJoined = document.getElementById("groupNotJoined");
         groupNotJoined.style.display = "block";
     }

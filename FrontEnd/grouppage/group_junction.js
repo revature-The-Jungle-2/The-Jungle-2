@@ -1,4 +1,5 @@
 
+
 async function getUserInGroups() {
     groupId = localStorage.getItem("groupId")
     url = devUrlPython+`/GroupJunction/UserList/${groupId}`

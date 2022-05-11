@@ -6,6 +6,7 @@ const groupSectionDiv = document.getElementById("groups-div");
 const profileUsername = document.getElementById("profileUsername");
 const profileDOB = document.getElementById("profileDOB");
 const profileEmail = document.getElementById("profileEmail");
+
 visitedUserId = localStorage.getItem("visitUserIdPage");
 
 

@@ -1,25 +1,24 @@
-
 const userGroupSectionDiv = document.getElementById("userGroups-div");
-
-
+const devUrlPython = "http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
 
 async function getGroupsForUser(){
     let url = devUrlPython+"/group/user/10"
 
+
     let response = await fetch(url);
 
-    if(response.status === 200){
+    if (response.status === 200) {
         let body = await response.json();
         console.log(body);
         populateGroupsForUsers(body);
-    }
-    else{
+    } else {
         alert("Error with groups");
     }
 }
 
-function populateGroupsForUsers(groupBody){
-    for (let group in groupBody){
+function populateGroupsForUsers(groupBody) {
+    for (let group in groupBody) {
+
         let groupsDiv = document.createElement("div");
         groupsDiv.setAttribute("class", "group-in-list");
 
@@ -36,9 +35,11 @@ function populateGroupsForUsers(groupBody){
 
 
     }
-    
+
 }
-function goToGroupPages(groupId){
+
+function goToGroupPages(groupId) {
+
     localStorage.setItem("groupId", groupId);
 }
 

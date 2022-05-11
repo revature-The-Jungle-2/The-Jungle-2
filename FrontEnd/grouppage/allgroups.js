@@ -6,18 +6,18 @@ async function getAllGroupsForUser(){
 
     let response = await fetch(url, {mode: "cors"});
 
-    if(response.status === 200){
+    if (response.status === 200) {
         let body = await response.json();
         console.log(body);
         populateAllGroupsForUsers(body);
-    }
-    else{
+    } else {
         alert("Error with groups");
     }
 }
 
-function populateAllGroupsForUsers(allGroupBody){
-    for (let groups in allGroupBody){
+function populateAllGroupsForUsers(allGroupBody) {
+    for (let groups in allGroupBody) {
+
         let allGroupsDiv = document.createElement("div");
         allGroupsDiv.setAttribute("class", "group-in-list");
 
@@ -33,16 +33,13 @@ function populateAllGroupsForUsers(allGroupBody){
         allGroupSectionDiv.appendChild(allGroupsDiv);
         allGroupsDiv.appendChild(groupImage1);
         allGroupsDiv.appendChild(allGroupNameDiv);
-
-
     }
-   
+
 }
 
-function goToGroupPage(groupId){
+function goToGroupPage(groupId) {
     localStorage.setItem("groupId", groupId);
     console.log(localStorage.getItem("groupId"))
-    
 }
 // async function getGroup() {
 //     groupId = localStorage.getItem("groupId")
@@ -56,7 +53,6 @@ function goToGroupPage(groupId){
 //         // groupdef.innerHTML = body
 
 //     }
-    
 // }
 
 getAllGroupsForUser();

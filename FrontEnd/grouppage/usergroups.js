@@ -1,4 +1,3 @@
-
 const userGroupSectionDiv = document.getElementById("userGroups-div");
 let user = JSON.parse(localStorage.getItem("userInfo"));
 //let userId = user.userId;
@@ -8,18 +7,18 @@ async function getGroupsForUser(){
 
     let response = await fetch(url, {mode: "cors"});
 
-    if(response.status === 200){
+    if (response.status === 200) {
         let body = await response.json();
         console.log(body);
         populateGroupsForUsers(body);
-    }
-    else{
+    } else {
         alert("Error with groups");
     }
 }
 
-function populateGroupsForUsers(groupBody){
-    for (let group in groupBody){
+function populateGroupsForUsers(groupBody) {
+    for (let group in groupBody) {
+
         let groupsDiv = document.createElement("div");
         groupsDiv.setAttribute("class", "group-in-list");
 
@@ -36,9 +35,11 @@ function populateGroupsForUsers(groupBody){
 
 
     }
-    
+
 }
-function goToGroupPages(groupId){
+
+function goToGroupPages(groupId) {
+
     localStorage.setItem("groupId", groupId);
 }
 

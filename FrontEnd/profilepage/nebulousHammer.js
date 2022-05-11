@@ -3,6 +3,7 @@ let userId = user.userId;
 let postId = 273; // temporary
 
 
+
 // this is just a proof of concept and does not contain styling elements of the finished code
 //assuming you are getting all the posts at once, this method will have to be called individually in a for loop for each post
 //rough method to get the post image from database, needs to be updated to get the image format

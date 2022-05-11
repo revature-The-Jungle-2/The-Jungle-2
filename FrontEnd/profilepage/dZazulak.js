@@ -3,6 +3,7 @@ const userAboutMe = document.getElementById("userAboutMeInput");
 const modalMessageDiv = document.getElementById("profileModalMsg");
 const followerSectionDiv = document.getElementById("followers-div");
 const groupSectionDiv = document.getElementById("groups-div");
+
 /*
     Grabs the user profile information from the update profile modal and sends it through the layers
 */

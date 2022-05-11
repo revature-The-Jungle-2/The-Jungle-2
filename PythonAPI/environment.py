@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 from poms.create_a_post_pom import CreatePostHome
-from poms.dm_user_profile_pom import UserProfile
+from poms.user_profile_pom import UserProfile
 from poms.group_page import GroupPage
 from poms.group_post_pom import GroupPost
 from poms.post_feed_pom import PostFeed

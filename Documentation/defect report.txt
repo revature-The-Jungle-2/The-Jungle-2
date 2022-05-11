@@ -1,0 +1,42 @@
+user registration:
+defect:
+	uses different key name in local storage when user is created and
+	redirected to profile page, nothing will load properly
+	high severity: 
+		website uses same key to access user info throughout
+	low priority:
+		not in scope of our mvp
+defect:
+	If you fill out the correct length of information on the sign up page, 
+	then delete it, it still lets you login and go to the profile page.
+	high severity:
+		this is a security issue and does not function as intended
+	low priority:
+		not in scope of our mvp
+
+
+login:
+defect:
+	user can log in but cannot "log out," this function was never implemented
+	high severity:
+		cannot clear old user info when leaving site, cannot switch user 
+		for testing unless manually clearing history/data
+	low priority:
+		not in scope of our mvp
+
+profile page:
+defect:
+	cannot update user profile about or bday as prompted
+	high severity:
+		this may be an issue with free tier aws s3 bucket policies
+		may need higher tier or research and implement workaround for policy
+	low priority:
+		not in scope of our mvp
+defect:
+	document does not update when a post is created
+	high priority:
+		not user friendly
+	low priority:
+		not in scope of our mvp
+defect:
+	profile panel functionality does not carry over between page redirects

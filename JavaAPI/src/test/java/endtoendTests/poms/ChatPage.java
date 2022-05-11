@@ -16,7 +16,6 @@ public class ChatPage {
 
     public ChatPage(WebDriver driver) {
         this.driver = driver;
-
         PageFactory.initElements(driver,this);
     }
 
@@ -26,7 +25,7 @@ public class ChatPage {
 
     public void clickWriteMessage() { driver.findElement(writeMessage).click(); }
 
-    public void sendKeysToWriteMessage(String input) { driver.findElement("I love to ski").sendKeys(input); }
+    public void sendKeysToWriteMessage(String input) { driver.findElement(writeMessage).sendKeys(input); }
 
     public void clickMessageButton() { driver.findElement(messageButton).click(); }
 

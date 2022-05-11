@@ -1,10 +1,10 @@
 
-// let userId = 9000;
+//let userId = user.userId;
 
 async function getUserImage(){
   let url = devUrlPython+"/user/image/" + userId;
   console.log(url);
-  let response = await fetch(url);
+  let response = await fetch(url, { mode :"cors" });
   console.log(response);
 
   if(response.status === 200){
@@ -41,6 +41,7 @@ async function createUserWithImage() {
             //"http://127.0.0.1:5000/user/image/" + theUser["user_id"], 
             devUrlPython+"/user/image/" + userId, { 
               method: "POST",
+              mode: "cors",
               headers: {"Content-Type": "application/json"},
               body: String(base64gif)
           });

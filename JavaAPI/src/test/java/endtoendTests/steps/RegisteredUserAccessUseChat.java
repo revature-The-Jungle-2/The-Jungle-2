@@ -37,16 +37,15 @@ public class RegisteredUserAccessUseChat {
 
     }
 
-
-     @When("i click on the chat link")
-   public void i_click_on_the_chat_link() {
+    @When("i click on the chat link")
+    public void i_click_on_the_chat_link() {
         TestRunner.chatPage.clickChatLink();
      }
 
 
     @When("i am on the chat page i enter a message in the message input")
     public void i_am_on_the_chat_page_i_enter_a_message_in_the_message_input() {
-        TestRunner.chatPage.clickWriteMessage("test");
+        TestRunner.chatPage.sendKeysToWriteMessage("test");
     }
 
 
@@ -58,7 +57,6 @@ public class RegisteredUserAccessUseChat {
     @Then("my message is seen in the chat window")
     public void my_message_is_seen_in_the_chat_window() {
         TestRunner.chatPage.sendKeysToMessageButton("test");
-
 
     }
 

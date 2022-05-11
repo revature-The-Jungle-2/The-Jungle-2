@@ -1,11 +1,11 @@
 const userGroupSectionDiv = document.getElementById("userGroups-div");
-const devUrlPython = "http://ec2-204-236-138-16.us-west-1.compute.amazonaws.com:5000"
+let user = JSON.parse(localStorage.getItem("userInfo"));
+//let userId = user.userId;
 
 async function getGroupsForUser(){
-    let url = devUrlPython+"/group/user/10"
+    let url = devUrlPython+"/group/user/"+user.userId;
 
-
-    let response = await fetch(url);
+    let response = await fetch(url, {mode: "cors"});
 
     if (response.status === 200) {
         let body = await response.json();

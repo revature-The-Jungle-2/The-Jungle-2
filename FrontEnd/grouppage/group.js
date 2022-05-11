@@ -1,6 +1,6 @@
 /** -----------------------------------------------------Create Group------------------------------------------------------------ */
 async function createGroup() {
-    const userId = localStorage.getItem("userId").value;
+    const userId = user.userId;
     const groupName = document.getElementById("groupName").value.trim();
     const groupAbout = document.getElementById("groupAbout").value.trim();
     let groupCreated = {"groupId": 0, "userId": userId, "groupName": groupName, "groupAbout": groupAbout, "imageFormat": "imageFormat"};
@@ -42,7 +42,7 @@ async function createGroup() {
         return;
     }
 
-    let response = await fetch(devUrlPython + "group", {method: "POST", mode: "cors", headers: {"Content-Type": "application/json"},
+    let response = await fetch(devUrlPython + "/group/create", {method: "POST", mode: "cors", headers: {"Content-Type": "application/json"},
         body: JSON.stringify(groupCreated)});
 
 

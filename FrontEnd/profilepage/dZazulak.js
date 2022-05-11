@@ -9,7 +9,7 @@ const groupSectionDiv = document.getElementById("groups-div");
 */
 async function updateUserProfileData(){
     // Will need to update this to use the current user's ID
-    let url = devUrlPython+"/user/profile/update/9000"
+    let url = devUrlPython+"/user/profile/update/"+userId;
 
     let updateUserProfileJSON = JSON.stringify({"firstName": "Shouldn't change",
     "lastName": "Shouldn't change",
@@ -66,7 +66,7 @@ function successMessageForProfileModal(){
 }
 
 async function getUserFollowers(){
-    let url = devUrlPython+"/user/followers/32"
+    let url = devUrlPython+"/user/followers/"+userId;
 
     let response = await fetch(url);
 
@@ -77,7 +77,7 @@ async function getUserFollowers(){
         getFollowerImage(body);
     }
     else{
-        alert("Error with followers");
+        //alert("Error with followers");
     }
 }
 
@@ -122,7 +122,7 @@ async function getFollowerImage(followerBody){
 }
 
 async function getGroupsForUser(){
-    let url = devUrlPython+"/group/user/10"
+    let url = devUrlPython+"/group/user/"+userId;
 
     let response = await fetch(url);
 

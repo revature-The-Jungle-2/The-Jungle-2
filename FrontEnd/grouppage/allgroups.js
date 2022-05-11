@@ -4,7 +4,7 @@ const allGroupSectionDiv = document.getElementById("groups-div");
 async function getAllGroupsForUser(){
     let url = devUrlPython+"/group"
 
-    let response = await fetch(url);
+    let response = await fetch(url, {mode: "cors"});
 
     if (response.status === 200) {
         let body = await response.json();

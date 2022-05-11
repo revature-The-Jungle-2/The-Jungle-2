@@ -1,5 +1,5 @@
-let user = JSON.parse(localStorage.getItem("userInfo")); // temporary 
-let userId = user.userId; // temporary 
+//let userId = 104; // temporary 
+let userId = user.userId;
 let postId = 273; // temporary
 
 
@@ -11,7 +11,7 @@ let postId = 273; // temporary
 async function getPostImage(){// the postId and imageFormat will probably have to be passed as parameters
   let url = devUrlPython+"/post/image/" + postId;//post_id parameter
   console.log(url);
-  let response = await fetch(url);
+  let response = await fetch(url, {mode: "cors"});
   console.log(response);
 
   if(response.status === 200){
@@ -34,6 +34,7 @@ async function createPost(){
     let url = devUrlPython+"/post"
     let thePost = await fetch(url, {
         method:"POST",
+        mode: "cors",
         headers:{'Content-Type': 'application/json'}, 
         body:postJson}).then(response => {return response.json()});
     console.log(thePost);
@@ -60,14 +61,16 @@ async function createPostWithImage() {
         //Inserts the post into the post table
         let thePost = await fetch(url, {
             method:"POST",
+            mode: "cors",
             headers:{'Content-Type': 'application/json'}, 
             body:postJson}).then(response => {return response.json()});
 
         //Inserts the image into the post_image_table
         console.log(thePost["post_id"]);
         let response = await fetch(
-            devUrlPython+"/post/image/" + thePost["post_id"], { // This had the worng url variable it did not have the Python at the end
+            devUrlPython+"/post/image/" + thePost["post_id"], {
               method: "POST",
+              mode: "cors",
               headers: {"Content-Type": "application/json"},
               body: String(base64gif)
           });
@@ -119,7 +122,7 @@ async function createPostWithImage() {
       
       //add the poster image
       let url = devUrlPython+"/user/image/" + post.user_id;
-      let response = await fetch(url);
+      let response = await fetch(url, {mode:"cors"});
       let user_image_text;
       if(response.status === 200){
           user_image_text = await response.text();
@@ -128,7 +131,7 @@ async function createPostWithImage() {
       //get the post image
       url = devUrlPython+"/post/image/" + post.post_id;
       console.log(url);
-      response = await fetch(url);
+      response = await fetch(url, {mode:"cors"});
       console.log(response);
       let date_time = new Date(post.date_time_of_creation)
       let date = date_time.toDateString();
@@ -187,7 +190,8 @@ async function createPostWithImage() {
 
   async function deletePost(post_id) {
     let deleteResponse = await fetch(devUrlPython+"/group_post/" + post_id, {
-      method: "DELETE"
+      method: "DELETE",
+      mode:"cors"
     })
     console.log(deleteResponse)
     if (deleteResponse.status === 200) {
